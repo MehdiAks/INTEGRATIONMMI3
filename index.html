@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Semaine d'intégration MMI 2026 — découvrez les 20 projets.">
+  <title>Semaine d'intégration MMI 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background" aria-hidden="true">
+    <video id="backgroundVideo" autoplay muted loop playsinline preload="auto">
+      <source src="extrait.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+    <div class="grain"></div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <img
+        class="michel"
+        src="./Michel.png"
+        alt="Michel"
+      >
+      <div>
+        <p class="eyebrow">IUT Bordeaux Montaigne · MMI</p>
+        <h1>Semaine d'intégration <span>MMI 2026</span></h1>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#projets" aria-label="Voir les projets">
+      <span>Découvrir les projets</span>
+      <span class="arrow">↓</span>
+    </a>
+  </header>
+
+  <main id="projets" class="projects-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow dark">20 projets · 20 groupes</p>
+        <h2>Les projets</h2>
+      </div>
+      <p class="section-intro">Cliquez sur un projet pour accéder à son site.</p>
+    </div>
+
+    <div id="projectGrid" class="project-grid"></div>
+  </main>
+
+  <footer>
+    <span>SEMAINE D'INTÉGRATION MMI 2026</span>
+    <span>MMI · BORDEAUX</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
