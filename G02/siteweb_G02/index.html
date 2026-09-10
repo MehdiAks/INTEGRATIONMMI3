@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boys Love</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="scene" id="scene">
+    <div class="building-wrapper" id="building-wrapper">
+      <div class="building-track" id="building-track">
+        <img
+          src="assets/img/immeuble-avec-personnages.png"
+          alt="Immeuble"
+          class="building-image"
+          id="building-image"
+        />
+        <div class="building-footer-fade" aria-hidden="true"></div>
+        <img
+          src="assets/img/immeuble-lueur-women.png"
+          alt=""
+          class="building-glow"
+          id="building-glow-woman"
+        />
+        <button
+          type="button"
+          class="hover-zone hover-zone-woman"
+          id="hover-zone-woman"
+          aria-label="Voir l'affiche"
+        ></button>
+        <img
+          src="assets/img/immeuble-lueur-boys.png"
+          alt=""
+          class="building-glow"
+          id="building-glow-boys"
+        />
+        <button
+          type="button"
+          class="hover-zone hover-zone-boys"
+          id="hover-zone-boys"
+          aria-label="Voir la vidéo"
+        ></button>
+        <img
+          src="assets/img/immeuble-lueur-chat.png"
+          alt=""
+          class="building-glow"
+          id="building-glow-chat"
+        />
+        <button
+          type="button"
+          class="hover-zone hover-zone-reviews"
+          id="hover-zone-reviews"
+          aria-label="Voir les avis"
+        ></button>
+        <img
+          src="assets/img/immeuble-lueur-pigeon.png"
+          alt=""
+          class="building-glow"
+          id="building-glow-pigeon"
+        />
+        <button
+          type="button"
+          class="hover-zone hover-zone-credits"
+          id="hover-zone-credits"
+          aria-label="Voir les crédits"
+        ></button>
+        <img
+          src="assets/img/logo-bromance.svg"
+          alt="Bromance"
+          class="character logo-bromance"
+          id="logo-bromance"
+        />
+        <button
+          type="button"
+          class="cloud-button"
+          id="cloud-button"
+          aria-label="Défiler vers le bas"
+        >
+          <img src="assets/img/Nuage.svg" alt="" class="cloud" />
+        </button>
+      </div>
+    </div>
+    <div class="scroll-hint" id="scroll-hint">Scroll ↓</div>
+  </main>
+
+  <div id="scroll-spacer"></div>
+
+  <footer class="site-footer">
+    <img src="assets/img/logo-bromance.svg" alt="Bromance" class="site-footer-logo" />
+    <p>© 2026 Bromance — Court-métrage</p>
+    <p>Réalisé dans le cadre de l'IUT Bordeaux Montaigne</p>
+  </footer>
+
+  <div class="modal-overlay hidden" id="modal-overlay">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Fermer">✕</button>
+      <div class="modal-content">
+        <div class="modal-text">
+          <img src="assets/img/logo-bromance.svg" alt="Bromance" class="modal-logo" />
+          <p>
+            Lorsque deux hommes que tout semble opposer se retrouvent liés
+            par un même trousseau de clés, leur quotidien bascule. Au cœur
+            d'un immeuble où chaque voisin semble avoir quelque chose à
+            cacher, une mystérieuse femme observe leurs moindres faits et
+            gestes depuis son balcon.
+          </p>
+          <p>
+            Entre secrets, rencontres et choix difficiles, les deux hommes
+            vont devoir comprendre pourquoi leurs chemins se sont
+            croisés… avant que la vérité ne leur échappe.
+          </p>
+        </div>
+        <div class="modal-video-wrap" id="modal-video-wrap">
+          <button type="button" class="modal-play" id="modal-play" aria-label="Lire la vidéo">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal affiche : placeholder en attendant l'affiche définitive -->
+  <div class="modal-overlay hidden" id="poster-overlay">
+    <div class="modal-box poster-box">
+      <button type="button" class="modal-close" id="poster-close" aria-label="Fermer">✕</button>
+      <div class="poster-header">
+        <img src="assets/img/logo-bromance.svg" alt="Bromance" class="modal-logo" />
+        <h2 class="poster-title">Affiche :</h2>
+      </div>
+      <div class="poster-placeholder" id="poster-placeholder">
+        <img alt="Affiche du film" class="poster-image" id="poster-image" />
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay hidden" id="reviews-overlay">
+    <div class="modal-box reviews-box">
+      <button type="button" class="modal-close" id="reviews-close" aria-label="Fermer">✕</button>
+      <div class="reviews-header">
+        <img src="assets/img/logo-bromance.svg" alt="Bromance" class="modal-logo" />
+        <h2 class="reviews-title">Avis :</h2>
+      </div>
+      <div class="reviews-list" id="reviews-list"></div>
+      <div class="reviews-nav">
+        <button type="button" class="reviews-arrow" id="reviews-prev" aria-label="Avis précédents">‹</button>
+        <button type="button" class="reviews-arrow" id="reviews-next" aria-label="Avis suivants">›</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay hidden" id="credits-overlay">
+    <div class="modal-box credits-box">
+      <button type="button" class="modal-close" id="credits-close" aria-label="Fermer">✕</button>
+      <div class="credits-header">
+        <img src="assets/img/logo-bromance.svg" alt="Bromance" class="modal-logo" />
+        <h2 class="credits-title">Crédits :</h2>
+      </div>
+      <div class="credits-body">
+        <h3>Scénario</h3>
+        <p>
+          LÉA MOREL<br />
+          NATHAN DUPONT<br />
+          THÉO MARTIN<br />
+          CLARA ROBERT<br />
+          MILA BERTRAND<br />
+          JULES GARNIER<br />
+          ROMAN PERRIN
+        </p>
+
+        <h3>Casting</h3>
+        <p>
+          JOHN RITHIER - Homme gay<br />
+          ALEXANDRE VALONE - Homme gay<br />
+          ELOISE LALDENS - Femme qui se plaint
+        </p>
+
+        <h3>Production</h3>
+        <p>
+          LÉA MOREL — Réalisatrice<br />
+          MILA BERTRAND — Cadreuse<br />
+          CLARA ROBERT — Cadreuse<br />
+          THÉO MARTIN — Ingénieur son<br />
+          ROMAN PERRIN — Ingénieur son
+        </p>
+
+        <h3>Post-production</h3>
+        <p>
+          JULES GARNIER — Montage vidéo<br />
+          NATHAN DUPONT — Sound designer
+        </p>
+
+        <p class="credits-thanks">
+          Un grand merci à toutes les personnes ayant participé au projet,
+          ainsi qu'à l'IUT Bordeaux Montaigne pour nous avoir permis de
+          tourner dans ses locaux.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

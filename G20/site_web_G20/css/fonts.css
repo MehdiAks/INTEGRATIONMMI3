@@ -1,0 +1,28 @@
+/* ============================================================
+   Chaos font library — ugly fonts picked by the team, unlocked
+   progressively as the site decays (see js/chaos.js)
+   ============================================================ */
+@font-face { font-family: 'Army'; src: url('../fonts/chaos/army.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Balloon'; src: url('../fonts/chaos/balloon.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'DEATHNOTE'; src: url('../fonts/chaos/deathnote.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Fiolex Girls'; src: url('../fonts/chaos/fiolex-girls.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Jurassic Park'; src: url('../fonts/chaos/jurassic-park.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Legothick'; src: url('../fonts/chaos/legothick.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'PT Banana Split'; src: url('../fonts/chaos/pt-banana-split.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Snoopy'; src: url('../fonts/chaos/snoopy.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Windsong'; src: url('../fonts/chaos/windsong.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Alien Dude'; src: url('../fonts/chaos/alien-dude.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Axel Gilby Comic Sans'; src: url('../fonts/chaos/axel-gilby-comic-sans.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Bizarre'; src: url('../fonts/chaos/bizarre.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Blazed'; src: url('../fonts/chaos/blazed.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Blox'; src: url('../fonts/chaos/blox.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Burnt MF'; src: url('../fonts/chaos/burnt-mf.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'DK Crayon Crumble'; src: url('../fonts/chaos/dk-crayon-crumble.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Eileen Caps'; src: url('../fonts/chaos/eileen-caps.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Galaxy Far Far Away'; src: url('../fonts/chaos/galaxy-far-far-away.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Metropolitan'; src: url('../fonts/chaos/metropolitan.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Papyrus EBO'; src: url('../fonts/chaos/papyrus-ebo.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Stoney Billy'; src: url('../fonts/chaos/stoney-billy.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'TH3 Machine'; src: url('../fonts/chaos/th3-machine.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'This Night'; src: url('../fonts/chaos/this-night.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Wedgie'; src: url('../fonts/chaos/wedgie.ttf') format('truetype'); font-display: swap; }

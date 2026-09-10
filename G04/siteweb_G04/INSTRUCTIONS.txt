@@ -1,0 +1,285 @@
+====================================================================
+  LEON MARCHAND SUR L'EAU  -  INSTRUCTIONS COMPLETES (FR)
+====================================================================
+
+Site en ligne : https://disney-leon-marchand.netlify.app/
+Code source   : https://github.com/Ulyssemmi/Mmi-Disney-Leon-Marchand
+
+C'est un site d'une seule page (parodie de fiche film Disney+), fait
+en HTML / CSS / JavaScript pur : PAS d'installation, PAS de build,
+PAS de framework. 3 fichiers a connaitre :
+   index.html   (le contenu)
+   styles.css   (l'apparence)
+   script.js    (le fonctionnement : video, langue, editeur...)
+
+Dans ce fichier, "le dossier du projet" = le dossier qui contient
+index.html (peu importe ou tu l'as mis sur ton PC).
+
+
+====================================================================
+  SOMMAIRE
+====================================================================
+  0. Recuperer le projet
+  1. Lancer le site en local (3 methodes)
+  2. Les fichiers du projet
+  3. Changer la video
+  4. Changer l'image derriere le lecteur (l'affiche)
+  5. L'editeur rapide (mot de passe "leon")
+  6. Changer les textes / le francais et l'anglais
+  7. Changer les photos des acteurs
+  8. Les liens Wikipedia des acteurs
+  9. Changer les avis du public
+ 10. Changer le logo en haut
+ 11. Publier les changements en ligne (proprietaire du depot)
+ 12. Petits problemes frequents
+
+
+====================================================================
+  0. RECUPERER LE PROJET
+====================================================================
+
+Methode A - Telecharger un ZIP (le plus simple)
+   1. Va sur https://github.com/Ulyssemmi/Mmi-Disney-Leon-Marchand
+   2. Bouton vert "Code" -> "Download ZIP"
+   3. Decompresse le ZIP quelque part (Bureau, Documents...).
+   Tu obtiens le dossier du projet.
+
+Methode B - Avec Git (si tu comptes renvoyer des modifs)
+   git clone https://github.com/Ulyssemmi/Mmi-Disney-Leon-Marchand.git
+
+
+====================================================================
+  1. LANCER LE SITE EN LOCAL (3 METHODES)
+====================================================================
+
+--- METHODE 1 : double-cliquer (aucune installation) ---
+   Ouvre simplement  index.html  (double-clic -> il s'ouvre dans le
+   navigateur). Suffisant pour regarder le site et la video.
+   Limite : la fonction "video depuis mon PC" de l'editeur peut ne
+   pas se souvenir du fichier apres un rechargement.
+
+--- METHODE 2 : petit serveur Python (recommande) ---
+   Il faut Python (https://www.python.org/downloads/ , coche
+   "Add Python to PATH" a l'installation).
+   Ouvre un terminal DANS le dossier du projet :
+     - Windows : clic droit dans le dossier -> "Ouvrir dans le
+       Terminal" (ou barre d'adresse de l'explorateur -> tape  cmd )
+   Puis :
+       python -m http.server 8000
+   Ouvre :  http://localhost:8000
+   Arreter : Ctrl + C dans le terminal.
+
+--- METHODE 3 : Node.js (si tu l'as deja) ---
+   Terminal dans le dossier du projet :
+       npx serve
+   Puis ouvre l'adresse http://localhost:... affichee.
+
+--- METHODE 4 : VS Code ---
+   Ouvre le dossier dans VS Code, installe l'extension
+   "Live Server", clic droit sur index.html -> "Open with Live Server".
+
+
+====================================================================
+  2. LES FICHIERS DU PROJET
+====================================================================
+
+  index.html ....... contenu de la page (textes, structure)
+  styles.css ....... apparence (couleurs, tailles, disposition)
+  script.js ........ fonctionnement  >>> on regle presque tout ici <<<
+  netlify.toml ..... config de mise en ligne (ne pas toucher)
+  assets/ .......... les images
+      logo-mmi.png ...... logo en haut a gauche (la toque)
+      logo-nav.png ...... ancien logo texte (non utilise)
+      title-logo.png .... le grand titre "LEON MARCHAND"
+      profile.png ....... la petite tete ronde en haut a droite
+      cast/ ............. les 6 photos d'acteurs
+      reviews/ ......... les 4 photos des avis
+  COMMENT-CHANGER-LA-VIDEO.txt ... version courte, juste la video
+  INSTRUCTIONS.txt ...... ce fichier
+  README.md ............. meme chose en anglais
+
+
+====================================================================
+  3. CHANGER LA VIDEO
+====================================================================
+
+Ouvre  script.js  (Bloc-notes ou VS Code). Tout en haut :
+
+   const VIDEO_URL  = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+
+Remplace le lien entre guillemets. Formats acceptes :
+
+   YouTube        "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+   YouTube court  "https://youtu.be/XXXXXXXXXXX"
+   YouTube Short  "https://www.youtube.com/shorts/XXXXXXXXXXX"
+   Vimeo          "https://vimeo.com/XXXXXXXX"
+   Fichier local  "assets/ma-video.mp4"
+                  (mets d'abord le .mp4 dans le dossier assets/)
+   Autre lien     mis tel quel dans un lecteur
+
+Garde les guillemets " " et le point-virgule ; en fin de ligne.
+Enregistre, recharge la page (Ctrl + F5).
+
+
+====================================================================
+  4. CHANGER L'IMAGE DERRIERE LE LECTEUR (L'AFFICHE)
+====================================================================
+
+Toujours en haut de  script.js  :
+
+   const POSTER_URL = "";
+
+- Laisse ""  -> panneau bleu par defaut avec le bouton "play".
+- Mets une image :
+     const POSTER_URL = "assets/affiche.jpg";
+  (place le fichier affiche.jpg dans le dossier assets/)
+
+Le bouton "play" et le texte restent lisibles par-dessus l'image.
+
+
+====================================================================
+  5. L'EDITEUR RAPIDE (MOT DE PASSE "leon")
+====================================================================
+
+Pour tester une video ou une affiche SANS toucher au code :
+
+1. Sur le site, tape au clavier le mot :   leon
+   (ou ajoute  #edit  a la fin de l'adresse)
+
+2. Un panneau "Edition rapide" s'ouvre :
+   - "Video depuis mon PC"  -> choisis un .mp4/.webm/.mov
+   - "...ou coller un lien"  -> lien YouTube/Vimeo, clique OK
+   - "Image derriere le lecteur" -> choisis une image
+
+3. "Tout reinitialiser" = revenir a la video/image du code.
+
+>>> ATTENTION : ces changements sont enregistres SEULEMENT dans le
+navigateur, sur cet ordinateur. Les autres visiteurs du site en
+ligne voient toujours la video du code (chapitres 3 et 4).
+
+Changer le mot de passe : dans script.js
+   const EDIT_CODE  = "leon";
+Mets "" pour desactiver completement l'editeur.
+
+
+====================================================================
+  6. CHANGER LES TEXTES / LE FRANCAIS ET L'ANGLAIS
+====================================================================
+
+Dans  script.js , l'objet  I18N  a deux blocs :  fr  et  en .
+Chaque ligne est une paire  "cle": "texte" .
+
+   fr: {
+     "hero.director": "Realise par Steven Spielberg",
+     ...
+   },
+   en: {
+     "hero.director": "Directed by Steven Spielberg",
+     ...
+   }
+
+Modifie le texte APRES les deux points, entre guillemets.
+Ne touche pas a la "cle" (a gauche des deux points).
+
+La langue de depart suit le navigateur, puis le choix est memorise.
+Bouton EN / FR en haut a droite.
+
+Ajouter une 3e langue (ex. allemand) :
+  - dans script.js : ajoute un bloc  de: { ...memes cles... }
+  - dans index.html : ajoute dans la barre du haut
+      <button type="button" class="lang-btn" data-lang="de">DE</button>
+
+
+====================================================================
+  7. CHANGER LES PHOTOS DES ACTEURS
+====================================================================
+
+Remplace les fichiers de  assets/cast/  en gardant les MEMES NOMS :
+   leon-marchand.jpg, bonnie-blue.jpg, sylvain-durif.jpg,
+   rahul-rai.jpg, future-bae.jpg, glen-powell.jpg
+
+Format conseille : JPG, ~400 px de large, cadre sur le visage
+(les photos sont rognees automatiquement en vignette).
+
+Changer un NOM affiche : dans index.html, cherche
+<span class="cast-name"> et modifie le texte.
+
+
+====================================================================
+  8. LES LIENS WIKIPEDIA DES ACTEURS
+====================================================================
+
+Cliquer une photo d'acteur ouvre sa page Wikipedia (nouvel onglet).
+Dans  index.html , chaque acteur est un bloc :
+
+   <a class="cast-link" href="https://fr.wikipedia.org/wiki/..."
+      target="_blank" rel="noopener noreferrer">
+
+Change l'adresse dans  href="..."  pour pointer ailleurs.
+
+
+====================================================================
+  9. CHANGER LES AVIS DU PUBLIC
+====================================================================
+
+- Photos  : dossier  assets/reviews/  (memes noms).
+- Noms    : dans index.html, <p class="review-name">.
+- Etoiles : dans index.html, l'attribut  data-rating="3"  (0 a 5).
+- Textes  : dans script.js, cles  "review.xxx"  (blocs fr ET en).
+
+
+====================================================================
+  10. CHANGER LE LOGO EN HAUT
+====================================================================
+
+Logo actuel :  assets/logo-mmi.png  (la toque avec le 5).
+Le remplacer : mets ton image sous ce meme nom.
+
+Remettre l'ancien logo texte : dans index.html, remplace
+   src="assets/logo-mmi.png"
+par
+   src="assets/logo-nav.png"
+
+
+====================================================================
+  11. PUBLIER LES CHANGEMENTS EN LIGNE
+      (uniquement le proprietaire du depot GitHub)
+====================================================================
+
+Le site en ligne se met a jour automatiquement quand on pousse le
+code sur GitHub. Il faut donc Git + un acces au depot.
+
+   git add .
+   git commit -m "description courte du changement"
+   git push
+
+Netlify redeploie tout seul en ~30 secondes :
+   https://disney-leon-marchand.netlify.app/
+
+Si tu as juste recu le dossier (pas d'acces GitHub) : fais tes
+modifs en local, renvoie le dossier au proprietaire, c'est lui
+qui publie.
+
+
+====================================================================
+  12. PETITS PROBLEMES FREQUENTS
+====================================================================
+
+- "La video ne se lance pas" : verifie le lien VIDEO_URL (guillemets,
+  pas d'espace en trop). Un lien "watch?v=" ou "youtu.be/" marche
+  toujours.
+
+- "J'ai modifie script.js mais rien ne change" : recharge avec
+  Ctrl + F5. En ligne, il faut d'abord git push (chapitre 11).
+
+- "python n'est pas reconnu" : Python n'est pas installe / pas dans
+  le PATH. Utilise la METHODE 1 (double-clic) ou installe Python.
+
+- "L'editeur ne s'ouvre pas quand je tape leon" : clique d'abord
+  dans une zone vide de la page (hors d'un champ), puis tape leon.
+
+- "Les images ne s'affichent pas" : tu as sans doute deplace
+  index.html hors du dossier. Il doit rester a cote du dossier
+  assets/.
+
+====================================================================

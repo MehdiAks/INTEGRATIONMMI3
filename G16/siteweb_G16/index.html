@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Chaise Parfaite — Film Officiel 2026</title>
+  <meta name="description" content="Découvrez La Chaise Parfaite, le film événement de 2026. À l'IUT Bordeaux Montaigne, une chaise de salle de classe devient l'objet de toutes les convoitises. Bande-annonce, personnages, séances.">
+  <meta name="keywords" content="La Chaise Parfaite, film français, 2026, thriller, comédie noire, Pierre Niney, Adèle Exarchopoulos">
+  <meta property="og:title" content="La Chaise Parfaite — Au cinéma en 2026">
+  <meta property="og:description" content="Une chaise. Un destin. Qui sera l'Élu ?">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ========== BANDEAU RÉCOMPENSES ========== -->
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track" id="marquee-track">
+      <!-- Rempli par JS -->
+    </div>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="site-header">
+    <a href="#" class="header-logo">La Chaise Parfaite</a>
+    <div class="header-right">
+      <button class="btn-seance-header" id="btn-seance-header" aria-label="Trouver une séance">
+        Trouvez votre séance
+      </button>
+      <button class="burger-btn" id="burger-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== MENU FULLSCREEN ========== -->
+  <nav class="fullscreen-menu" id="fullscreen-menu" role="navigation" aria-hidden="true">
+    <button class="menu-close-btn" id="menu-close-btn" aria-label="Fermer le menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="menu-nav">
+      <a href="#" class="menu-link" data-action="open-seance">Trouvez votre séance</a>
+      <a href="#film" class="menu-link">Vidéo</a>
+      <a href="#film" class="menu-link">Synopsis</a>
+      <a href="#personnages" class="menu-link">Personnages</a>
+      <a href="#avis" class="menu-link">Avis</a>
+      <a href="#faq" class="menu-link">FAQ</a>
+    </div>
+    <div class="menu-social" id="menu-social">
+      <!-- Rempli par JS -->
+    </div>
+  </nav>
+
+  <!-- ========== PAGE CONTENT WRAPPER ========== -->
+  <div class="page-content">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+      <!-- Vidéo arrière-plan (placeholder) -->
+      <div class="hero-video-wrapper">
+        <video autoplay muted loop playsinline class="hero-bg-video">
+          <source src="videos/bande-annonce.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">La Chaise<br>Parfaite</h1>
+        <p class="hero-subtitle">Au cinéma — 2026</p>
+
+        <!-- Countdown -->
+        <div class="hero-countdown">
+          <div class="countdown-blocks" id="countdown">
+            <div class="countdown-block">
+              <span class="countdown-number" id="countdown-days">--</span>
+              <span class="countdown-label">Jours</span>
+            </div>
+            <div class="countdown-block">
+              <span class="countdown-number" id="countdown-hours">--</span>
+              <span class="countdown-label">Heures</span>
+            </div>
+            <div class="countdown-block">
+              <span class="countdown-number" id="countdown-minutes">--</span>
+              <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-block">
+              <span class="countdown-number" id="countdown-seconds">--</span>
+              <span class="countdown-label">Sec</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Réseaux sociaux -->
+        <div class="hero-social" id="hero-social">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+
+      <!-- Flèche de scroll -->
+      <button class="hero-scroll-arrow" id="scroll-arrow" aria-label="Défiler vers le bas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+        </svg>
+      </button>
+    </section>
+
+    <!-- ========== SECTION FILM (Vidéo + Synopsis) ========== -->
+    <section class="section section-film section-alt" id="film">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Le Film</h2>
+
+        <!-- Vidéo Officielle -->
+        <div class="video-container reveal reveal-scale">
+          <video class="official-video" controls poster="images/affiche.jpg">
+            <source src="videos/bande-annonce.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la balise vidéo.
+          </video>
+        </div>
+
+        <!-- Synopsis & Affiche -->
+        <div class="film-content-wrapper reveal">
+          <div class="film-poster">
+            <img src="images/affiche.jpg" alt="Affiche officielle La Chaise Parfaite" class="official-poster">
+          </div>
+          <div class="synopsis-wrapper">
+            <h3 class="synopsis-film-title">La Chaise Parfaite</h3>
+            <div class="animated-line"></div>
+          <div class="synopsis-text">
+            <p>À l’IUT Bordeaux Montaigne, tout le monde connaît la légende.</p>
+            <p>Au fond d’une salle de classe ordinaire se trouve une chaise. Une seule. Une chaise différente des autres. Mieux placée. Plus confortable. Plus stable. La Chaise Parfaite.</p>
+            <p>Personne ne sait vraiment pourquoi elle est parfaite. Certains parlent de son dossier parfaitement incliné. Mais une chose est certaine, celui qui s’assoit sur la Chaise Parfaite devient l’Élu.</p>
+            <p>Chaque année, une nouvelle génération d’étudiants entre dans l’arène. Les règles ne sont écrites nulle part, mais tout le monde les connaît. Pour atteindre la chaise, tout est permis, alliances, manipulations, trahisons et coups bas sont de la partie.</p>
+            <p>Cette année pourtant, tout semblait déjà écrit.</p>
+            <p>Un étudiant avait été désigné comme le prédestiné. Celui dont le charisme et les compétences semblaient annoncer qu’il était destiné à prendre place sur le trône.</p>
+            <p>Mais il flop.</p>
+            <p>Et dans sa chute, l’espoir renaît chez les prétendants jusque-là laissés dans l’ombre.</p>
+            <p>Les alliances se forment et les amitiés se brisent. Les plus faibles sont éliminés et les plus fourbes montent en puissance.</p>
+            <p>Car dans cette salle, il n’y a pas de seconde chance.</p>
+            <p>Il n’y a qu’une chaise.</p>
+            <p>Et pour s’asseoir, il faudra d’abord survivre.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION PERSONNAGES ========== -->
+    <section class="section section-personnages" id="personnages">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Les Personnages</h2>
+        <div class="personnages-grid stagger-children" id="personnages-grid">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION AVIS ========== -->
+    <section class="section section-avis section-alt" id="avis">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Ils en parlent</h2>
+        <div class="avis-slider-wrapper reveal">
+          <div class="avis-slider" id="avis-slider">
+            <!-- Rempli par JS -->
+          </div>
+        </div>
+        <div class="avis-nav">
+          <button class="avis-nav-btn" id="avis-prev" aria-label="Avis précédents">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button class="avis-nav-btn" id="avis-next" aria-label="Avis suivants">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION PRESSE ========== -->
+    <section class="section section-presse" id="presse">
+      <div class="section-inner">
+        <h2 class="section-title reveal">La presse en parle</h2>
+        <div class="presse-featured stagger-children" id="presse-featured">
+          <!-- Rempli par JS -->
+        </div>
+        <div class="presse-secondary stagger-children" id="presse-secondary">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section récompense supprimée -->
+
+    <!-- ========== SECTION NEWSLETTER ========== -->
+    <section class="section section-newsletter section-alt" id="newsletter">
+      <div class="section-inner">
+        <div class="reveal">
+          <h2 class="newsletter-title">Ne ratez pas la prochaine élimination.</h2>
+          <p class="newsletter-subtitle">
+            Inscrivez-vous à la newsletter officielle de La Chaise Parfaite pour recevoir les dernières actualités, vidéos, annonces et secrets du film.
+          </p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Votre adresse e-mail" required id="newsletter-email" autocomplete="email">
+            <button type="submit" class="newsletter-btn">S'inscrire</button>
+          </form>
+          <p class="newsletter-success" id="newsletter-success">Vous êtes officiellement dans la salle.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION PARTENAIRES ========== -->
+    <section class="section section-partenaires" id="partenaires">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Nos Partenaires</h2>
+        <div class="partenaires-grid reveal" id="partenaires-grid">
+          <a href="#" class="partenaire-logo" aria-label="Partenaire 1"><img src="images/partenaires/partenaire1.jpeg" alt="Logo partenaire 1"></a>
+          <a href="#" class="partenaire-logo" aria-label="Partenaire 2"><img src="images/partenaires/partenaire2.png" alt="Logo partenaire 2"></a>
+          <a href="#" class="partenaire-logo" aria-label="Partenaire 3"><img src="images/partenaires/partenaire3.svg" alt="Logo partenaire 3"></a>
+          <a href="#" class="partenaire-logo" aria-label="Partenaire 4"><img src="images/partenaires/partenaire4.jpg" alt="Logo partenaire 4"></a>
+          <a href="#" class="partenaire-logo" aria-label="Partenaire 5"><img src="images/partenaires/partenaire5.png" alt="Logo partenaire 5"></a>
+          <a href="#" class="partenaire-logo" aria-label="Partenaire 6"><img src="images/partenaires/partenaire6.png" alt="Logo partenaire 6"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION FAQ ========== -->
+    <section class="section section-faq section-alt" id="faq">
+      <div class="section-inner">
+        <h2 class="section-title reveal">FAQ</h2>
+        <div class="faq-list reveal" id="faq-list">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.page-content -->
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3 class="footer-title">La Chaise Parfaite</h3>
+          <p class="footer-subtitle">Au cinéma — 2026</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-column">
+            <h4>Navigation</h4>
+            <a href="#" data-action="open-seance">Trouvez votre séance</a>
+            <a href="#film">Vidéo</a>
+            <a href="#film">Synopsis</a>
+            <a href="#personnages">Personnages</a>
+            <a href="#avis">Avis</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div class="footer-links-column">
+            <h4>Réseaux</h4>
+            <div class="footer-social" id="footer-social">
+              <!-- Rempli par JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 La Chaise Parfaite — Tous droits réservés</p>
+        <div class="footer-legal">
+          <a href="rgpd.html">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== MODAL SÉANCE ========== -->
+  <div class="modal-overlay" id="modal-seance" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-seance-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <h2 class="modal-title">Trouvez votre séance</h2>
+      <form class="cinema-search-form" id="cinema-search-form">
+        <input type="text" class="cinema-input" id="cinema-input" placeholder="Votre code postal" maxlength="5" inputmode="numeric" pattern="[0-9]{5}">
+        <button type="submit" class="cinema-search-btn">Trouver</button>
+      </form>
+      <div class="cinema-loading" id="cinema-loading">
+        <div class="cinema-spinner"></div>
+        <p class="cinema-loading-text">Recherche des cinémas à proximité…</p>
+      </div>
+      <div class="cinema-results" id="cinema-results">
+        <!-- Rempli par JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== COOKIE BANNER ========== -->
+  <div class="cookie-banner" id="cookie-banner" role="complementary" aria-label="Consentement cookies">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <h3>Votre confort nous importe.</h3>
+        <p>Ce site utilise des cookies afin d'améliorer votre expérience de navigation.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Tout accepter</button>
+        <button class="cookie-btn" id="cookie-prefs-open">Gérer mes préférences</button>
+        <button class="cookie-btn" id="cookie-reject">Refuser</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== COOKIE PRÉFÉRENCES MODAL ========== -->
+  <div class="cookie-prefs-modal" id="cookie-prefs-modal">
+    <div class="cookie-prefs-content">
+      <h3 class="cookie-prefs-title">Gérer les cookies</h3>
+
+      <div class="cookie-pref-item">
+        <div>
+          <p class="cookie-pref-label">Cookies essentiels</p>
+          <p class="cookie-pref-desc">Nécessaires au fonctionnement du site</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-pref-item">
+        <div>
+          <p class="cookie-pref-label">Cookies analytiques</p>
+          <p class="cookie-pref-desc">Nous aident à comprendre l'utilisation du site</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookie-analytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-pref-item">
+        <div>
+          <p class="cookie-pref-label">Cookies marketing</p>
+          <p class="cookie-pref-desc">Permettent de personnaliser les contenus</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cookie-marketing">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <button class="cookie-prefs-save" id="cookie-prefs-save">Enregistrer mes préférences</button>
+    </div>
+  </div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="js/data.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/cinema.js"></script>
+  <script src="js/newsletter.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/reviews-slider.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

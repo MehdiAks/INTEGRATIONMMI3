@@ -1,0 +1,551 @@
+/* =========================================================
+   FOOD WARS — feuille de style
+   Sections : base / header / hero / synopsis / footer / responsive
+   ========================================================= */
+
+/* ------------------- BASE ------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: Signika, system-ui, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff5252;
+}
+
+/* Animations d'apparition */
+@keyframes fw-up {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fw-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fw-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Éléments décoratifs (images posées en absolu, non cliquables) */
+.deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ------------------- HEADER ------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 28px;
+  background: #fff;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.site-header__logo {
+  flex: none;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 54px);
+  margin-left: auto;
+}
+
+.site-nav__link {
+  color: #111;
+  font-weight: 700;
+  font-size: clamp(15px, 1.5vw, 22px);
+  transition: color 0.18s ease;
+}
+
+.site-nav__link:hover {
+  color: #c50f0f;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px clamp(20px, 2.6vw, 44px);
+  border-radius: 999px;
+  background: #c50f0f;
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(15px, 1.5vw, 21px);
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 8px 22px -10px rgba(140, 0, 0, 0.7);
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.btn-cta:hover {
+  background: #e01515;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.28) inset,
+    0 12px 26px -10px rgba(200, 0, 0, 0.8);
+}
+
+.btn-cta:active {
+  background: #a80d0d;
+  transform: translateY(0);
+}
+
+/* ------------------- HERO ------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #0a0000;
+  padding-bottom: clamp(150px, 20vw, 270px);
+}
+
+.hero__city {
+  position: absolute;
+  left: -10%;
+  bottom: 0;
+  width: 130%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  opacity: 0.5;
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 95% at 45% 45%,
+    rgba(120, 12, 12, 0.62) 0%,
+    rgba(48, 3, 3, 0.86) 52%,
+    rgba(0, 0, 0, 0.97) 100%
+  );
+}
+
+.hero__boxer {
+  position: absolute;
+  left: 4%;
+  top: 0;
+  width: min(82%, 1000px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__boxer img {
+  display: block;
+  width: 100%;
+}
+
+.hero__boxer img:nth-child(2),
+.hero__boxer img:nth-child(3) {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__boxer img:nth-child(3) {
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.deco--onion {
+  top: 7%;
+  right: 1%;
+  width: clamp(150px, 23vw, 310px);
+  z-index: 3;
+}
+
+.deco--wrap {
+  bottom: -20px;
+  left: -40px;
+  width: clamp(140px, 18vw, 240px);
+  transform: rotate(-12deg);
+  z-index: 3;
+}
+
+.deco--ring-hero {
+  bottom: 4%;
+  right: -30px;
+  width: clamp(130px, 17vw, 215px);
+  transform: rotate(-68deg);
+  z-index: 3;
+}
+
+.hero__inner {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 110px) clamp(20px, 2.5vw, 32px) 0;
+}
+
+.hero__title {
+  margin: 0 0 clamp(18px, 2vw, 30px);
+  font-family: "Bakbak One", sans-serif;
+  font-weight: 400;
+  font-size: clamp(48px, 7.5vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  animation: fw-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero__date {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(28px, 4vw, 56px);
+  padding: 14px 34px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background:
+    linear-gradient(#222, #222),
+    linear-gradient(90deg, #7a0000, #ff2020);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  font-size: clamp(15px, 1.6vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  animation: fw-up 0.7s 0.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Grille affiche + bande-annonce */
+.media-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 2fr);
+  gap: clamp(16px, 2vw, 28px);
+  align-items: start;
+}
+
+.media-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.9);
+}
+
+.media-card--poster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  aspect-ratio: 377 / 512;
+  background-color: #f4f7fb;
+  background-image: repeating-linear-gradient(
+    135deg,
+    #e9eff7 0 10px,
+    #f6f9fd 10px 20px
+  );
+  text-align: center;
+  animation: fw-scale 0.8s 0.18s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.media-card--trailer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  aspect-ratio: 812 / 512;
+  background: #fff;
+  cursor: pointer;
+  animation: fw-scale 0.8s 0.26s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.media-card__label {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.media-card--poster .media-card__label {
+  color: #8fa2ba;
+}
+
+.media-card--trailer .media-card__label {
+  color: #9a9a9a;
+}
+
+/* Triangle "play" du placeholder bande-annonce */
+.media-card__play {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width:
+    clamp(34px, 5vw, 62px) 0 clamp(34px, 5vw, 62px)
+    clamp(56px, 8vw, 100px);
+  border-color: transparent transparent transparent #d5d5d5;
+}
+
+/* Média réel injecté (img ou video) une fois les fichiers fournis */
+.media-card__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+/* ------------------- SYNOPSIS ------------------- */
+.synopsis {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-160px, -11vw, -70px);
+  padding: clamp(70px, 9vw, 130px) clamp(20px, 2.5vw, 32px) clamp(60px, 8vw, 110px);
+  background: #000;
+}
+
+.deco--ring-synopsis {
+  right: 2%;
+  bottom: -4%;
+  width: clamp(100px, 13vw, 170px);
+  transform: rotate(28deg);
+  filter: blur(3px);
+}
+
+.synopsis__inner {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(14px, 2vw, 28px);
+  margin-bottom: clamp(34px, 4vw, 58px);
+}
+
+.genre-badge {
+  min-width: clamp(150px, 18vw, 241px);
+  padding: 16px 26px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background:
+    linear-gradient(#222, #222),
+    linear-gradient(90deg, #7a0000, #ff2020);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  text-align: center;
+  font-size: clamp(15px, 1.5vw, 21px);
+  letter-spacing: 0.04em;
+  animation: fw-in 0.6s both;
+}
+
+.synopsis__title {
+  margin: 0 0 clamp(20px, 2.5vw, 34px);
+  font-family: "Bakbak One", sans-serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4.2vw, 58px);
+  line-height: 1.05;
+}
+
+.synopsis__text {
+  max-width: 1130px;
+  margin: 0;
+  font-size: clamp(16px, 1.7vw, 24px);
+  line-height: 1.42;
+  text-wrap: pretty;
+}
+
+/* ------------------- FOOTER ZONE ------------------- */
+.footer-zone {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px, 9vw, 130px) 0 0;
+  background: #1c0101;
+}
+
+.footer-zone__city {
+  position: absolute;
+  left: -5%;
+  bottom: 0;
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  opacity: 0.3;
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+.deco--ring-footer {
+  top: clamp(20px, 4vw, 60px);
+  left: -70px;
+  width: clamp(190px, 26vw, 345px);
+  transform: rotate(-125deg);
+  z-index: 0;
+}
+
+.deco--burger {
+  top: 8%;
+  right: 7%;
+  width: clamp(120px, 16vw, 220px);
+  transform: rotate(-8deg);
+  z-index: 0;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.75));
+}
+
+.footer-zone__spacer {
+  position: relative;
+  height: clamp(120px, 18vw, 260px);
+}
+
+.site-footer {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: clamp(48px, 6vw, 90px) clamp(20px, 2.5vw, 32px) clamp(28px, 3vw, 44px);
+  background: #3e0202;
+  border-radius: 50% 50% 0 0 / clamp(30px, 5vw, 70px) clamp(30px, 5vw, 70px) 0 0;
+  box-shadow: 0 -18px 40px -12px rgba(0, 0, 0, 0.85);
+}
+
+.site-footer__logo {
+  position: absolute;
+  right: 3%;
+  bottom: 6%;
+  width: clamp(110px, 16vw, 220px);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.site-footer__inner {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(24px, 3vw, 48px);
+  max-width: 1000px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col__title {
+  margin-bottom: 6px;
+  font-family: "Bakbak One", sans-serif;
+  font-size: clamp(16px, 1.5vw, 21px);
+}
+
+.footer-col a {
+  font-size: 14px;
+}
+
+.site-footer__copy {
+  margin-top: clamp(40px, 6vw, 90px);
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ------------------- SVG "vagues" de transition ------------------- */
+.wave {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: clamp(48px, 6.5vw, 110px);
+  pointer-events: none;
+}
+
+/* vague sortant vers le haut de la section synopsis */
+.wave--top-out {
+  bottom: 100%;
+  margin-bottom: -1px;
+}
+
+/* vague entrant en haut de la zone footer */
+.wave--top-in {
+  top: -1px;
+  z-index: 4;
+  overflow: visible;
+}
+
+.wave--top-in path {
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.8));
+}
+
+/* ------------------- RESPONSIVE ------------------- */
+/* Ajout par rapport au design d'origine : sur mobile, l'affiche et la
+   bande-annonce passent l'une sous l'autre, et la nav peut se replier. */
+@media (max-width: 720px) {
+  .media-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-header {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .site-nav {
+    gap: 18px;
+  }
+}

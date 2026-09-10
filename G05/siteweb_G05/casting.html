@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Découvrez le casting de La Dernière Goutte, un film original HBO.">
+  <title>Le casting — La Dernière Goutte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Italiana&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="casting-page">
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar inner-bar">
+    <a class="brand brand--max" href="https://www.hbomax.com/fr/fr" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir HBO Max dans un nouvel onglet"><span class="brand-hbo">HBO</span><span class="brand-max">max</span></a>
+    <a class="back-link" href="index.html"><span>←</span> Retour au film</a>
+    <button class="ticket-link" type="button" data-open-tickets>Billetterie</button>
+  </header>
+  <main>
+    <section class="cast-hero">
+      <p class="eyebrow">Dossier n°03 · Confidentiel</p>
+      <h1>Visages<br><em>recherchés</em></h1>
+      <p>Greg, Guillaume et Sardoche.<br>Trois versions de la même nuit.</p>
+      <span class="hero-index">03 / 05</span>
+    </section>
+    <section class="suspects">
+      <article class="suspect reveal">
+        <div class="suspect-photo portrait-1"><span>01</span></div>
+        <div class="suspect-file">
+          <p class="eyebrow">Greg Guillotin · La victime</p>
+          <h2>Greg<br>Guillotin</h2>
+          <h3>Dans son propre rôle</h3>
+          <p>Greg devait garder la gourde jusqu'au matin. Quelques secondes d'inattention suffisent : elle disparaît, et il refuse de rentrer sans l'avoir retrouvée.</p>
+          <dl><div><dt>Lieu</dt><dd>Bordeaux</dd></div><div><dt>Heure</dt><dd>02:17</dd></div><div><dt>Objectif</dt><dd>La gourde</dd></div></dl>
+        </div>
+      </article>
+      <article class="suspect reverse reveal">
+        <div class="suspect-photo portrait-2"><span>02</span></div>
+        <div class="suspect-file">
+          <p class="eyebrow">Guillaume Pley · Le voleur présumé</p>
+          <h2>Guillaume<br>Pley</h2>
+          <h3>Dans son propre rôle</h3>
+          <p>Tout désigne Guillaume comme le coupable : il était là au mauvais moment et son histoire ne tient pas vraiment debout. Une piste presque trop facile.</p>
+          <dl><div><dt>Lieu</dt><dd>La Victoire</dd></div><div><dt>Heure</dt><dd>02:24</dd></div><div><dt>Statut</dt><dd>Suspect</dd></div></dl>
+        </div>
+      </article>
+      <article class="suspect reveal">
+        <div class="suspect-photo portrait-3"><span>03</span></div>
+        <div class="suspect-file">
+          <p class="eyebrow">Sardoche · Le vrai voleur</p>
+          <h2>Sardoche</h2>
+          <h3>Dans son propre rôle</h3>
+          <p>Personne n'a vu Sardoche prendre la gourde. Pourtant, il connaît l'itinéraire de Greg, les caméras à éviter et exactement ce que contient l'objet.</p>
+          <dl><div><dt>Lieu</dt><dd>Les quais</dd></div><div><dt>Heure</dt><dd>Inconnue</dd></div><div><dt>Statut</dt><dd>Vrai voleur</dd></div></dl>
+        </div>
+      </article>
+    </section>
+    <section class="crew">
+      <p class="eyebrow">Équipe du film · Crédits fictifs</p>
+      <div><p>Réalisation</p><h3>Cyprien</h3></div>
+      <div><p>Scénario</p><h3>Squeezie</h3></div>
+      <div><p>Image</p><h3>Norman</h3></div>
+      <div><p>Musique</p><h3>Siphano</h3></div>
+    </section>
+  </main>
+  <footer><a class="brand" href="index.html">HBO <span>FILMS</span></a><p>© 2026 Home Box Office, Inc.</p><div><a href="index.html">Le film</a><a href="#">Instagram</a></div></footer>
+  <dialog class="modal ticket-modal" id="ticket-modal">
+    <button class="modal-close" type="button" data-close aria-label="Fermer">×</button>
+    <div class="modal-kicker">Billetterie · Avant-première</div><h2>Choisissez votre séance.</h2>
+    <form id="ticket-form"><label>Ville<select><option>Bordeaux</option><option>Paris</option><option>Lyon</option></select></label><div class="date-options"><label><input type="radio" name="date" checked><span><small>Jeu.</small><b>12</b><small>Nov.</small></span></label><label><input type="radio" name="date"><span><small>Ven.</small><b>13</b><small>Nov.</small></span></label><label><input type="radio" name="date"><span><small>Sam.</small><b>14</b><small>Nov.</small></span></label></div><button class="solid-button submit-ticket" type="submit">Voir les séances <span>→</span></button></form>
+    <div class="ticket-success" hidden><span>✓</span><h3>Merci.</h3><p>Les horaires seront disponibles ici dès l'ouverture de la billetterie.</p><button type="button" class="outline-button" data-close>Fermer</button></div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>

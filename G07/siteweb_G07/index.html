@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LES 5 CENTIMES — Le film événement Sony Pictures. Une quête. Un homme. Un café.">
+    <title>LES 5 CENTIMES · Sony Pictures</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@500;700;900&family=Barlow:wght@300;400;500;600;700;900&family=Bitter:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="intro.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="intro-active">
+
+    <!-- ============================================================
+         INTRO CINÉMATOGRAPHIQUE SCROLL-DRIVEN
+         ============================================================ -->
+    <div id="intro-wrapper" aria-hidden="false">
+
+        <button id="introSkip" class="intro-skip" type="button">
+            Passer l'intro <span class="arrow">→</span>
+        </button>
+
+        <div id="introScrollHint" class="intro-scroll-hint">
+            <span class="intro-scroll-mouse" aria-hidden="true">
+                <span class="intro-scroll-wheel"></span>
+            </span>
+            <span class="intro-scroll-text">Faites défiler pour commencer</span>
+            <span class="intro-scroll-chevrons" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+        </div>
+
+        <section id="intro-scene" aria-label="Séquence d'introduction du film">
+            <!-- Fond + halo -->
+            <div class="intro-layer intro-layer-bg">
+                <div class="intro-halo"></div>
+            </div>
+
+            <!-- Particules -->
+            <div class="intro-layer intro-layer-particles"></div>
+
+            <!-- Machine à café (SVG) -->
+            <div class="intro-layer intro-layer-machine">
+                <svg class="intro-machine" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="metalGrad" x1="0" x2="1" y1="0" y2="0">
+                            <stop offset="0%"   stop-color="#2a2a2a"/>
+                            <stop offset="45%"  stop-color="#3d3d3d"/>
+                            <stop offset="100%" stop-color="#1a1a1a"/>
+                        </linearGradient>
+                        <linearGradient id="screenGrad" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%"   stop-color="#f0a860"/>
+                            <stop offset="100%" stop-color="#7c3f14"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Corps -->
+                    <rect x="10" y="20" width="180" height="290" fill="url(#metalGrad)" rx="6"/>
+                    <!-- Écran -->
+                    <rect x="35" y="42" width="130" height="72" fill="url(#screenGrad)" rx="3"/>
+                    <text x="100" y="88" text-anchor="middle" font-family="Anton" font-size="34" fill="#0a0a0a" letter-spacing="1">40¢</text>
+                    <!-- Boutons -->
+                    <circle cx="55" cy="140" r="7" fill="#0a0a0a"/>
+                    <circle cx="80" cy="140" r="7" fill="#0a0a0a"/>
+                    <circle cx="105" cy="140" r="7" fill="#c87533"/>
+                    <circle cx="130" cy="140" r="7" fill="#0a0a0a"/>
+                    <circle cx="155" cy="140" r="7" fill="#0a0a0a"/>
+                    <!-- Bec -->
+                    <rect x="88" y="175" width="24" height="42" fill="#151515" rx="2"/>
+                    <rect x="82" y="215" width="36" height="6" fill="#0a0a0a"/>
+                    <!-- Zone tasse -->
+                    <rect x="25" y="235" width="150" height="60" fill="#0d0d0d" rx="2"/>
+                    <!-- Grille -->
+                    <g fill="#333">
+                        <rect x="35" y="285" width="130" height="2"/>
+                        <rect x="35" y="289" width="130" height="2"/>
+                        <rect x="35" y="293" width="130" height="2"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Personnage silhouette de dos -->
+            <div class="intro-layer intro-layer-character">
+                <svg class="intro-character" viewBox="0 0 180 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="rimLight" x1="1" y1="0" x2="0" y2="0">
+                            <stop offset="0%" stop-color="rgba(200,117,51,0.5)"/>
+                            <stop offset="100%" stop-color="rgba(200,117,51,0)"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Rim light droite -->
+                    <path d="M 88 8 Q 130 8 130 55 L 130 90 L 155 100 L 165 280 L 90 280 Z" fill="url(#rimLight)"/>
+                    <!-- Tête -->
+                    <ellipse cx="90" cy="42" rx="30" ry="36" fill="#0a0a0a"/>
+                    <!-- Cou -->
+                    <rect x="78" y="72" width="24" height="14" fill="#0a0a0a"/>
+                    <!-- Épaules / corps -->
+                    <path d="M 30 92 Q 90 82 150 92 L 158 280 L 22 280 Z" fill="#0a0a0a"/>
+                    <!-- Bras droit tombant -->
+                    <path d="M 148 100 Q 155 160 152 210" stroke="#0a0a0a" stroke-width="20" stroke-linecap="round" fill="none"/>
+                </svg>
+            </div>
+
+            <!-- Main avec pièces -->
+            <div class="intro-layer intro-layer-hand">
+                <div class="intro-hand" aria-hidden="true">
+                    <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bras/manche -->
+                        <path d="M 20 60 Q 100 70 200 90 L 210 130 Q 120 120 40 110 Z" fill="#1a1a1a"/>
+                        <!-- Paume ouverte -->
+                        <path d="M 180 85 Q 250 90 275 130 Q 285 175 260 200 Q 200 220 155 200 Q 130 175 145 130 Z" fill="#3a2418" stroke="#5a3820" stroke-width="1"/>
+                        <!-- Doigts esquissés -->
+                        <path d="M 195 100 Q 205 88 220 95" stroke="#5a3820" stroke-width="2" fill="none"/>
+                        <path d="M 220 105 Q 235 92 250 105" stroke="#5a3820" stroke-width="2" fill="none"/>
+                    </svg>
+                    <!-- Pièces qui tombent dans la paume -->
+                    <span class="intro-coin" style="top: 55%; left: 68%;"></span>
+                    <span class="intro-coin" style="top: 60%; left: 74%;"></span>
+                    <span class="intro-coin" style="top: 58%; left: 78%;"></span>
+                    <span class="intro-coin" style="top: 62%; left: 82%;"></span>
+                    <span class="intro-coin" style="top: 65%; left: 72%;"></span>
+                </div>
+            </div>
+
+            <!-- Compteur cinéma -->
+            <div class="intro-layer intro-layer-counter">
+                <div class="intro-counter">
+                    <span class="intro-counter-label">Poche · monnaie disponible</span>
+                    <span class="intro-counter-value">00¢</span>
+                </div>
+            </div>
+
+            <!-- Face + tasse vide (désespoir) -->
+            <div class="intro-layer intro-layer-face">
+                <div class="intro-face-scene">
+                    <svg width="140" height="140" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <!-- Vapeur -->
+                        <path class="intro-steam-svg" d="M 70 30 Q 65 22 70 15 Q 75 8 70 0" stroke="#c0c0c0" stroke-width="2.5" fill="none" opacity="0.5" stroke-linecap="round"/>
+                        <!-- Tasse -->
+                        <path d="M 40 55 L 45 115 Q 45 125 55 125 L 85 125 Q 95 125 95 115 L 100 55 Z" fill="#f0f0f0" stroke="#a0a0a0" stroke-width="1.5"/>
+                        <ellipse cx="70" cy="55" rx="30" ry="6" fill="#0d0d0d"/>
+                        <!-- Anse -->
+                        <path d="M 100 70 Q 120 75 120 90 Q 120 105 100 110" stroke="#c0c0c0" stroke-width="4" fill="none"/>
+                        <!-- Étiquette "vide" -->
+                        <text x="70" y="98" text-anchor="middle" font-family="Barlow" font-size="10" font-weight="700" fill="#8b1a1a" letter-spacing="2">VIDE</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Écran machine gros plan -->
+            <div class="intro-machine-screen-close">
+                <span class="intro-screen-label">Boisson sélectionnée</span>
+                <span class="intro-screen-price">CAFÉ<br>40¢</span>
+            </div>
+
+            <!-- Flash éclair -->
+            <div class="intro-layer intro-layer-flash"></div>
+
+            <!-- Captions overlay -->
+            <div class="intro-layer intro-layer-captions">
+                <p class="intro-caption intro-caption-opening">
+                    Bordeaux. Un mardi matin.
+                    <span class="intro-caption-line-small">9 h 47</span>
+                </p>
+                <p class="intro-caption intro-caption-missing">
+                    Il lui manque
+                    <strong>5 centimes.</strong>
+                </p>
+            </div>
+
+            <!-- Titre final -->
+            <div class="intro-layer intro-layer-title">
+                <div class="intro-title-block">
+                    <span class="intro-title-tag">Sony Pictures présente</span>
+                    <h2 class="intro-title-main">LES <span class="accent">5 CENTIMES</span></h2>
+                    <p class="intro-title-sub"><span class="intro-title-sub-text"></span><span class="intro-title-cursor"></span></p>
+                    <span class="intro-title-mention">— Prochainement —</span>
+                </div>
+            </div>
+        </section>
+
+        <div id="intro-spacer"></div>
+    </div>
+
+
+    <!-- ============================================================
+         SITE PRINCIPAL
+         ============================================================ -->
+    <div id="site-content">
+
+        <!-- ============================================================
+             ILLUSTRATION PARTAGÉE (personnage + machine + éclairs)
+             Réutilisée en hero (recadrage large) et en affiche (portrait).
+             ============================================================ -->
+        <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+            <defs>
+                <linearGradient id="filmArtBg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0a0605"/>
+                    <stop offset="55%" stop-color="#170d07"/>
+                    <stop offset="100%" stop-color="#2c1608"/>
+                </linearGradient>
+                <radialGradient id="filmArtGlow" cx="50%" cy="70%" r="55%">
+                    <stop offset="0%" stop-color="rgba(224,138,66,0.55)"/>
+                    <stop offset="60%" stop-color="rgba(200,90,40,0.16)"/>
+                    <stop offset="100%" stop-color="rgba(200,90,40,0)"/>
+                </radialGradient>
+                <linearGradient id="filmArtRim" x1="1" y1="0" x2="0" y2="0">
+                    <stop offset="0%" stop-color="rgba(224,138,66,0.65)"/>
+                    <stop offset="100%" stop-color="rgba(224,138,66,0)"/>
+                </linearGradient>
+                <linearGradient id="filmArtMetal" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0%" stop-color="#2c2c2c"/>
+                    <stop offset="45%" stop-color="#3d3d3d"/>
+                    <stop offset="100%" stop-color="#181818"/>
+                </linearGradient>
+                <linearGradient id="filmArtScreen" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#f0a860"/>
+                    <stop offset="100%" stop-color="#7c3f14"/>
+                </linearGradient>
+                <filter id="filmArtBlur" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="18"/>
+                </filter>
+            </defs>
+
+            <g id="filmArt">
+                <rect x="0" y="0" width="600" height="900" fill="url(#filmArtBg)"/>
+
+                <!-- Nuages d'explosion (flous, atmosphériques) -->
+                <ellipse cx="160" cy="190" rx="130" ry="70" fill="#8b1a1a" opacity="0.28" filter="url(#filmArtBlur)"/>
+                <ellipse cx="430" cy="140" rx="150" ry="80" fill="#c87533" opacity="0.22" filter="url(#filmArtBlur)"/>
+
+                <!-- Éclairs -->
+                <polyline points="120,20 145,110 115,110 150,230" fill="none" stroke="#fff3d6" stroke-width="3" stroke-linejoin="round" opacity="0.75"/>
+                <polyline points="460,40 435,140 468,140 428,260" fill="none" stroke="#ffd9a0" stroke-width="2.5" stroke-linejoin="round" opacity="0.6"/>
+
+                <!-- Halo machine -->
+                <circle cx="360" cy="660" r="260" fill="url(#filmArtGlow)"/>
+
+                <!-- Machine à café -->
+                <g transform="translate(300,560)">
+                    <rect x="0" y="0" width="190" height="300" fill="url(#filmArtMetal)" rx="6"/>
+                    <rect x="26" y="24" width="138" height="76" fill="url(#filmArtScreen)" rx="3"/>
+                    <text x="95" y="72" text-anchor="middle" font-family="Anton" font-size="34" fill="#0a0a0a" letter-spacing="1">40¢</text>
+                    <circle cx="45" cy="128" r="7" fill="#0a0a0a"/>
+                    <circle cx="70" cy="128" r="7" fill="#0a0a0a"/>
+                    <circle cx="95" cy="128" r="7" fill="#c87533"/>
+                    <circle cx="120" cy="128" r="7" fill="#0a0a0a"/>
+                    <circle cx="145" cy="128" r="7" fill="#0a0a0a"/>
+                    <rect x="78" y="162" width="24" height="42" fill="#111111" rx="2"/>
+                    <rect x="72" y="202" width="36" height="6" fill="#0a0a0a"/>
+                    <rect x="16" y="222" width="158" height="58" fill="#0d0d0d" rx="2"/>
+                    <g fill="#333333">
+                        <rect x="26" y="270" width="138" height="2"/>
+                        <rect x="26" y="274" width="138" height="2"/>
+                        <rect x="26" y="278" width="138" height="2"/>
+                    </g>
+                </g>
+
+                <!-- Vapeur -->
+                <path d="M 388 552 Q 382 540 388 528 Q 394 516 388 504" stroke="#d8d8d8" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round"/>
+
+                <!-- Personnage, silhouette dépitée -->
+                <g transform="translate(120,230)">
+                    <path d="M 130 10 Q 185 10 185 70 L 185 120 L 218 132 L 232 640 L 140 640 Z" fill="url(#filmArtRim)"/>
+                    <ellipse cx="132" cy="58" rx="42" ry="50" fill="#0a0a0a" transform="rotate(8 132 58)"/>
+                    <rect x="112" y="102" width="34" height="20" fill="#0a0a0a"/>
+                    <path d="M 40 128 Q 132 112 210 128 L 222 640 L 28 640 Z" fill="#0a0a0a"/>
+                    <path d="M 205 140 Q 216 220 210 290" stroke="#0a0a0a" stroke-width="26" stroke-linecap="round" fill="none"/>
+                    <path d="M 55 140 Q 40 220 48 290" stroke="#0a0a0a" stroke-width="24" stroke-linecap="round" fill="none"/>
+                </g>
+
+                <!-- Pièces éparpillées au sol -->
+                <circle cx="205" cy="878" r="9" fill="#c8933a"/>
+                <circle cx="228" cy="884" r="7" fill="#c8933a"/>
+                <circle cx="185" cy="886" r="6" fill="#c8933a"/>
+            </g>
+        </svg>
+
+        <!-- ============ HEADER ============ -->
+        <header class="site-header" id="siteHeader">
+            <div class="nav-container">
+                <a href="#hero" class="brand" aria-label="Sony Pictures, retour à l'accueil">
+                    <span class="brand-sony">SONY</span>
+                    <span class="brand-pictures">PICTURES</span>
+                </a>
+
+                <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+                    <ul>
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="#synopsis">Synopsis</a></li>
+                        <li><a href="#poster">Affiche</a></li>
+                        <li><a href="#film">Le Film</a></li>
+                        <li><a href="#casting">Casting</a></li>
+                        <li><a href="#press">Presse</a></li>
+                        <li><a href="#shop">Boutique</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- ============ 1. HERO ============ -->
+            <section class="hero" id="hero" aria-labelledby="heroTitle">
+                <div class="hero-bg" data-parallax></div>
+                <div class="hero-overlay"></div>
+                <div class="grain" aria-hidden="true"></div>
+
+                <div class="hero-art" aria-hidden="true">
+                    <svg class="hero-art-svg" viewBox="0 0 600 900" preserveAspectRatio="xMaxYMax slice">
+                        <use href="#filmArt"></use>
+                    </svg>
+                </div>
+
+                <div class="hero-frame">
+                    <span class="hero-kicker">— Sony Pictures présente —</span>
+
+                    <h1 class="hero-title" id="heroTitle">
+                        <span class="hero-title-line hero-title-small">Les</span>
+                        <span class="hero-title-line hero-title-big">5 Centimes</span>
+                    </h1>
+
+                    <p class="hero-subtitle">Une quête · Un homme · Un café</p>
+
+                    <div class="hero-cta">
+                        <a href="#film" class="btn btn-primary">
+                            <i class="fa-solid fa-play" aria-hidden="true"></i>
+                            Voir le court-métrage
+                        </a>
+                        <a href="#synopsis" class="btn btn-secondary">
+                            <span>En savoir plus</span>
+                            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <p class="hero-credit">
+                        Un film de <strong>Jérôme Malboro-Vandenberg</strong> — Une production <strong>Sony Pictures</strong>
+                    </p>
+                </div>
+
+                <span class="hero-edge-label" aria-hidden="true">Prochainement</span>
+
+                <a href="#synopsis" class="scroll-indicator" aria-label="Aller au synopsis">
+                    <span></span>
+                </a>
+            </section>
+
+            <!-- ============ 2. SYNOPSIS ============ -->
+            <section class="synopsis" id="synopsis" aria-labelledby="synopsisTitle">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-num">I</span>
+                        <div>
+                            <h2 class="section-title" id="synopsisTitle">L'Histoire</h2>
+                            <span class="section-subtitle">Un récit inspiré de faits divers</span>
+                        </div>
+                    </div>
+
+                    <div class="synopsis-grid">
+                        <div class="synopsis-text reveal">
+                            <p class="synopsis-lead">
+                                Dans un monde impitoyable où chaque centime compte, un homme ordinaire va vivre l'extraordinaire.
+                            </p>
+                            <p>
+                                Face à une machine à café inflexible réclamant <strong>40 centimes</strong>, il n'a que <strong>35 pièces de bronze</strong> au fond de sa poche. Sa quête pour trouver les 5 centimes manquants va le mener aux confins du bâtiment, à la rencontre de collègues énigmatiques et de distributeurs automatiques hostiles.
+                            </p>
+                            <p>
+                                Une odyssée moderne. Une lutte pour la caféine. Un destin en équilibre.
+                            </p>
+                            <p class="synopsis-signature">
+                                Préparez-vous à ne plus jamais regarder une pièce de 5 centimes de la même manière.
+                            </p>
+                        </div>
+
+                        <aside class="synopsis-quote reveal" aria-label="Citation du réalisateur">
+                            <div class="synopsis-quote-tape">SYN · 03</div>
+                            <blockquote>
+                                Il ne cherchait pas seulement une pièce.<br>
+                                Il cherchait <em>sa</em> pièce.
+                            </blockquote>
+                            <cite>— Jérôme Malboro-Vandenberg, réalisateur</cite>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 3. L'AFFICHE ============ -->
+            <section class="poster-section" id="poster" aria-labelledby="posterTitle">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-num">II</span>
+                        <div>
+                            <h2 class="section-title" id="posterTitle">L'Affiche</h2>
+                            <span class="section-subtitle">L'œuvre officielle du studio</span>
+                        </div>
+                    </div>
+
+                    <div class="poster-layout reveal">
+                        <button class="poster-frame" id="posterOpenBtn" type="button" aria-haspopup="dialog" aria-label="Agrandir l'affiche officielle">
+                            <img class="poster-photo" id="posterPhoto" data-src="images/affiche_G01.jpg" alt="Affiche officielle du film LES 5 CENTIMES" hidden>
+                            <svg class="poster-art" id="posterFallback" viewBox="0 0 600 900">
+                                <use href="#filmArt"></use>
+                            </svg>
+                            <span class="poster-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i> Voir en grand</span>
+                        </button>
+
+                        <div class="poster-side">
+                            <h3 class="poster-side-title">LES 5 CENTIMES</h3>
+                            <p class="poster-tagline">Une quête. Un homme. Un café.</p>
+                            <p class="poster-note">Affiche officielle · Format cinéma 40 × 60 cm</p>
+                            <p class="poster-hint">
+                                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                                Déposez le fichier <code>images/affiche_G01.jpg</code> dans le dossier du site pour qu'il remplace automatiquement cette illustration.
+                            </p>
+                            <button class="btn btn-secondary poster-download-btn" type="button" id="posterDownloadBtn">
+                                <i class="fa-solid fa-download" aria-hidden="true"></i>
+                                Télécharger en HD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-lightbox" id="posterLightbox" role="dialog" aria-modal="true" aria-label="Affiche en grand format" hidden>
+                    <button class="poster-lightbox-close" id="posterCloseBtn" type="button" aria-label="Fermer l'affiche en grand">&times;</button>
+                    <div class="poster-lightbox-inner">
+                        <img class="poster-photo-large" id="posterPhotoLarge" alt="Affiche officielle du film LES 5 CENTIMES, en grand format" hidden>
+                        <svg class="poster-art poster-art-large" id="posterFallbackLarge" viewBox="0 0 600 900">
+                            <use href="#filmArt"></use>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 4. LE FILM ============ -->
+            <section class="film-section" id="film" aria-labelledby="filmTitle">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-num">III</span>
+                        <div>
+                            <h2 class="section-title" id="filmTitle">Le Court-Métrage</h2>
+                            <span class="section-subtitle">Présenté en avant-première exclusive</span>
+                        </div>
+                    </div>
+
+                    <div class="video-wrapper reveal">
+                        <!-- Lecteur réel : s'active automatiquement dès que videos/video_G01.mp4 est présent -->
+                        <video class="film-video" id="filmVideo" controls playsinline preload="metadata" hidden>
+                            <source data-src="videos/video_G01.mp4" type="video/mp4">
+                            Votre navigateur ne prend pas en charge la lecture vidéo.
+                        </video>
+
+                        <div class="video-poster" id="videoPoster">
+                            <div class="video-corner video-corner-tl"></div>
+                            <div class="video-corner video-corner-tr"></div>
+                            <div class="video-corner video-corner-bl"></div>
+                            <div class="video-corner video-corner-br"></div>
+                            <button class="play-btn" id="playBtn" aria-label="Lancer le court-métrage">
+                                <i class="fa-solid fa-play" aria-hidden="true"></i>
+                            </button>
+                            <div class="video-caption">
+                                <span class="video-duration"><i class="fa-regular fa-clock" aria-hidden="true"></i> 4:12</span>
+                                <span class="video-title">COURT-MÉTRAGE OFFICIEL · V.O.F.</span>
+                                <span class="video-rating">-12</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="film-note reveal">
+                        Vous venez de visionner <strong>« LES 5 CENTIMES »</strong> en avant-première exclusive.
+                        Sortie nationale : voir le compte à rebours ci-dessous.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ============ 5. CASTING ============ -->
+            <section class="casting tier-2" id="casting" aria-labelledby="castingTitle">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-num">IV</span>
+                        <div>
+                            <h2 class="section-title" id="castingTitle">Distribution</h2>
+                            <span class="section-subtitle">Les visages d'une génération</span>
+                        </div>
+                    </div>
+
+                    <div class="cast-grid">
+                        <article class="cast-card reveal">
+                            <div class="cast-photo">
+                                <span class="cast-photo-frame">01</span>
+                                <span class="cast-photo-letter">H</span>
+                            </div>
+                            <h3 class="cast-role">Le Héros</h3>
+                            <p class="cast-desc">Un homme brisé par le manque de caféine</p>
+                            <p class="cast-actor"><span>Joué par</span><strong>Rémi Kastanjac</strong></p>
+                        </article>
+
+                        <article class="cast-card reveal">
+                            <div class="cast-photo">
+                                <span class="cast-photo-frame">02</span>
+                                <span class="cast-photo-letter">M</span>
+                            </div>
+                            <h3 class="cast-role">La Machine à Café</h3>
+                            <p class="cast-desc">L'antagoniste implacable</p>
+                            <p class="cast-actor"><span>Jouée par</span><strong>Nespresso ZX-9000</strong></p>
+                        </article>
+
+                        <article class="cast-card reveal">
+                            <div class="cast-photo">
+                                <span class="cast-photo-frame">03</span>
+                                <span class="cast-photo-letter">5¢</span>
+                            </div>
+                            <h3 class="cast-role">La Pièce de 5 Centimes</h3>
+                            <p class="cast-desc">L'objet de toutes les convoitises</p>
+                            <p class="cast-actor"><span>Interprétée par</span><strong>Elle-même</strong></p>
+                        </article>
+
+                        <article class="cast-card reveal">
+                            <div class="cast-photo">
+                                <span class="cast-photo-frame">04</span>
+                                <span class="cast-photo-letter">C</span>
+                            </div>
+                            <h3 class="cast-role">Le Collègue Mystérieux</h3>
+                            <p class="cast-desc">Détient-il la clé de l'énigme ?</p>
+                            <p class="cast-actor"><span>Joué par</span><strong>Bernard Grosnetin</strong></p>
+                        </article>
+
+                        <article class="cast-card reveal">
+                            <div class="cast-photo">
+                                <span class="cast-photo-frame">05</span>
+                                <span class="cast-photo-letter">D</span>
+                            </div>
+                            <h3 class="cast-role">Le Distributeur du 3ᵉ</h3>
+                            <p class="cast-desc">Silencieux. Redoutable.</p>
+                            <p class="cast-actor"><span>Joué par</span><strong>Selecta Model 7</strong></p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 6. COMPTE À REBOURS ============ -->
+            <section class="countdown-section" id="countdown" aria-labelledby="countdownTitle">
+                <div class="countdown-bg"></div>
+                <div class="grain" aria-hidden="true"></div>
+
+                <div class="container">
+                    <div class="section-head reveal countdown-head">
+                        <span class="section-num">V</span>
+                        <div>
+                            <h2 class="section-title" id="countdownTitle">Sortie nationale dans</h2>
+                            <span class="section-subtitle">Que le compte à rebours commence</span>
+                        </div>
+                    </div>
+
+                    <div class="countdown-grid reveal" aria-live="polite">
+                        <div class="countdown-box">
+                            <span class="countdown-value" id="cd-days">00</span>
+                            <span class="countdown-label">Jours</span>
+                        </div>
+                        <div class="countdown-sep" aria-hidden="true">:</div>
+                        <div class="countdown-box">
+                            <span class="countdown-value" id="cd-hours">00</span>
+                            <span class="countdown-label">Heures</span>
+                        </div>
+                        <div class="countdown-sep" aria-hidden="true">:</div>
+                        <div class="countdown-box">
+                            <span class="countdown-value" id="cd-mins">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-sep" aria-hidden="true">:</div>
+                        <div class="countdown-box">
+                            <span class="countdown-value" id="cd-secs">00</span>
+                            <span class="countdown-label">Secondes</span>
+                        </div>
+                    </div>
+
+                    <p class="countdown-date reveal">
+                        Le <strong>10 décembre 2026</strong> · Dans toutes les salles
+                    </p>
+                </div>
+            </section>
+
+            <!-- ============ 7. PRESSE ============ -->
+            <section class="press tier-2" id="press" aria-labelledby="pressTitle">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-num">VI</span>
+                        <div>
+                            <h2 class="section-title" id="pressTitle">La presse en parle</h2>
+                            <span class="section-subtitle">Une réception critique unanime</span>
+                        </div>
+                    </div>
+
+                    <div class="press-ratings reveal">
+                        <div class="rating-badge">
+                            <span class="rating-score">4,8/5</span>
+                            <span class="rating-source">AlloCafé</span>
+                        </div>
+                        <div class="rating-badge">
+                            <span class="rating-score">92%</span>
+                            <span class="rating-source">PauseCritique</span>
+                        </div>
+                        <div class="rating-badge">
+                            <span class="rating-score">8,7/10</span>
+                            <span class="rating-source">IMCB</span>
+                        </div>
+                        <div class="rating-badge">
+                            <span class="rating-score">96%</span>
+                            <span class="rating-source">Tomates Fraîches</span>
+                        </div>
+                    </div>
+
+                    <div class="press-row">
+                        <blockquote class="press-card reveal">
+                            <div class="press-stars" aria-label="5 étoiles sur 5">★ ★ ★ ★ ★</div>
+                            <p>« Un chef-d'œuvre bouleversant qui redéfinit le cinéma. »</p>
+                            <cite>Le Monde du Café</cite>
+                        </blockquote>
+
+                        <blockquote class="press-card reveal">
+                            <div class="press-stars" aria-label="5 étoiles sur 5">★ ★ ★ ★ ★</div>
+                            <p>« Je n'ai jamais autant pleuré pour 5 centimes. »</p>
+                            <cite>Cahiers de la Cafétéria</cite>
+                        </blockquote>
+
+                        <blockquote class="press-card reveal">
+                            <div class="press-stars" aria-label="5 étoiles sur 5">★ ★ ★ ★ ★</div>
+                            <p>« Le film de l'année. Peut-être du siècle. »</p>
+                            <cite>Distributeur Magazine</cite>
+                        </blockquote>
+
+                        <blockquote class="press-card reveal">
+                            <div class="press-stars" aria-label="5 étoiles sur 5">★ ★ ★ ★ ★</div>
+                            <p>« Une performance qui restera dans les annales. »</p>
+                            <cite>Percolateur Hebdo</cite>
+                        </blockquote>
+
+                        <blockquote class="press-card reveal">
+                            <div class="press-stars" aria-label="5 étoiles sur 5">★ ★ ★ ★ ★</div>
+                            <p>« Après ce film, le café n'aura plus jamais le même goût. »</p>
+                            <cite>Télérama Expresso</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 8. BOUTIQUE ============ -->
+            <section class="shop tier-2" id="shop" aria-labelledby="shopTitle">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-num">VII</span>
+                        <div>
+                            <h2 class="section-title" id="shopTitle">Merchandising officiel</h2>
+                            <span class="section-subtitle">Emportez la légende chez vous</span>
+                        </div>
+                    </div>
+
+                    <div class="shop-grid">
+                        <article class="shop-card reveal">
+                            <div class="shop-img shop-img-mug"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></div>
+                            <div class="shop-body">
+                                <h3 class="shop-name">Mug « J'ai survécu »</h3>
+                                <p class="shop-desc">Céramique, 350 ml. Édition premium.</p>
+                                <div class="shop-footer">
+                                    <span class="shop-price">19,99&nbsp;€</span>
+                                    <button class="btn-cart" type="button">
+                                        <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                                        <span>Ajouter</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="shop-card reveal">
+                            <div class="shop-img shop-img-tshirt"><i class="fa-solid fa-shirt" aria-hidden="true"></i></div>
+                            <div class="shop-body">
+                                <h3 class="shop-name">T-shirt Collector</h3>
+                                <p class="shop-desc">100 % coton, sérigraphie officielle.</p>
+                                <div class="shop-footer">
+                                    <span class="shop-price">29,99&nbsp;€</span>
+                                    <button class="btn-cart" type="button">
+                                        <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                                        <span>Ajouter</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="shop-card reveal">
+                            <div class="shop-img shop-img-poster"><i class="fa-solid fa-image" aria-hidden="true"></i></div>
+                            <div class="shop-body">
+                                <h3 class="shop-name">Affiche signée</h3>
+                                <p class="shop-desc">Tirage limité, signée par l'équipe.</p>
+                                <div class="shop-footer">
+                                    <span class="shop-price">49,99&nbsp;€</span>
+                                    <button class="btn-cart" type="button">
+                                        <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                                        <span>Ajouter</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="shop-card shop-card-featured reveal">
+                            <div class="shop-badge">Édition rare</div>
+                            <div class="shop-img shop-img-coin"><i class="fa-solid fa-coins" aria-hidden="true"></i></div>
+                            <div class="shop-body">
+                                <h3 class="shop-name">Pièce de 5 centimes</h3>
+                                <p class="shop-desc">Édition limitée dans son écrin.</p>
+                                <div class="shop-footer">
+                                    <span class="shop-price">199,99&nbsp;€</span>
+                                    <button class="btn-cart" type="button">
+                                        <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
+                                        <span>Ajouter</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 9. SALLE DE MONTAGE ============ -->
+            <section class="montage-section tier-3" id="montage" aria-labelledby="montageTitle">
+                <div class="grain" aria-hidden="true"></div>
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-num">VIII</span>
+                        <div>
+                            <h2 class="section-title glitch-text" id="montageTitle" data-text="Salle de Montage">Salle de Montage</h2>
+                            <span class="section-subtitle">Accès non autorisé au dossier de production</span>
+                        </div>
+                    </div>
+
+                    <p class="montage-intro reveal">
+                        En fouillant les archives de post-production, nous avons retrouvé le dossier de montage original.
+                        Bonne chance pour retrouver <strong>LE bon fichier</strong>.
+                    </p>
+
+                    <div class="montage-window reveal">
+                        <div class="montage-titlebar">
+                            <span class="montage-dots"><span></span><span></span><span></span></span>
+                            <span class="montage-path">RUSHES_LES5CENTIMES / MONTAGE_FINAL</span>
+                            <span class="montage-titlebar-count">47 versions</span>
+                        </div>
+
+                        <div class="montage-toolbar">
+                            <label class="montage-search">
+                                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                                <input type="text" id="montageSearch" placeholder="Rechercher LE bon fichier…" autocomplete="off">
+                            </label>
+                            <span class="montage-count" id="montageCount">17 éléments</span>
+                        </div>
+
+                        <ul class="montage-filelist" id="montageFileList">
+                            <li data-name="prise_001_bonne.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>prise_001_bonne.mp4</span><em>2 min</em></li>
+                            <li data-name="prise_002_pas_celle_la.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>prise_002_pas_celle_la.mp4</span><em>2 min</em></li>
+                            <li data-name="prise_003_bruit_de_moto.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>prise_003_bruit_de_moto.mp4</span><em>2 min</em></li>
+                            <li data-name="prise_004_le_chat_est_passe.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>prise_004_le_chat_est_passé.mp4</span><em>2 min</em></li>
+                            <li data-name="prise_007_stagiaire_a_tousse.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>prise_007_stagiaire_a_toussé.mp4</span><em>2 min</em></li>
+                            <li data-name="prise_013_non_en_fait_non.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>prise_013_non_en_fait_non.mp4</span><em>2 min</em></li>
+                            <li data-name="montage_v1.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>montage_v1.mp4</span><em>3 min 40</em></li>
+                            <li data-name="montage_v2_avec_musique.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>montage_v2_avec_musique.mp4</span><em>3 min 41</em></li>
+                            <li data-name="montage_v3_sans_la_musique_bizarre.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>montage_v3_sans_la_musique_bizarre.mp4</span><em>3 min 41</em></li>
+                            <li data-name="montage_v4_le_prof_a_dit_non.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>montage_v4_le_prof_a_dit_non.mp4</span><em>3 min 55</em></li>
+                            <li data-name="montage_v5_ON_RECOMMENCE_TOUT.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>montage_v5_ON_RECOMMENCE_TOUT.mp4</span><em>4 min 02</em></li>
+                            <li data-name="sauvegarde_de_la_sauvegarde.zip"><i class="fa-regular fa-file-zipper" aria-hidden="true"></i><span>sauvegarde_de_la_sauvegarde.zip</span><em>—</em></li>
+                            <li data-name="ancienne_version_ne_pas_utiliser.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>ancienne_version_ne_pas_utiliser.mp4</span><em>4 min 02</em></li>
+                            <li data-name="pourquoi_ca_marche_plus.mov"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>pourquoi_ca_marche_plus.mov</span><em>0 min 04</em></li>
+                            <li data-name="ne_pas_ouvrir.mp4" class="montage-flag"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span>ne_pas_ouvrir.mp4</span><em>???</em></li>
+                            <li data-name="stagiaire_final_test.mp4"><i class="fa-regular fa-file-video" aria-hidden="true"></i><span>stagiaire_final_test.mp4</span><em>4 min 09</em></li>
+                            <li data-name="FINAL_utiliser_celui_ci_v9_vrai_final.mp4" class="montage-highlight"><i class="fa-solid fa-star" aria-hidden="true"></i><span>FINAL_utiliser_celui_ci_v9_vrai_final.mp4</span><em>4 min 12</em></li>
+                        </ul>
+
+                        <p class="montage-empty" id="montageEmpty" hidden>
+                            Aucun fichier ne correspond. Ce qui, techniquement, résume assez bien la production.
+                        </p>
+                    </div>
+
+                    <div class="montage-stats">
+                        <div class="montage-export reveal">
+                            <div class="montage-export-label">
+                                <span>Rendu en cours — <strong id="montageExportName">LES_5_CENTIMES_v47_FINAL.mp4</strong></span>
+                                <span id="montageExportPercent">0 %</span>
+                            </div>
+                            <div class="montage-progress">
+                                <div class="montage-progress-bar" id="montageProgressBar"></div>
+                            </div>
+                        </div>
+
+                        <div class="montage-counter reveal">
+                            <span class="montage-counter-value" id="montageFilesCounter">0</span>
+                            <span class="montage-counter-label">fichiers créés pendant la production</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 10. FAQ ============ -->
+            <section class="faq-section tier-3" id="faq" aria-labelledby="faqTitle">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-num">IX</span>
+                        <div>
+                            <h2 class="section-title glitch-text" id="faqTitle" data-text="Foire Aux Questions">Foire Aux Questions</h2>
+                            <span class="section-subtitle">Les vraies questions que personne n'a posées</span>
+                        </div>
+                    </div>
+
+                    <div class="faq-list reveal">
+                        <details class="faq-item">
+                            <summary>Pourquoi consacrer un film entier à 5 centimes ?</summary>
+                            <p>Parce que certains font des sagas entières sur des anneaux magiques. Nous, on assume notre échelle.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Le Distributeur du 3ᵉ étage a-t-il vraiment un rôle si important ?</summary>
+                            <p>Demandez à n'importe qui ayant raté sa pause déjeuner à cause de lui.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Une suite est-elle prévue ?</summary>
+                            <p>« LES 5 CENTIMES 2 : LA MONNAIE CONTRE-ATTAQUE » est en développement. Budget prévisionnel : encore 5 centimes.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>La pièce de 5 centimes a-t-elle été rémunérée pour son rôle ?</summary>
+                            <p>Elle a touché exactement 5 centimes. Les négociations ont été brèves.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Pourquoi le tournage a-t-il duré plus longtemps que prévu ?</summary>
+                            <p>Voir la section « Salle de montage » ci-dessus. On préfère ne pas en reparler.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Le film est-il basé sur une histoire vraie ?</summary>
+                            <p>Toutes les ressemblances avec votre pause café de ce matin sont purement coïncidentelles.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Où puis-je voir le film en entier ?</summary>
+                            <p>Juste plus haut, dans la section « Le Film ». Vous l'avez peut-être fait défiler sans vous en rendre compte.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ============ FOOTER ============ -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="brand brand-footer">
+                            <span class="brand-sony">SONY</span>
+                            <span class="brand-pictures">PICTURES</span>
+                        </div>
+                        <p class="footer-tagline">Une histoire pour cinq centimes.</p>
+                        <p class="footer-visa">Visa d'exploitation CNC n° 154.892</p>
+                    </div>
+
+                    <div class="footer-links">
+                        <h4>Le film</h4>
+                        <ul>
+                            <li><a href="#synopsis">Synopsis</a></li>
+                            <li><a href="#poster">Affiche</a></li>
+                            <li><a href="#film">Le Film</a></li>
+                            <li><a href="#casting">Casting</a></li>
+                            <li><a href="#montage">Salle de montage</a></li>
+                            <li><a href="#shop">Boutique</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-links">
+                        <h4>Informations</h4>
+                        <ul>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#">Mentions légales</a></li>
+                            <li><a href="#">CGU</a></li>
+                            <li><a href="#">Contact presse</a></li>
+                            <li><a href="#">Nous suivre</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-social">
+                        <h4>Sur les réseaux</h4>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 Sony Pictures Entertainment. Tous droits réservés. Aucune pièce n'a été blessée pendant la production.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- /#site-content -->
+
+    <script src="intro.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

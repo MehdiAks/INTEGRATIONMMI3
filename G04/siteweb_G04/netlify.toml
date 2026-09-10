@@ -1,0 +1,16 @@
+# Static site — no build step.
+[build]
+  publish = "."
+  command = ""
+
+# Long cache for fingerprint-free static assets is fine here because
+# filenames change when you replace an image.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

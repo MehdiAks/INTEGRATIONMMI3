@@ -1,0 +1,288 @@
+/* ============================================
+   LA CHAISE PARFAITE — Responsive
+   ============================================ */
+
+/* ——— TABLETTE (768px - 1200px) ——— */
+@media (max-width: 1200px) {
+  .personnages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .presse-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .presse-secondary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .avis-card {
+    flex: 0 0 300px;
+  }
+}
+
+/* ——— MOBILE (< 768px) ——— */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+    --space-section: 4rem;
+  }
+
+  /* Header */
+  .btn-seance-header {
+    display: none;
+  }
+
+  .site-header {
+    padding: 0 var(--space-lg);
+  }
+
+  .header-logo {
+    font-size: var(--text-sm);
+    letter-spacing: 0.15em;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .hero-content {
+    padding: 0 var(--space-lg);
+  }
+
+  .hero-countdown {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .countdown-blocks {
+    gap: var(--space-sm);
+  }
+
+  .countdown-block {
+    min-width: 50px;
+  }
+
+  .hero-scroll-arrow {
+    bottom: var(--space-xl);
+  }
+
+  /* Sections */
+  .section {
+    padding: var(--space-section) var(--space-lg);
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    margin-bottom: var(--space-2xl);
+    letter-spacing: 0.1em;
+  }
+
+  /* Synopsis */
+  .film-content-wrapper {
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .film-poster {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .synopsis-film-title {
+    font-size: var(--text-2xl);
+    text-align: center;
+  }
+
+  .animated-line {
+    margin: var(--space-md) auto var(--space-xl) auto;
+    transform-origin: center;
+  }
+
+  .synopsis-text {
+    font-size: var(--text-base);
+    text-align: left;
+  }
+
+  /* Personnages */
+  .personnages-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .personnage-overlay {
+    transform: translateY(0);
+    position: relative;
+    background: var(--bg-card);
+    padding: var(--space-lg);
+  }
+
+  .personnage-description {
+    opacity: 1;
+  }
+
+  /* Avis */
+  .avis-card {
+    flex: 0 0 280px;
+    padding: var(--space-xl);
+  }
+
+  .avis-nav {
+    display: none;
+  }
+
+  /* Presse */
+  .presse-secondary {
+    grid-template-columns: 1fr;
+  }
+
+  .presse-card.featured {
+    padding: var(--space-xl);
+  }
+
+  /* Newsletter */
+  .newsletter-form {
+    flex-direction: column;
+    border: none;
+  }
+
+  .newsletter-input {
+    border: 1px solid var(--border-light);
+  }
+
+  .newsletter-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Partenaires */
+  .partenaire-logo {
+    width: 110px;
+    height: 45px;
+  }
+
+  .partenaires-grid {
+    gap: var(--space-xl);
+  }
+
+  /* FAQ */
+  .faq-question {
+    font-size: var(--text-sm);
+    padding: var(--space-lg) 0;
+  }
+
+  /* Footer */
+  .footer-top {
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  /* Cookie banner */
+  .cookie-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cookie-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Modal */
+  .modal-content {
+    padding: var(--space-xl);
+  }
+
+  .cinema-search-form {
+    flex-direction: column;
+  }
+
+  /* Menu */
+  .menu-link {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  /* Recompense */
+  .recompense-badge {
+    font-size: var(--text-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* Video */
+  .section-film .video-container {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .video-play-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .video-play-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* ——— Très petit mobile (< 400px) ——— */
+@media (max-width: 400px) {
+  .hero-title {
+    letter-spacing: 0.1em;
+  }
+
+  .hero-subtitle {
+    letter-spacing: 0.2em;
+    font-size: var(--text-sm);
+  }
+
+  .countdown-number {
+    font-size: var(--text-xl);
+  }
+
+  .avis-card {
+    flex: 0 0 260px;
+  }
+
+  .personnages-grid {
+    max-width: 100%;
+  }
+}
+
+/* ——— Orientation paysage mobile ——— */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    gap: var(--space-sm);
+  }
+
+  .hero-countdown {
+    flex-direction: row;
+    margin-top: var(--space-sm);
+  }
+}

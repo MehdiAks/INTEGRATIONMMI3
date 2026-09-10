@@ -1,0 +1,266 @@
+/* ============================================================
+   Chaos system — progressive visual decay driven by chaos.js
+   Levels: 0 (stable) -> 5 (effondrement total)
+   ============================================================ */
+
+/* ---------- HUD (score display) ---------- */
+/* Hidden from view — the scoring/leveling logic still runs behind the
+   scenes, only the on-screen badge is switched off. Remove this rule to
+   bring it back for debugging. */
+.chaos-hud {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 16px;
+	z-index: 999;
+	background: rgba(0, 12, 40, .88);
+	color: #fff;
+	padding: 10px 18px;
+	border-radius: 8px;
+	font-family: 'Oswald', 'Arial Narrow', sans-serif;
+	text-align: center;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+	user-select: none;
+	min-width: 120px;
+}
+.chaos-hud-score {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 1;
+	color: #04c8e2;
+}
+.chaos-hud-label {
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	opacity: .7;
+	margin-top: 2px;
+}
+.chaos-hud-level {
+	margin-top: 6px;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding: 3px 8px;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, .12);
+}
+.chaos-hud[data-level="0"] .chaos-hud-level { color: #6be37a; }
+.chaos-hud[data-level="1"] .chaos-hud-level { color: #b7d33a; }
+.chaos-hud[data-level="2"] .chaos-hud-level { color: #f2c94c; }
+.chaos-hud[data-level="3"] .chaos-hud-level { color: #f2994a; }
+.chaos-hud[data-level="4"] .chaos-hud-level { color: #eb5757; }
+.chaos-hud[data-level="5"] .chaos-hud-level { color: #ff3b3b; animation: chaos-pulse 1.4s infinite; }
+
+.chaos-hud-reset {
+	margin-top: 8px;
+	font-size: 9px;
+	opacity: .35;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+}
+.chaos-hud-reset:hover { opacity: .8; }
+
+@keyframes chaos-pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: .4; }
+}
+
+.chaos-float {
+	position: fixed;
+	z-index: 1000;
+	pointer-events: none;
+	color: #04c8e2;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 15px;
+	transform: translate(-50%, -50%);
+	animation: chaos-float-up .9s ease-out forwards;
+}
+@keyframes chaos-float-up {
+	0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+	100% { opacity: 0; transform: translate(-50%, -160%) scale(1.35); }
+}
+
+@media (max-width: 600px) {
+	.chaos-hud { padding: 8px 14px; min-width: 100px; }
+	.chaos-hud-score { font-size: 20px; }
+}
+
+/* ---------- Level-up feedback: a brief screen flash ---------- */
+.chaos-flash {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	background: #fff;
+	pointer-events: none;
+	animation: chaos-flash-fade .45s ease-out forwards;
+}
+@keyframes chaos-flash-fade {
+	0% { opacity: .55; }
+	100% { opacity: 0; }
+}
+
+/* ---------- Continuous motion — the page gets livelier as it decays ---------- */
+html.chaos-2 .tab.active {
+	display: inline-block;
+	animation: chaos-tab-pulse 1.6s ease-in-out infinite;
+}
+html.chaos-3 .film-card {
+	animation: chaos-card-wobble 2.6s ease-in-out infinite;
+}
+html.chaos-4 h1, html.chaos-4 h2, html.chaos-4 h3 {
+	animation: chaos-heading-glitch 2.4s steps(1) infinite;
+}
+html.chaos-5 body {
+	animation: chaos-shake .35s ease-in-out infinite;
+}
+
+@keyframes chaos-tab-pulse {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(1.08); }
+}
+@keyframes chaos-card-wobble {
+	0%, 100% { transform: rotate(0deg); }
+	25% { transform: rotate(-1.5deg); }
+	75% { transform: rotate(1.5deg); }
+}
+@keyframes chaos-heading-glitch {
+	0%, 100% { text-shadow: none; }
+	20% { text-shadow: 2px 0 #04c8e2, -2px 0 #ff2d6b; }
+	40% { text-shadow: none; }
+	60% { text-shadow: -2px 0 #04c8e2, 2px 0 #ff2d6b; }
+	80% { text-shadow: none; }
+}
+@keyframes chaos-shake {
+	0%, 100% { transform: translate(0, 0); }
+	25% { transform: translate(1px, -1px); }
+	50% { transform: translate(-1px, 1px); }
+	75% { transform: translate(1px, 1px); }
+}
+
+/* ============================================================
+   Level 1 — Perturbé : les premières fissures
+   ============================================================ */
+/* NOTE: levels stack cumulatively — html carries one .chaos-N class per
+   unlocked level (chaos-1 stays applied once chaos-4 is reached, etc.),
+   so degradation only ever piles up and never rolls back mid-session. */
+
+html.chaos-1 {
+	--cyan: #17d2e6;
+}
+html.chaos-1 .hero-content h1 { letter-spacing: 3px; }
+html.chaos-1 .site-header { filter: saturate(1.15); }
+
+/* ============================================================
+   Level 2 — Instable : la typo commence à pourrir
+   ============================================================ */
+/* --font-head / --font-body from here on are picked at random from the
+   team's font library by js/chaos.js (see applyFontsForLevel). */
+html.chaos-2 .site-header { filter: hue-rotate(10deg) saturate(1.3); }
+html.chaos-2 .btn--pink { background: #ff2d6b; }
+html.chaos-2 .cinemas-section { background: #f4f0e2; }
+html.chaos-2 .tab.active { border-bottom-color: #ff2d6b; }
+
+/* ============================================================
+   Level 3 — Critique : les couleurs et les affiches se rebellent
+   ============================================================ */
+html.chaos-3 {
+	--blue-main: #6a1b9a;
+	--pink: #ff7a00;
+}
+html.chaos-3 .newsletter-section { background: #1b0033; }
+html.chaos-3 .site-footer { background: #2a0033; }
+html.chaos-3 .films-section { transform: skewY(-.7deg); }
+html.chaos-3 .cinemas-section { transform: skewY(.7deg); }
+html.chaos-3 .cinema-card:nth-child(2n) { transform: rotate(-2deg); }
+html.chaos-3 .cinema-card:nth-child(2n+1) { transform: rotate(1.5deg); }
+
+/* ============================================================
+   Level 4 — Catastrophique : la symétrie casse
+   ============================================================ */
+html.chaos-4 .main-nav ul { justify-content: space-between; }
+html.chaos-4 .header-top-inner { flex-direction: row-reverse; }
+html.chaos-4 .cinema-list { grid-template-columns: 2fr 1fr; }
+html.chaos-4 .footer-links { flex-direction: column; align-items: flex-start; }
+html.chaos-4 .newsletter-form { justify-content: flex-start; }
+html.chaos-4 .site-header,
+html.chaos-4 main,
+html.chaos-4 .site-footer {
+	animation: chaos-hue-drift 14s linear infinite;
+}
+
+/* ============================================================
+   Level 5 — Effondrement total : tout en même temps
+   ============================================================ */
+html.chaos-5 .header-top-inner { flex-wrap: wrap-reverse; }
+html.chaos-5 .main-nav ul {
+	flex-flow: column wrap;
+	align-items: flex-start;
+	max-height: 96px;
+	gap: 4px 28px;
+}
+html.chaos-5 .main-nav a { padding: 6px 0; font-size: 12px; }
+html.chaos-5 .hero-content { text-align: right; margin-left: auto; }
+html.chaos-5 .film-info { text-align: center; }
+html.chaos-5 .section-title { text-align: right; }
+html.chaos-5 .cinema-search { margin-left: auto; }
+html.chaos-5 .site-header,
+html.chaos-5 main,
+html.chaos-5 .site-footer {
+	animation: chaos-hue-drift 6s linear infinite;
+}
+html.chaos-5 .btn { animation: chaos-wiggle 2.4s ease-in-out infinite; }
+html.chaos-5 .logo-img { animation: chaos-logo-spin 1.8s linear infinite; }
+
+@keyframes chaos-hue-drift {
+	0% { filter: hue-rotate(0deg); }
+	100% { filter: hue-rotate(360deg); }
+}
+@keyframes chaos-wiggle {
+	0%, 100% { transform: rotate(0deg); }
+	25% { transform: rotate(-3deg); }
+	75% { transform: rotate(3deg); }
+}
+@keyframes chaos-logo-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* ---------- Max level: roaming GIFs (spawned by chaos.js) ---------- */
+.chaos-gif {
+	position: fixed;
+	z-index: 1500;
+	pointer-events: none;
+	filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .4));
+	animation-name: chaos-gif-float;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+@keyframes chaos-gif-float {
+	0%, 100% { transform: translate(0, 0) rotate(0deg); }
+	25% { transform: translate(12px, -16px) rotate(6deg); }
+	50% { transform: translate(-10px, 10px) rotate(-5deg); }
+	75% { transform: translate(8px, 8px) rotate(4deg); }
+}
+
+.chaos-gif--shark {
+	left: 0;
+	width: 110px;
+	animation-name: chaos-shark-swim;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+@keyframes chaos-shark-swim {
+	0% { transform: translate(-140px, 0) scaleX(-1); }
+	12% { transform: translate(15vw, -35px) scaleX(-1); }
+	25% { transform: translate(32vw, 25px) scaleX(-1); }
+	37% { transform: translate(50vw, -25px) scaleX(-1); }
+	49% { transform: translate(calc(100vw + 20px), 15px) scaleX(-1); }
+	50% { transform: translate(calc(100vw + 20px), 15px) scaleX(1); }
+	62% { transform: translate(68vw, -30px) scaleX(1); }
+	75% { transform: translate(48vw, 20px) scaleX(1); }
+	87% { transform: translate(20vw, -20px) scaleX(1); }
+	99% { transform: translate(-140px, 0) scaleX(1); }
+	100% { transform: translate(-140px, 0) scaleX(-1); }
+}

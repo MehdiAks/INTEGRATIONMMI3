@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.X</title>
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2 class="logo">MR.X</h2>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#accueil">ACCUEIL</a></li>
+                <li><a href="#enquete">L’ENQUÊTE</a></li>
+                <li><a href="#enigme">ÉNIGME</a></li>
+            </ul>
+        </nav>
+        <div class="social">
+            <a href="https://github.com"><img src="src/assets/pictures/Insta.svg" alt="Instagram"></a>
+            <a href="https://github.com"><img src="src/assets/pictures/Facebook.svg" alt="Facebook"></a>
+            <a href="https://github.com"><img src="src/assets/pictures/X.svg" alt="X"></a>
+        </div>
+    </header>
+
+    <main>
+        <section id="accueil">
+            <img src="src/assets/pictures/MainFond.png" alt="Fond principal" class="Main-BG">
+            <div class="content">
+                <h1>M.X</h1>
+                <h2>Un film de mystère</h2>
+                <p>Tout a commencé par une simple photo. <br> Une bibliothèque, un inconnu</p>
+                <a href="https://youtu.be/p8s-kBQfwd8?si=NtDJcKsdfIwH6e5y" target="_blank" rel="noopener noreferrer"
+                    class="bouton-trailer">
+                    <img src="src/assets/pictures/btnPlay.svg" alt="Bouton jouer">
+                    <span>Voir la bande annonce</span>
+                </a>
+            </div>
+            <div class="video-container">
+                <iframe width="1026" height="577" src="https://www.youtube.com/embed/p8s-kBQfwd8"
+                    title="Victor Hugo, ennemi d&#39;Etat - discours à l&#39;Assemblée nationale : LE SUFFRAGE UNIVERSEL (20 mai 1850)"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="enquete">
+            <div class="synopsis">
+                <h2>Synopsis</h2>
+                <p>Dans une <strong class="gras-rouge">bibliothèque</strong>, Luc reçoit sur son téléphone une <strong class="gras-rouge">photo de lui-même</strong> prise à son insu quelques
+                    secondes plus tôt, envoyée par un inconnu sous le pseudonyme de <strong class="gras-rouge">M. X.</strong> En observant autour de lui, Luc
+                    réalise que l'expéditeur se trouve dans la <strong class="gras-rouge">même pièce</strong> et le surveille. Une <strong class="gras-rouge">traque psychologique</strong> s'engage
+                    alors au milieu des rayonnages pour démasquer M. X avant qu'il ne passe à l'action.</p>
+            </div>
+        </section>
+
+        <section id="enigme">
+            <div class="timer-section">
+                <img src="src/assets/pictures/AffichePaysage.png" alt="Affiche format paysage" class="AffichePaysage">
+                
+                <div class="airdrop-card">
+                    <div class="airdrop-header">
+                        <img src="src/assets/pictures/airdrop.svg" alt="AirDrop" class="airdrop-icon">
+                        <span>AirDrop de « M.X »</span>
+                    </div>
+                    <p>M.X souhaite vous partager un fichier crypté.</p>
+                    <div class="countdown-display">
+                        <div class="time-box">
+                            <span class="time-num" id="days">00</span>
+                            <span class="time-label">Jours</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="time-num" id="hours">00</span>
+                            <span class="time-label">Heures</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="time-num" id="minutes">00</span>
+                            <span class="time-label">Min</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="time-num" id="seconds">00</span>
+                            <span class="time-label">Sec</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>

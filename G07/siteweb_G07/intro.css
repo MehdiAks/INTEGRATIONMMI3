@@ -1,0 +1,599 @@
+/* =========================================================
+   LES 5 CENTIMES — Intro cinématographique scroll-driven
+   Toutes les classes préfixées .intro-
+   ========================================================= */
+
+/* --- État global pendant l'intro --- */
+body.intro-active {
+    overflow-x: hidden;
+}
+
+body.intro-active #site-content {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+body.intro-done #intro-wrapper {
+    display: none;
+}
+
+body.intro-done #site-content {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Piste de scroll --- */
+#intro-wrapper {
+    position: relative;
+    z-index: 500;
+}
+
+#intro-spacer {
+    height: 500vh;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    #intro-spacer { height: 350vh; }
+}
+
+/* --- Scène fixée --- */
+#intro-scene {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+    z-index: 500;
+    will-change: opacity, transform;
+    isolation: isolate;
+}
+
+.intro-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: opacity, transform;
+    pointer-events: none;
+}
+
+/* --- Bouton skip --- */
+.intro-skip {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 600;
+    background: rgba(0,0,0,0.6);
+    color: #f5f5f5;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.6rem 1.2rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+.intro-skip:hover {
+    opacity: 1;
+    background: rgba(200, 117, 51, 0.9);
+    color: #0a0a0a;
+    border-color: #c87533;
+}
+.intro-skip:focus-visible {
+    outline: 2px solid #c87533;
+    outline-offset: 3px;
+}
+.intro-skip .arrow { margin-left: 0.5em; }
+
+/* --- Indicateur de scroll (bien visible dès le chargement) --- */
+.intro-scroll-hint {
+    position: fixed;
+    bottom: clamp(1.5rem, 5vh, 3rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    animation: introHintAppear 1s ease 0.6s forwards;
+}
+/* Une fois passé un certain scroll, on la masque proprement */
+.intro-scroll-hint.hidden-by-scroll {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+@keyframes introHintAppear {
+    from { opacity: 0; transform: translate(-50%, 12px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Icône souris avec molette animée */
+.intro-scroll-mouse {
+    display: block;
+    width: 30px;
+    height: 48px;
+    border: 2.5px solid #ffffff;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.35),
+                0 0 30px rgba(224, 138, 66, 0.3);
+}
+.intro-scroll-wheel {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 5px;
+    height: 10px;
+    margin-left: -2.5px;
+    background: #e08a42;
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(224, 138, 66, 0.9);
+    animation: introWheelScroll 1.6s ease-in-out infinite;
+}
+@keyframes introWheelScroll {
+    0%   { transform: translateY(0);    opacity: 1; }
+    60%  { transform: translateY(16px); opacity: 0.2; }
+    61%  { transform: translateY(0);    opacity: 0; }
+    75%  { opacity: 1; }
+    100% { transform: translateY(0);    opacity: 1; }
+}
+
+.intro-scroll-text {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0,0,0,0.6);
+    padding-left: 0.35em; /* compense le letter-spacing visuellement */
+}
+
+/* Chevrons cascadants sous le texte */
+.intro-scroll-chevrons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    height: 22px;
+}
+.intro-scroll-chevrons span {
+    width: 16px;
+    height: 8px;
+    border-left: 2.5px solid #e08a42;
+    border-bottom: 2.5px solid #e08a42;
+    transform: rotate(-45deg);
+    opacity: 0;
+    animation: introChevronFall 1.6s ease-in-out infinite;
+}
+.intro-scroll-chevrons span:nth-child(1) { animation-delay: 0s; }
+.intro-scroll-chevrons span:nth-child(2) { animation-delay: 0.18s; }
+.intro-scroll-chevrons span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes introChevronFall {
+    0%   { opacity: 0; transform: translateY(-6px) rotate(-45deg); }
+    35%  { opacity: 1; }
+    70%  { opacity: 0; transform: translateY(8px) rotate(-45deg); }
+    100% { opacity: 0; transform: translateY(8px) rotate(-45deg); }
+}
+
+/* =========================================================
+   COUCHE 0 : Fond
+   ========================================================= */
+.intro-layer-bg {
+    background:
+        radial-gradient(ellipse 60% 80% at 65% 55%, rgba(200, 117, 51, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.9) 0%, transparent 50%),
+        linear-gradient(180deg, #060404 0%, #0a0605 100%);
+}
+
+/* Grain film */
+.intro-layer-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    animation: introGrain 0.5s steps(4) infinite;
+}
+@keyframes introGrain {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(-3%, 2%); }
+    50%  { transform: translate(2%, -1%); }
+    75%  { transform: translate(-1%, -3%); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Halo lumineux derrière la machine */
+.intro-halo {
+    position: absolute;
+    top: 50%;
+    left: 68%;
+    width: 60vmin;
+    height: 60vmin;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 175, 90, 0.5) 0%, rgba(200, 117, 51, 0.2) 30%, transparent 65%);
+    filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================================================
+   COUCHE 1 : Particules de poussière
+   ========================================================= */
+.intro-layer-particles { pointer-events: none; }
+
+.intro-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 200, 130, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 180, 90, 0.6);
+    opacity: 0;
+    animation: introParticleFloat linear infinite;
+}
+@keyframes introParticleFloat {
+    0%   { transform: translate(0, 0); opacity: 0; }
+    10%  { opacity: 0.8; }
+    50%  { opacity: 0.6; }
+    90%  { opacity: 0.4; }
+    100% { transform: translate(var(--dx, 40px), var(--dy, -100px)); opacity: 0; }
+}
+
+/* =========================================================
+   COUCHE 2 : Machine à café (SVG stylée en CSS)
+   ========================================================= */
+.intro-layer-machine {
+    justify-content: flex-end;
+    padding-right: 8vw;
+}
+.intro-machine {
+    position: relative;
+    width: clamp(180px, 26vmin, 340px);
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+    opacity: 0;
+}
+
+/* Écran gros plan (55-70%) */
+.intro-machine-screen-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3);
+    width: min(90vw, 700px);
+    background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+    border: 3px solid #333;
+    border-radius: 6px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 0 60px rgba(200, 117, 51, 0.3),
+                inset 0 0 40px rgba(0,0,0,0.8);
+    opacity: 0;
+}
+.intro-screen-label {
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    color: #c87533;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+.intro-screen-price {
+    display: block;
+    font-family: 'Anton', sans-serif;
+    color: #f5f5f5;
+    font-size: clamp(4rem, 15vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 40px rgba(255,255,255,0.4);
+}
+
+/* =========================================================
+   COUCHE 3 : Personnage (silhouette de dos)
+   ========================================================= */
+.intro-layer-character {
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 0;
+}
+.intro-character {
+    position: relative;
+    width: clamp(160px, 22vmin, 280px);
+    margin-right: 10vw;
+    margin-bottom: 5vh;
+    filter: drop-shadow(0 -5px 20px rgba(200, 117, 51, 0.15));
+    opacity: 0;
+}
+
+/* =========================================================
+   COUCHE 4 : Main + pièces
+   ========================================================= */
+.intro-layer-hand {
+    justify-content: flex-start;
+    padding-left: 8vw;
+}
+.intro-hand {
+    position: relative;
+    width: clamp(200px, 30vmin, 380px);
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.intro-coin {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffd88a, #c8933a 60%, #7a5015);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6),
+                inset 0 -2px 4px rgba(0,0,0,0.4);
+    opacity: 0;
+}
+
+/* =========================================================
+   COUCHE 5 : Compteur cinéma
+   ========================================================= */
+.intro-layer-counter {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12vh 0 0 10vw;
+}
+.intro-counter {
+    opacity: 0;
+    text-align: left;
+}
+.intro-counter-label {
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    color: #c87533;
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+}
+.intro-counter-value {
+    display: block;
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(4rem, 14vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: #f5f5f5;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.9),
+                 0 0 40px rgba(200,117,51,0.3);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+.intro-counter.stopped .intro-counter-value {
+    color: #ff5555;
+    text-shadow: 0 0 30px rgba(255, 60, 60, 0.7),
+                 0 4px 24px rgba(0,0,0,0.9);
+    animation: introCounterBlink 0.6s infinite;
+}
+@keyframes introCounterBlink {
+    0%, 60% { opacity: 1; }
+    61%, 100% { opacity: 0.35; }
+}
+
+/* =========================================================
+   COUCHE 6 : Face dépitée + tasse vide
+   ========================================================= */
+.intro-layer-face {
+    justify-content: center;
+    align-items: center;
+}
+.intro-face-scene {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.intro-empty-cup {
+    width: clamp(80px, 12vw, 140px);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7));
+}
+.intro-steam {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 40px;
+    opacity: 0.4;
+    animation: introSteam 3s ease-in-out infinite;
+}
+@keyframes introSteam {
+    0%, 100% { opacity: 0; transform: translate(-50%, 0) scaleY(0.5); }
+    50%      { opacity: 0.4; transform: translate(-50%, -10px) scaleY(1); }
+}
+
+/* =========================================================
+   COUCHE 7 : Flash éclair
+   ========================================================= */
+.intro-layer-flash {
+    background: #fff;
+    opacity: 0;
+    mix-blend-mode: screen;
+}
+
+/* =========================================================
+   COUCHE 8 : Overlay captions (textes)
+   ========================================================= */
+.intro-layer-captions {
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.intro-caption {
+    position: absolute;
+    font-family: 'Cinzel', serif;
+    color: #f5f5f5;
+    text-align: center;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    opacity: 0;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+    padding: 0 1.5rem;
+    max-width: 900px;
+}
+.intro-caption-opening {
+    font-size: clamp(1.2rem, 3vw, 2.2rem);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+}
+.intro-caption-opening .intro-caption-line-small {
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.5em;
+    letter-spacing: 0.4em;
+    color: #a0a0a0;
+    margin-top: 1rem;
+}
+.intro-caption-missing {
+    font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+.intro-caption-missing strong {
+    display: block;
+    color: #ff6b3d;
+    margin-top: 0.5rem;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.6em;
+    letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   COUCHE 9 : Titre final
+   ========================================================= */
+.intro-layer-title {
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+.intro-title-block {
+    text-align: center;
+    max-width: 100%;
+}
+.intro-title-tag {
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: #c87533;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+.intro-title-main {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 13vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #f5f5f5;
+    margin: 0 0 1.2rem;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    text-shadow: 0 4px 40px rgba(200, 117, 51, 0.35);
+}
+.intro-title-main .accent {
+    background: linear-gradient(180deg, #ffb877 0%, #c87533 60%, #8b1a1a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.intro-title-sub {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #c0c0c0;
+    min-height: 1.5em;
+    padding-left: 0.35em;
+}
+.intro-title-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: #c87533;
+    vertical-align: middle;
+    animation: introCaret 0.9s steps(2) infinite;
+    margin-left: 4px;
+}
+@keyframes introCaret {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.intro-title-mention {
+    display: block;
+    margin-top: 3rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #6a6a6a;
+    opacity: 0;
+    transition: opacity 0.6s ease 0.4s;
+}
+.intro-layer-title.revealed .intro-title-tag,
+.intro-layer-title.revealed .intro-title-main {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.intro-layer-title.revealed .intro-title-mention {
+    opacity: 1;
+}
+
+/* =========================================================
+   Réduction des animations
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    #intro-wrapper, #intro-scene, #intro-spacer {
+        display: none !important;
+    }
+    body.intro-active #site-content {
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* Ajustements mobile */
+@media (max-width: 768px) {
+    .intro-skip { top: 1rem; right: 1rem; padding: 0.5rem 0.9rem; font-size: 0.65rem; }
+    .intro-layer-machine { padding-right: 4vw; }
+    .intro-layer-hand { padding-left: 4vw; }
+    .intro-layer-counter { padding: 10vh 0 0 6vw; }
+    .intro-machine-screen-close { padding: 2rem 1rem; width: 88vw; }
+    .intro-title-tag { letter-spacing: 0.35em; }
+    .intro-title-sub { letter-spacing: 0.22em; padding-left: 0.22em; }
+    .intro-title-mention { letter-spacing: 0.28em; }
+}

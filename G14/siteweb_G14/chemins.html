@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Catalogue des chemins du monde.">
+  <title>Les chemins — National Geographic — Les chemins</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/style.css"><script src="assets/js/routes-data.js" defer></script><script src="assets/js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="National Geographic — Les chemins"><span class="brand-frame" aria-hidden="true"></span><span class="brand-copy"><strong>NATIONAL<br>GEOGRAPHIC</strong><small>LE GUIDE DES CHEMINS</small></span></a>
+    <button class="menu-toggle" aria-controls="navigation" aria-expanded="false">Menu ☰</button>
+    <nav id="navigation" aria-label="Navigation principale"><a href="chemins.html" aria-current="page">Les chemins</a><a href="documentaires.html">Les documentaires</a><a href="contact.html">Contact</a><a class="pill" href="404.html">Se connecter ↗</a><button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Mode nuit"><span class="theme-thumb"><img class="theme-icon" src="assets/images/icon-moon.png" alt=""></span></button></nav>
+  </header>
+  <main id="main">
+    <section class="catalogue-intro"><p class="eyebrow">Atlas des chemins</p><h1>Où allez-vous<br>poser vos roues ?</h1><p>Comparez les itinéraires par pays, terrain et moyen de déplacement.</p></section>
+    <section class="catalogue-section">
+      <form class="filters" data-static-filters>
+        <label>Rechercher<input type="search" name="q" placeholder="Nom d’un chemin…"></label>
+        <label>Pays<select name="country"><option value="">Tous les pays</option></select></label>
+        <label>Déplacement<select name="transport"><option value="">Tous les moyens</option><option value="walking">À pied</option><option value="bike">À vélo</option><option value="motorbike">À moto</option><option value="car">En voiture</option><option value="other">Autre</option></select></label>
+        <label>Difficulté<select name="difficulty"><option value="">Tous les niveaux</option><option value="easy">Facile</option><option value="moderate">Modérée</option><option value="difficult">Difficile</option><option value="extreme">Extrême</option></select></label>
+        <label>Avis<select name="verdict"><option value="">Tous les avis</option><option value="recommended">Recommandé</option><option value="challenging">À préparer</option><option value="avoid">À éviter</option></select></label>
+        <label>Trier<select name="sort"><option value="recent">Plus récents</option><option value="country">Pays de A à Z</option><option value="rating_desc">Mieux notés</option><option value="rating_asc">Moins bien notés</option><option value="comments_desc">Plus commentés</option><option value="comments_asc">Moins commentés</option></select></label>
+        <button type="submit">Afficher ↗</button><button type="button" class="filter-reset" data-reset-filters>Réinitialiser</button>
+      </form>
+      <div class="results-heading" data-route-count><strong>6</strong><span>chemins</span></div>
+      <div class="route-grid" data-catalogue-list><p class="empty">Chargement des chemins…</p></div>
+    </section>
+  </main>
+  <footer><div class="footer-top"><a class="brand" href="index.html"><span class="brand-frame" aria-hidden="true"></span><span class="brand-copy"><strong>NATIONAL<br>GEOGRAPHIC</strong><small>LE GUIDE DES CHEMINS</small></span></a><p>Le monde est vaste.<br>Le chemin compte.</p><a class="pill" href="contact.html">Écrire à la rédaction ↗</a></div><div class="footer-bottom"><span>© 2026 Projet pédagogique</span><a href="mentions.html">Informations & confidentialité</a><span>EXPLORER · DOCUMENTER · TRANSMETTRE</span></div></footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Keep text files LF in the repo (Netlify + most tooling expect this)
+*.html   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.json   text eol=lf
+*.toml   text eol=lf
+*.md     text eol=lf
+*.svg    text eol=lf
+
+# Binary assets — never touch
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.webp   binary
+*.mp4    binary
+*.woff2  binary

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>UGC — Films à l'affiche, horaires et réservation en ligne</title>
+<meta name="description" content="Découvrez les films à l'affiche, consultez les horaires des séances et réservez vos places en ligne dans les cinémas UGC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/chaos.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+	<div class="header-top">
+		<div class="wrap header-top-inner">
+			<a href="index.html" class="logo" aria-label="UGC — accueil">
+				<img src="assets/logo-ugc.png" alt="UGC" class="logo-img">
+			</a>
+
+			<button class="icon-btn nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+				<span class="burger"></span>
+				<span class="sr-only">Menu</span>
+			</button>
+
+			<div class="header-actions">
+				<button class="icon-btn" id="searchToggle" aria-expanded="false" aria-controls="searchPanel">
+					<svg viewBox="0 0 24 24" class="icon"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+					<span class="action-label">Rechercher</span>
+				</button>
+				<a class="icon-btn" href="#compte">
+					<svg viewBox="0 0 24 24" class="icon"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
+					<span class="action-label">Mon compte</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="search-panel" id="searchPanel" hidden>
+		<div class="wrap">
+			<form role="search" action="#" onsubmit="return false;">
+				<input type="search" placeholder="Rechercher un film, un cinéma…" aria-label="Rechercher">
+				<button type="submit">OK</button>
+			</form>
+		</div>
+	</div>
+
+	<nav class="main-nav" id="mainNav">
+		<div class="wrap">
+			<ul>
+				<li><a href="#cinemas">Cinémas</a></li>
+				<li><a href="#films" class="active">Films</a></li>
+				<li><a href="#selections">Labels &amp; sélections</a></li>
+				<li><a href="#famille">En famille</a></li>
+				<li><a href="#evenements">Événements</a></li>
+				<li><a href="#news">News</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<main id="main">
+
+	<!-- ========== HERO CAROUSEL ========== -->
+	<section class="hero-carousel" aria-roledescription="carrousel" aria-label="Mises en avant">
+		<div class="hero-track" id="heroTrack">
+
+			<article class="hero-slide hero-slide--aftersun">
+				<div class="wrap hero-content">
+					<p class="hero-kicker">Cinéma d'auteur</p>
+					<h1>AFTERSUN</h1>
+					<p class="hero-desc">Un été, un père, une fille, et des souvenirs qui ne s'effacent jamais.</p>
+					<a href="#films" class="btn btn--pink">Voir les séances</a>
+				</div>
+			</article>
+
+			<article class="hero-slide hero-slide--shrek">
+				<div class="wrap hero-content">
+					<p class="hero-kicker">Séance culte</p>
+					<h1>SHREK</h1>
+					<p class="hero-desc">Retour au marais avec l'ogre le plus grincheux (et attachant) du cinéma.</p>
+					<a href="#famille" class="btn btn--pink">Voir les séances</a>
+				</div>
+			</article>
+
+			<article class="hero-slide hero-slide--portrait">
+				<div class="wrap hero-content">
+					<p class="hero-kicker">Événement</p>
+					<h1>L'INSTANT D'APRÈS</h1>
+					<p class="hero-desc">Un homme seul face à ce qu'il n'a jamais su dire.</p>
+					<a href="#films" class="btn btn--pink">Voir les séances</a>
+				</div>
+			</article>
+
+		</div>
+
+		<button class="hero-arrow hero-arrow--prev" id="heroPrev" aria-label="Précédent">
+			<svg viewBox="0 0 24 24" class="icon"><polyline points="15 18 9 12 15 6"></polyline></svg>
+		</button>
+		<button class="hero-arrow hero-arrow--next" id="heroNext" aria-label="Suivant">
+			<svg viewBox="0 0 24 24" class="icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+		</button>
+
+		<div class="hero-dots" id="heroDots"></div>
+	</section>
+
+	<!-- ========== FILMS ========== -->
+	<section class="films-section" id="films">
+		<div class="wrap">
+			<h2 class="section-title">Films à l'affiche</h2>
+
+			<div class="tabs" role="tablist" aria-label="Catégories de films">
+				<button class="tab active" id="tab-new" role="tab" aria-selected="true" aria-controls="panel-new">Nouveautés</button>
+				<button class="tab" id="tab-onscreen" role="tab" aria-selected="false" aria-controls="panel-onscreen">Toujours à l'affiche</button>
+				<button class="tab" id="tab-family" role="tab" aria-selected="false" aria-controls="panel-family">En famille</button>
+			</div>
+
+			<div class="tab-panels">
+
+				<div class="tab-panel active" id="panel-new" role="tabpanel" aria-labelledby="tab-new">
+					<div class="film-slider">
+						<div class="film-track">
+
+							<article class="film-card">
+								<div class="film-poster film-poster--1" data-trailer="assets/posters/bande-annonce.mp4">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>La Typo Interdite</h3>
+									<p class="film-meta">Long · 1h67</p>
+								</div>
+							</article>
+
+							<article class="film-card">
+								<div class="film-poster film-poster--2">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>Le 31 août</h3>
+									<p class="film-meta">Vlog · 4h15</p>
+								</div>
+							</article>
+
+							<article class="film-card">
+								<div class="film-poster film-poster--3">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>L'écho des profondeurs</h3>
+									<p class="film-meta">Docu · 1h55</p>
+								</div>
+							</article>
+
+							<article class="film-card">
+								<div class="film-poster film-poster--4">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>Le manoir à Nice</h3>
+									<p class="film-meta">Comédie · 1h20</p>
+								</div>
+							</article>
+
+						</div>
+						<button class="slider-arrow slider-arrow--prev" aria-label="Précédent">
+							<svg viewBox="0 0 24 24" class="icon"><polyline points="15 18 9 12 15 6"></polyline></svg>
+						</button>
+						<button class="slider-arrow slider-arrow--next" aria-label="Suivant">
+							<svg viewBox="0 0 24 24" class="icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+						</button>
+					</div>
+				</div>
+
+				<div class="tab-panel" id="panel-onscreen" role="tabpanel" aria-labelledby="tab-onscreen" hidden>
+					<div class="film-slider">
+						<div class="film-track">
+
+							<article class="film-card">
+								<div class="film-poster film-poster--5">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>Rires en cascade</h3>
+									<p class="film-meta">Comédie · 1h38</p>
+								</div>
+							</article>
+
+							<article class="film-card">
+								<div class="film-poster film-poster--6">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>Nuit blanche à Velder</h3>
+									<p class="film-meta">Policier · 1h47</p>
+								</div>
+							</article>
+
+							<article class="film-card">
+								<div class="film-poster film-poster--7">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>La Traversée</h3>
+									<p class="film-meta">Drame · 2h15</p>
+								</div>
+							</article>
+
+							<article class="film-card">
+								<div class="film-poster film-poster--8">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>Vertige</h3>
+									<p class="film-meta">Action · 1h56</p>
+								</div>
+							</article>
+
+						</div>
+						<button class="slider-arrow slider-arrow--prev" aria-label="Précédent">
+							<svg viewBox="0 0 24 24" class="icon"><polyline points="15 18 9 12 15 6"></polyline></svg>
+						</button>
+						<button class="slider-arrow slider-arrow--next" aria-label="Suivant">
+							<svg viewBox="0 0 24 24" class="icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+						</button>
+					</div>
+				</div>
+
+				<div class="tab-panel" id="panel-family" role="tabpanel" aria-labelledby="tab-family" hidden>
+					<div class="film-slider">
+						<div class="film-track">
+
+							<article class="film-card">
+								<div class="film-poster film-poster--9">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>Pixel &amp; Cie</h3>
+									<p class="film-meta">Animation · 1h32</p>
+								</div>
+							</article>
+
+							<article class="film-card">
+								<div class="film-poster film-poster--10">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>Le Royaume de Mirabel</h3>
+									<p class="film-meta">Animation · 1h29</p>
+								</div>
+							</article>
+
+							<article class="film-card">
+								<div class="film-poster film-poster--11">
+									<div class="film-overlay">
+										<button class="play-btn" aria-label="Voir la bande annonce">
+											<svg viewBox="0 0 24 24" class="icon"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+										</button>
+										<span class="overlay-text">Voir la bande annonce</span>
+										<a href="#" class="btn btn--pink btn--block">Séances</a>
+									</div>
+								</div>
+								<div class="film-info">
+									<h3>Vacances en folie</h3>
+									<p class="film-meta">Comédie familiale · 1h35</p>
+								</div>
+							</article>
+
+						</div>
+						<button class="slider-arrow slider-arrow--prev" aria-label="Précédent">
+							<svg viewBox="0 0 24 24" class="icon"><polyline points="15 18 9 12 15 6"></polyline></svg>
+						</button>
+						<button class="slider-arrow slider-arrow--next" aria-label="Suivant">
+							<svg viewBox="0 0 24 24" class="icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+						</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ========== CINEMAS ========== -->
+	<section class="cinemas-section" id="cinemas">
+		<div class="wrap">
+			<h2 class="section-title">Trouvez votre cinéma</h2>
+			<form class="cinema-search" onsubmit="return false;">
+				<input type="text" placeholder="Ville ou code postal">
+				<button type="submit" class="btn btn--blue">Rechercher</button>
+			</form>
+
+			<ul class="cinema-list">
+				<li class="cinema-card">
+					<div class="cinema-card-body">
+						<h3>UGC Ciné Cité Les Halles</h3>
+						<p>7 place de la Rotonde, 75001 Paris</p>
+					</div>
+					<a href="#" class="btn btn--outline">Voir les séances</a>
+				</li>
+				<li class="cinema-card">
+					<div class="cinema-card-body">
+						<h3>UGC Odéon</h3>
+						<p>124 boulevard Saint-Germain, 75006 Paris</p>
+					</div>
+					<a href="#" class="btn btn--outline">Voir les séances</a>
+				</li>
+				<li class="cinema-card">
+					<div class="cinema-card-body">
+						<h3>UGC Ciné Cité Bercy</h3>
+						<p>2 cour Saint-Émilion, 75012 Paris</p>
+					</div>
+					<a href="#" class="btn btn--outline">Voir les séances</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- ========== NEWSLETTER ========== -->
+	<section class="newsletter-section">
+		<div class="wrap newsletter-inner">
+			<h2 class="section-title section-title--light">Inscrivez-vous dès maintenant !</h2>
+			<p>Je souhaite recevoir l'actualité cinéma et les meilleures offres UGC.</p>
+			<form class="newsletter-form" onsubmit="return false;">
+				<input type="email" placeholder="Mon e-mail *" required>
+				<select aria-label="Mon cinéma favori">
+					<option value="-1" selected>Mon cinéma favori</option>
+					<option value="halles">UGC Ciné Cité Les Halles</option>
+					<option value="odeon">UGC Odéon</option>
+					<option value="bercy">UGC Ciné Cité Bercy</option>
+				</select>
+				<button type="submit" class="btn btn--pink">S'inscrire</button>
+			</form>
+		</div>
+	</section>
+
+	<!-- ========== AVIS ========== -->
+	<section class="reviews-section" id="avis">
+		<div class="wrap">
+			<h2 class="section-title">Avis clients</h2>
+			<div class="reviews-grid">
+
+				<article class="review-card">
+					<div class="review-header">
+						<img src="assets/reviews/oscar.jpg" alt="" class="review-avatar">
+						<div>
+							<p class="review-name">Oscare</p>
+							<div class="review-stars" aria-label="1 étoile sur 5">★☆☆☆☆</div>
+						</div>
+					</div>
+					<p class="review-text">Impossible de réserver mes places sans que le site plante. Le menu est illisible sur mobile, je suis passé par trois écrans différents avant de trouver les horaires.</p>
+				</article>
+
+				<article class="review-card">
+					<div class="review-header">
+						<img src="assets/reviews/marlene.jpg" alt="" class="review-avatar">
+						<div>
+							<p class="review-name">Marlaine</p>
+							<div class="review-stars" aria-label="1 étoile sur 5">★☆☆☆☆</div>
+						</div>
+					</div>
+					<p class="review-text">Le pire site de réservation que j'ai utilisé. Ergonomie catastrophique, les boutons ne répondent pas la moitié du temps.</p>
+				</article>
+
+				<article class="review-card">
+					<div class="review-header">
+						<img src="assets/reviews/arnaud.jpg" alt="" class="review-avatar">
+						<div>
+							<p class="review-name">Arno</p>
+							<div class="review-stars" aria-label="2 étoiles sur 5">★★☆☆☆</div>
+						</div>
+					</div>
+					<p class="review-text">Moche.</p>
+				</article>
+
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+	<div class="wrap">
+		<ul class="social-list">
+			<li><a href="#" aria-label="Facebook">FB</a></li>
+			<li><a href="#" aria-label="X / Twitter">X</a></li>
+			<li><a href="#" aria-label="Instagram">IG</a></li>
+			<li><a href="#" aria-label="TikTok">TT</a></li>
+			<li><a href="#" aria-label="YouTube">YT</a></li>
+			<li><a href="#" aria-label="LinkedIn">IN</a></li>
+		</ul>
+
+		<ul class="footer-links">
+			<li><a href="#">Besoin d'aide ?</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">UGC Recrute</a></li>
+			<li><a href="#">Groupe UGC</a></li>
+			<li><a href="#">UGC Pro</a></li>
+		</ul>
+
+		<ul class="footer-links footer-links--policy">
+			<li><a href="#">Politique de confidentialité</a></li>
+			<li><a href="#">Conditions générales</a></li>
+			<li><a href="#">Mentions légales</a></li>
+			<li><a href="#">Cookies</a></li>
+			<li><a href="#">Accessibilité</a></li>
+		</ul>
+
+		<p class="footer-version">v0.1.0 — projet étudiant à but pédagogique, non affilié au groupe UGC</p>
+	</div>
+</footer>
+
+<!-- ========== TRAILER MODAL ========== -->
+<div class="video-modal" id="videoModal" hidden>
+	<div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+	<div class="video-modal-box">
+		<button class="video-modal-close" id="videoModalClose" aria-label="Fermer">&times;</button>
+		<video id="videoModalPlayer" controls playsinline></video>
+	</div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/chaos.js"></script>
+</body>
+</html>

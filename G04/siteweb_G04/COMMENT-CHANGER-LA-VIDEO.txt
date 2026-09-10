@@ -1,0 +1,133 @@
+====================================================================
+  LEON MARCHAND SUR L'EAU  -  COMMENT CHANGER LA VIDEO
+====================================================================
+
+Site en ligne : https://disney-leon-marchand.netlify.app/
+Code source   : https://github.com/Ulyssemmi/Mmi-Disney-Leon-Marchand
+
+"Le dossier du projet" = le dossier qui contient index.html.
+Guide complet et detaille : voir  INSTRUCTIONS.txt
+
+
+--------------------------------------------------------------------
+  IL Y A DEUX FACONS DE CHANGER LA VIDEO
+--------------------------------------------------------------------
+
+  FACON 1 (rapide) : l'editeur cache dans la page
+       -> juste pour toi, sur ton ordi. Personne d'autre ne le voit.
+
+  FACON 2 (definitive) : modifier le fichier script.js
+       -> visible par TOUT LE MONDE apres "git push".
+
+Utilise la FACON 1 pour tester vite, la FACON 2 pour publier pour de bon.
+
+
+====================================================================
+  FACON 1  -  EDITEUR RAPIDE (changements locaux)
+====================================================================
+
+1. Ouvre le site (en ligne ou en local).
+
+2. Tape le mot   leon   au clavier, n'importe ou sur la page.
+   (ou ajoute  #edit  a la fin de l'adresse, ex :
+    https://disney-leon-marchand.netlify.app/#edit )
+
+3. Un panneau "Edition rapide" s'ouvre. Tu peux :
+
+   - "Video depuis mon PC" : choisis un fichier .mp4 / .webm / .mov
+     -> il se charge tout de suite et RESTE meme si tu recharges la page.
+
+   - "...ou coller un lien" : colle un lien YouTube ou Vimeo, clique OK.
+
+   - "Image derriere le lecteur" : choisis une image (l'affiche du film).
+     Elle s'applique immediatement.
+
+4. Ferme le panneau. Clique sur LECTURE pour voir la video.
+
+5. Bouton "Tout reinitialiser" = revenir a la video/image d'origine.
+
+IMPORTANT : ces changements sont enregistres UNIQUEMENT dans ton
+navigateur (cet ordinateur). Les autres visiteurs voient toujours la
+video definie dans le code (voir FACON 2).
+
+Pour changer le mot de passe "leon" : ouvre script.js, ligne
+   const EDIT_CODE  = "leon";
+et mets le mot que tu veux (ou "" pour desactiver l'editeur).
+
+
+====================================================================
+  FACON 2  -  MODIFIER LE CODE (pour tout le monde)
+====================================================================
+
+1. Ouvre le fichier   script.js   avec le Bloc-notes (ou VS Code).
+
+2. Tout en haut, tu vois ces deux lignes :
+
+   const VIDEO_URL  = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+   const POSTER_URL = "";
+
+3. Remplace le lien entre guillemets de VIDEO_URL par ta video.
+
+   Formats acceptes :
+
+   YouTube        "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+   YouTube court  "https://youtu.be/XXXXXXXXXXX"
+   YouTube Short  "https://www.youtube.com/shorts/XXXXXXXXXXX"
+   Vimeo          "https://vimeo.com/XXXXXXXX"
+   Fichier local  "assets/ma-video.mp4"
+                  (mets d'abord le .mp4 dans le dossier "assets")
+   Autre lien     charge tel quel dans un lecteur
+
+   -> Garde bien les guillemets " " et le point-virgule ; a la fin.
+
+4. (Optionnel) POSTER_URL = l'image affichee AVANT de lancer la video.
+   Laisse ""  pour le panneau bleu par defaut, ou mets par ex :
+   const POSTER_URL = "assets/affiche.jpg";
+   (mets le fichier affiche.jpg dans le dossier "assets")
+
+5. Enregistre le fichier.
+
+6. Publie (proprietaire du depot uniquement). Terminal ouvert DANS
+   le dossier du projet :
+
+   git add script.js
+   git commit -m "nouvelle video"
+   git push
+
+   Netlify remet le site a jour tout seul en ~30 secondes.
+   (Si tu n'as pas d'acces GitHub : renvoie le dossier au
+   proprietaire, c'est lui qui publie.)
+
+
+====================================================================
+  LANCER LE SITE EN LOCAL (sur ton ordi)
+====================================================================
+
+Le plus simple : double-clique  index.html  -> il s'ouvre dans le
+navigateur. Suffisant pour regarder le site et la video.
+
+Pour que TOUT marche a 100 % (dont "video depuis mon PC"), lance un
+petit serveur. Ouvre un terminal DANS le dossier du projet, puis :
+
+   python -m http.server 8000       (si Python est installe)
+   -- ou --
+   npx serve                        (si Node.js est installe)
+
+Puis ouvre l'adresse affichee, ex :  http://localhost:8000
+Arreter : Ctrl + C dans le terminal.
+
+Plus de details (installer Python, VS Code Live Server...) :
+voir INSTRUCTIONS.txt chapitre 1.
+
+
+====================================================================
+  AUTRES CHANGEMENTS RAPIDES (dans script.js)
+====================================================================
+
+- Textes FR / EN  : objet  I18N  dans script.js (bloc "fr" et bloc "en").
+- Photos/acteurs  : remplace les fichiers dans  assets/cast/  (memes noms).
+- Liens Wikipedia : attribut  href  des <a class="cast-link"> dans index.html.
+- Logo en haut    : assets/logo-mmi.png (remets assets/logo-nav.png dans
+                    index.html si tu preferes l'ancien logo texte).
+
+====================================================================

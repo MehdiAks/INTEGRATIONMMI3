@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="L'Écho du Silence — site promotionnel fictif d'un thriller français.">
+  <title>L'Écho du Silence — Fiction événement</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="intro-screen" class="intro-screen" role="button" tabindex="0" aria-label="Ouvrir le site L'Écho du Silence">
+    <div class="intro-grain"></div>
+    <div class="intro-orbit orbit-one"></div>
+    <div class="intro-orbit orbit-two"></div>
+    <div class="intro-content">
+      <p class="intro-kicker">Une histoire commence par un signal</p>
+      <div class="phone-shell" aria-hidden="true">
+        <div class="phone-speaker"></div>
+        <div class="phone-time">21:10</div>
+        <div class="notification-card">
+          <div class="notification-topline"><span class="message-icon">●</span><span>Messages</span><span>Maintenant</span></div>
+          <p class="notification-sender">Numéro inconnu</p>
+          <p class="notification-copy">Ce message a été supprimé.</p>
+        </div>
+        <div class="phone-home"></div>
+      </div>
+      <div class="intro-action"><span class="intro-pulse"></span> Cliquer pour ouvrir <span>↓</span></div>
+    </div>
+  </div>
+
+  <header class="main-header" id="main-header">
+    <button class="wordmark tf1-wordmark" data-scroll="accueil" aria-label="Retour à l'accueil"><span class="tf1-logo">TF1</span><span>L'ÉCHO <em>DU SILENCE</em></span></button>
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <button data-scroll="le-film">Le film</button>
+      <button data-scroll="trailer">Bande-annonce</button>
+      <button data-scroll="casting">Casting</button>
+      <button data-scroll="presse">La presse</button>
+    </nav>
+    <button class="broadcast-button" data-scroll="diffusion"><span class="live-dot"></span> Diffusion <span>↗</span></button>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Navigation mobile">
+      <button data-scroll="le-film">Le film</button>
+      <button data-scroll="trailer">Bande-annonce</button>
+      <button data-scroll="casting">Casting</button>
+      <button data-scroll="presse">La presse</button>
+      <button data-scroll="diffusion">Diffusion</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="accueil" class="hero-section">
+      <img class="hero-art" src="images/hero.jpg" alt="Une femme contemple son téléphone près d'une fenêtre sous la pluie">
+      <div class="hero-shade"></div><div class="hero-grid"></div>
+      <div class="hero-content reveal is-visible">
+        <p class="eyebrow"><span></span> Fiction événement · 90 min</p>
+        <h1>L'ÉCHO<br><i>DU SILENCE</i></h1>
+        <p class="hero-tagline">Il y a des messages qu'on ne peut pas effacer.</p>
+        <div class="hero-actions"><button class="button-primary" data-scroll="trailer">▶ &nbsp; Voir la bande-annonce</button><button class="text-action" data-scroll="le-film">Découvrir le film ↗</button></div>
+      </div>
+      <button class="scroll-cue" data-scroll="le-film">Défiler pour entrer <span>↓</span></button>
+      <p class="hero-credit">Création originale de TF1</p>
+    </section>
+
+    <section id="le-film" class="story-section section-pad">
+      <div class="section-label reveal"><span>01</span><p>Le film</p></div>
+      <div class="story-layout">
+        <div class="poster-wrap reveal"><img src="images/affiche.jpg" alt="Affiche du film L'Écho du Silence"><div class="poster-caption"><span>Thriller</span><span>France · 2026</span></div></div>
+        <div class="story-copy reveal"><p class="overline">Synopsis officiel</p><h2>Une notification.<br>Une faille dans le passé.</h2><p class="story-lead">Un soir ordinaire, Sarah reçoit un message d'un numéro inconnu. Quelques secondes plus tard, il disparaît. Mais une phrase reste gravée dans son esprit : <strong>« Tu savais. »</strong></p><p>En cherchant à retrouver l'expéditeur, elle déterre une affaire oubliée au sein de sa propre famille. Chaque réponse fait surgir une nouvelle zone d'ombre, jusqu'à remettre en cause tout ce qu'elle croyait connaître.</p><dl class="film-facts"><div><dt>Genre</dt><dd>Thriller psychologique</dd></div><div><dt>Durée</dt><dd>1 h 30</dd></div><div><dt>Réalisation</dt><dd>Maud Villeret</dd></div></dl></div>
+      </div>
+    </section>
+
+    <section id="trailer" class="trailer-section section-pad">
+      <div class="trailer-head reveal"><div class="section-label"><span>02</span><p>Bande-annonce</p></div><p>Le premier indice n'est jamais le dernier.</p></div>
+      <div class="trailer-frame reveal" id="trailer-frame"><img src="images/affiche.jpg" alt="" class="trailer-backdrop"><div class="trailer-overlay"></div><div class="trailer-placeholder"><span class="placeholder-kicker">EMPLACEMENT VIDÉO</span><button id="load-video" class="play-disc" aria-label="Charger une bande-annonce">▶</button><p>Ajoutez votre bande-annonce</p><small>Choisissez un fichier .mp4 pour le prévisualiser</small></div><input id="video-input" class="sr-only" type="file" accept="video/mp4,video/webm,video/ogg"><div class="frame-corner corner-tl"></div><div class="frame-corner corner-tr"></div><div class="frame-corner corner-bl"></div><div class="frame-corner corner-br"></div></div>
+      <p class="media-note reveal">Pour la version finale, vous pouvez remplacer ce lecteur par le fichier <code>videos/bande-annonce.mp4</code>.</p>
+    </section>
+
+    <section id="casting" class="casting-section section-pad"><div class="casting-heading reveal"><div class="section-label"><span>03</span><p>Distribution</p></div><h2>Ils gardent tous<br>une part du secret.</h2></div><div class="cast-grid"><article class="cast-card reveal"><div class="cast-portrait portrait-one"><span>EV</span></div><p class="cast-role">Sarah Marciano</p><h3>Édith Vane</h3></article><article class="cast-card reveal"><div class="cast-portrait portrait-two"><span>ML</span></div><p class="cast-role">Commandant Paul Rivière</p><h3>Marc Levant</h3></article><article class="cast-card reveal"><div class="cast-portrait portrait-three"><span>CM</span></div><p class="cast-role">Léa Marciano</p><h3>Clara Moreau</h3></article></div></section>
+
+    <section id="presse" class="press-section section-pad"><div class="press-top reveal"><div class="section-label"><span>04</span><p>Ils en parlent</p></div><p class="press-intro">Une réception qui ne laisse pas indifférent.</p></div><div class="review-grid"><article class="review-card reveal"><div class="review-score">4/5</div><blockquote>« Un thriller au suspense parfaitement maîtrisé. »</blockquote><p>Le Regard</p></article><article class="review-card reveal"><div class="review-score">8/10</div><blockquote>« Une héroïne magnétique, un récit qui vous suit jusque dans la nuit. »</blockquote><p>Télé-Culture</p></article><article class="review-card reveal"><div class="review-score">Coup de cœur</div><blockquote>« La notification la plus inquiétante de la rentrée. »</blockquote><p>Écran Français</p></article></div></section>
+
+    <section id="diffusion" class="broadcast-section"><div class="broadcast-lines"></div><div class="broadcast-inner reveal"><div class="broadcast-heading"><p class="overline">Première diffusion</p><h2>Rendez-vous<br><span id="broadcast-date">mardi prochain.</span></h2><p>◷ &nbsp; En première partie de soirée · 21h10</p></div><div class="countdown" aria-label="Compte à rebours"><div class="time-unit"><strong id="days">00</strong><span>Jours</span></div><div class="time-unit"><strong id="hours">00</strong><span>Heures</span></div><div class="time-unit"><strong id="minutes">00</strong><span>Min.</span></div><div class="time-unit"><strong id="seconds">00</strong><span>Sec.</span></div></div></div></section>
+
+    <section id="making-of" class="making-of-section section-pad">
+      <div class="making-of-head reveal"><div class="section-label"><span>05</span><p>Making of</p></div><h2>Dans les coulisses<br>du silence.</h2><p>Découvrez le making of officiel de <em>L'Écho du Silence</em>.</p></div>
+      <div class="making-of-video trailer-frame reveal" id="making-of-frame"><div class="trailer-overlay"></div><div class="trailer-placeholder"><span class="placeholder-kicker">MAKING OF OFFICIEL</span><button id="load-making-of" class="play-disc" aria-label="Charger le making of">▶</button><p>Voir le making of</p><small>Choisissez un fichier vidéo pour le prévisualiser</small></div><input id="making-of-input" class="sr-only" type="file" accept="video/mp4,video/webm,video/ogg"><div class="frame-corner corner-tl"></div><div class="frame-corner corner-tr"></div><div class="frame-corner corner-bl"></div><div class="frame-corner corner-br"></div></div>
+      <p class="media-note reveal">Pour la version finale, ajoutez votre fichier <code>videos/making-of.mp4</code>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main"><div class="wordmark tf1-wordmark"><span class="tf1-logo">TF1</span><span>L'ÉCHO <em>DU SILENCE</em></span></div><p>Création originale de TF1 · Site promotionnel scolaire.</p></div>
+    <div class="footer-links"><div><h4>Navigation</h4><button data-scroll="accueil">Accueil</button><button data-scroll="le-film">Le film</button><button data-scroll="making-of">Making of</button></div><div><h4>Informations</h4><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a><a href="#">Gérer les cookies</a></div><div><h4>Suivez-nous</h4><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Facebook</a></div></div>
+    <div class="footer-bottom"><p>© 2026 L'Écho du Silence · Tous droits réservés.</p><p>Une production fictive · France</p></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

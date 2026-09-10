@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Appel Inconnu</title>
+<meta name="description" content="L'Appel Inconnu — Unknown Call.">
+<link rel="stylesheet" href="assets/css/devices.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="is-locked">
+
+<!-- ══════════════════════════════════════════════════
+     ÉCRAN 1 — LA TORCHE
+     ══════════════════════════════════════════════════ -->
+<section class="torche" id="torche" aria-label="Trouvez le téléphone dans le noir">
+
+  <!-- la cabine : le téléphone sonne en boucle, puis on décroche -->
+  <div class="torche__scene">
+    <video class="torche__video" id="videoRing"
+           src="assets/video/phone/ringing.mp4"
+           loop muted playsinline preload="auto" aria-hidden="true"></video>
+
+    <video class="torche__video torche__video--pickup" id="videoPickup"
+           src="assets/video/phone/pickup.mp4"
+           muted playsinline preload="auto" aria-hidden="true"></video>
+
+    <!-- le combiné : au milieu de l'image, un peu à gauche (placé au pixel par le JS) -->
+    <button class="torche__combine" id="combine" type="button" aria-label="Décrocher le combiné"></button>
+  </div>
+
+  <!-- voile d'obscurité percé par le faisceau -->
+  <div class="torche__voile" id="voile"></div>
+  <div class="torche__halo" id="halo" aria-hidden="true"></div>
+
+  <div class="torche__souffle" id="souffle" aria-hidden="true"></div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     ÉCRAN 2 — LA PAGE
+     ══════════════════════════════════════════════════ -->
+<main class="dossier" id="dossier" hidden>
+
+  <!-- ─── HERO : l'affiche + les rubans ─── -->
+  <header class="hero" id="hero">
+    <div class="hero__mur" aria-hidden="true">
+      <img src="assets/img/herofond.png" alt="">
+    </div>
+
+    <div class="hero__centre">
+      <img class="affiche" id="afficheImg" src="assets/img/affiche.png" alt="Affiche du film">
+    </div>
+
+    <div class="rubans" aria-hidden="true">
+      <div class="ruban-bande ruban-bande--1"><div class="ruban-piste">
+        <span>L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>
+        <span>L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>
+      </div></div>
+      <div class="ruban-bande ruban-bande--2"><div class="ruban-piste ruban-piste--inverse">
+        <span>L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>
+        <span>L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>
+      </div></div>
+      <div class="ruban-bande ruban-bande--3"><div class="ruban-piste">
+        <span>L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>
+        <span>L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;L'APPEL INCONNU&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;UNKNOWN CALL&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</span>
+      </div></div>
+    </div>
+
+  </header>
+
+
+  <!-- ─── LA VIDÉO ─── -->
+  <section class="bloc bloc--tele" id="video">
+    <div class="tele" id="tele">
+      <!-- l'écran vit DERRIÈRE le png ajouré -->
+      <div class="tele__ecran">
+        <video class="tele__video" id="teleVideo" playsinline muted loop preload="none">
+          <source src="assets/video/enregistrement.mp4" type="video/mp4">
+        </video>
+        <canvas class="tele__neige" id="neige" width="80" height="60" aria-hidden="true"></canvas>
+        <div class="tele__scanlines" aria-hidden="true"></div>
+        <p class="tele__absent" id="teleAbsent">
+          <span class="phos">PAS DE SIGNAL</span>
+          <span class="mono">assets/video/enregistrement.mp4</span>
+        </p>
+        <div class="tele__controles" id="teleControles" hidden>
+          <button class="tele__ctrl" id="teleBouton" type="button" aria-label="Lecture">▶</button>
+          <button class="tele__ctrl" id="telePlein" type="button" aria-label="Plein écran">⛶</button>
+        </div>
+      </div>
+      <img class="tele__png" src="assets/img/tv.png" alt="">
+    </div>
+  </section>
+
+  <!-- ─── L'APPEL — écran de verrouillage iPhone ─── -->
+  <section class="bloc bloc--appel" id="appel">
+    <div class="iphone">
+      <div class="device device-iphone-14-pro">
+        <div class="device-frame">
+          <div class="device-screen">
+
+            <div class="ios">
+              <!-- barre d'état -->
+              <div class="ios__statut">
+                <span class="ios__heure-statut">03:14</span>
+                <span class="ios__icones">
+                  <svg viewBox="0 0 18 12" width="17" height="11" aria-hidden="true">
+                    <rect x="0"  y="8" width="3" height="4"  rx="1" fill="currentColor"/>
+                    <rect x="5"  y="6" width="3" height="6"  rx="1" fill="currentColor"/>
+                    <rect x="10" y="3" width="3" height="9"  rx="1" fill="currentColor"/>
+                    <rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor" opacity=".35"/>
+                  </svg>
+                  <svg viewBox="0 0 16 12" width="16" height="12" aria-hidden="true">
+                    <path d="M8 10.6 6.2 8.8a2.6 2.6 0 0 1 3.6 0L8 10.6Z" fill="currentColor"/>
+                    <path d="M3.6 6.2a6.2 6.2 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                    <path d="M1 3.6a9.8 9.8 0 0 1 14 0" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                  </svg>
+                  <svg viewBox="0 0 27 13" width="25" height="12" aria-hidden="true">
+                    <rect x=".5" y=".5" width="22" height="12" rx="3.8" stroke="currentColor" stroke-opacity=".4" fill="none"/>
+                    <rect x="2" y="2" width="13" height="9" rx="2.5" fill="currentColor"/>
+                    <path d="M24.5 4.5v4a2.3 2.3 0 0 0 0-4Z" fill="currentColor" fill-opacity=".4"/>
+                  </svg>
+                </span>
+              </div>
+
+              <!-- verrou, date, horloge -->
+              <div class="ios__tete">
+                <svg class="ios__cadenas" viewBox="0 0 20 24" width="15" height="18" aria-hidden="true">
+                  <path d="M5 10V7a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                  <rect x="2.5" y="10" width="15" height="12" rx="3.4" fill="currentColor"/>
+                </svg>
+                <p class="ios__date">vendredi 13 mars</p>
+                <p class="ios__horloge">03:14</p>
+              </div>
+
+              <!-- appel entrant -->
+              <div class="ios__appel">
+                <div class="ios__appel-tete">
+                  <div class="ios__avatar" aria-hidden="true">?</div>
+                  <div class="ios__appel-txt">
+                    <p class="ios__appelant">Numéro masqué</p>
+                    <p class="ios__appel-etat">appel entrant</p>
+                  </div>
+                </div>
+                <div class="ios__actions">
+                  <span class="ios__action">
+                    <span class="ios__rond ios__rond--refus" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3.6 14.4c4.6-4.6 12.2-4.6 16.8 0l1.5-1.5a2 2 0 0 0 0-2.8c-6-6-15.8-6-21.8 0a2 2 0 0 0 0 2.8l1.5 1.5Z" fill="currentColor"/></svg>
+                    </span>
+                    <span class="ios__action-txt">Refuser</span>
+                  </span>
+                  <span class="ios__action">
+                    <span class="ios__rond ios__rond--accept" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1.4 1.4 0 0 1 1.5-.3c1.2.4 2.4.6 3.7.6.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C10.3 21.6 2.4 13.7 2.4 3.9c0-.7.6-1.3 1.3-1.3h3.5c.7 0 1.3.6 1.3 1.3 0 1.3.2 2.5.6 3.7.1.5 0 1.1-.3 1.5l-2.2 1.7Z" fill="currentColor"/></svg>
+                    </span>
+                    <span class="ios__action-txt">Accepter</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- notifications -->
+              <div class="ios__notifs">
+
+                <div class="notif notif--sortie">
+                  <div class="notif__icone notif__icone--billet" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="15" height="15"><path d="M4 6h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V7a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>
+                  </div>
+                  <div class="notif__corps">
+                    <div class="notif__tete">
+                      <span class="notif__app">L'APPEL INCONNU</span>
+                      <span class="notif__temps">maintenant</span>
+                    </div>
+                    <p class="notif__titre">Bientôt dans vos salles</p>
+                    <p class="notif__texte">Court métrage, 8 min. Appels non autorisés pendant la séance.</p>
+                  </div>
+                </div>
+
+                <div class="notif">
+                  <div class="notif__icone notif__icone--presse" aria-hidden="true">R</div>
+                  <div class="notif__corps">
+                    <div class="notif__tete">
+                      <span class="notif__app">REVUE NOCTURNE</span>
+                      <span class="notif__temps">il y a 2 min</span>
+                    </div>
+                    <p class="notif__titre">Critique — L'Appel Inconnu</p>
+                    <p class="notif__texte">« On raccroche, et le film continue de sonner quelque part. »</p>
+                  </div>
+                </div>
+
+                <div class="notif">
+                  <div class="notif__icone notif__icone--presse2" aria-hidden="true">É</div>
+                  <div class="notif__corps">
+                    <div class="notif__tete">
+                      <span class="notif__app">ÉCRAN LIBRE</span>
+                      <span class="notif__temps">il y a 14 min</span>
+                    </div>
+                    <p class="notif__titre">Huit minutes, pas une de trop</p>
+                    <p class="notif__texte">« Le silence le plus bruyant de l'année. »</p>
+                  </div>
+                </div>
+
+                <div class="notif">
+                  <div class="notif__icone notif__icone--presse3" aria-hidden="true">S</div>
+                  <div class="notif__corps">
+                    <div class="notif__tete">
+                      <span class="notif__app">LA SÉANCE</span>
+                      <span class="notif__temps">il y a 1 h</span>
+                    </div>
+                    <p class="notif__titre">Ne décrochez pas</p>
+                    <p class="notif__texte">« Un court métrage étrange, à voir avec le téléphone éteint. »</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="ios__barre" aria-hidden="true"></div>
+            </div>
+
+          </div>
+        </div>
+        <div class="device-stripe"></div>
+        <div class="device-header"></div>
+        <div class="device-sensors"></div>
+        <div class="device-btns"></div>
+        <div class="device-power"></div>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<!-- ══════════════════════════════════════════════════
+     COUCHE VHS — au-dessus de tout, ne bloque aucun clic
+     ══════════════════════════════════════════════════ -->
+<svg class="vhs__filtres" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- ondulation du signal sur la bande de tête de lecture.
+         Volontairement sans <animate> : le filtre est calculé une seule fois,
+         la bande est ensuite simplement translatée par le GPU. -->
+    <filter id="vhsOnde" x="-10%" y="0" width="120%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.003 0.11" numOctaves="1" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="vhs" aria-hidden="true">
+  <div class="vhs__bruit"></div>
+  <div class="vhs__lignes"></div>
+  <div class="vhs__tete"></div>
+  <div class="vhs__vignette"></div>
+</div>
+
+<script src="assets/js/script.js"></script>
+<script>setTimeout(function(){var t=document.querySelector(".ios__tete");var h=document.querySelector(".ios__horloge");var cs=getComputedStyle(t);var csh=getComputedStyle(h);document.title="tete_display="+cs.display+" tete_vis="+cs.visibility+" tete_opac="+cs.opacity+" horloge_color="+csh.color+" horloge_fontsize="+csh.fontSize+" rect="+JSON.stringify(t.getBoundingClientRect());},600);</script>
+</body>
+</html>

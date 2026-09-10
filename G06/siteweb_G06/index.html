@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Food Wars</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Signika:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <img class="site-header__logo" src="assets/logo.png" alt="Logo Food Wars" />
+
+    <nav class="site-nav">
+      <a class="site-nav__link" href="#catalogue">Catalogue</a>
+      <a class="site-nav__link" href="#prochainement">Prochainement</a>
+      <a class="btn-cta" href="#connexion">Se Connecter</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <img class="hero__city" src="assets/ville2.png" alt="" />
+      <div class="hero__overlay"></div>
+
+      <div class="hero__boxer">
+        <img src="assets/boxer.png" alt="" />
+        <img src="assets/boxer.png" alt="" />
+        <img src="assets/boxer.png" alt="" />
+      </div>
+
+      <img class="deco deco--onion" src="assets/onion.png" alt="" />
+      <img class="deco deco--wrap" src="assets/wrap.png" alt="" />
+      <img class="deco deco--ring-hero" src="assets/ring5.png" alt="" />
+
+      <div class="hero__inner">
+        <h1 class="hero__title">Food Wars</h1>
+        <div class="hero__date">11 SEPTEMBRE</div>
+
+        <div class="media-grid">
+
+          <!--
+            AFFICHE DU FILM
+            1. Déposer le fichier dans : assets/affiche.jpg
+            2. Supprimer le <span> ci-dessous et décommenter le <img>.
+          -->
+          <div class="media-card media-card--poster">
+            <span class="media-card__label">affiche du film</span>
+            <!-- <img src="assets/affiche.jpg" alt="Affiche du film Food Wars" class="media-card__fill" /> -->
+          </div>
+
+          <!--
+            BANDE-ANNONCE
+            1. Déposer la vidéo dans : assets/bande-annonce.mp4
+            2. Image d'aperçu facultative : assets/bande-annonce.jpg (attribut poster).
+            3. Supprimer le bloc placeholder ci-dessous et décommenter le <video>.
+          -->
+          <div class="media-card media-card--trailer">
+            <div class="media-card__play"></div>
+            <span class="media-card__label">bande-annonce</span>
+            <!--
+            <video
+              class="media-card__fill"
+              src="assets/bande-annonce.mp4"
+              poster="assets/bande-annonce.jpg"
+              controls
+              preload="metadata"
+            ></video>
+            -->
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SYNOPSIS ================= -->
+    <section class="synopsis" id="catalogue">
+      <svg class="wave wave--top-out" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 62 C60 56 120 44 240 44 C480 44 600 96 840 96 C1080 96 1200 50 1440 50 V120 H0 Z" fill="#000" />
+      </svg>
+
+      <img class="deco deco--ring-synopsis" src="assets/ring5.png" alt="" />
+
+      <div class="synopsis__inner">
+        <div class="genre-list">
+          <div class="genre-badge">AVENTURE</div>
+          <div class="genre-badge">GUERRE</div>
+          <div class="genre-badge">NOURRITURE</div>
+          <div class="genre-badge">JOUISSEMENT</div>
+        </div>
+
+        <h2 class="synopsis__title">Ce soir, la faim ne fait pas de prisonniers.</h2>
+
+        <p class="synopsis__text">
+          Dans une ville où la nuit ne dort jamais, deux hommes n'ont plus qu'une seule règle :
+          tout est permis pour la dernière bouchée. Visages marqués, poings serrés, ils s'affrontent
+          au milieu des rues, pour un burger, un wrap, une poignée d'onion rings devenus l'enjeu
+          ultime d'une rivalité qui dépasse la faim. Derrière eux, la skyline urbaine veille,
+          témoin muette de ce duel absurde et brutal.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ZONE ================= -->
+    <section class="footer-zone" id="prochainement">
+      <svg class="wave wave--top-in" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          d="M0 0 H1440 V50 C1200 50 1080 96 840 96 C600 96 480 44 240 44 C120 44 60 56 0 62 Z"
+          fill="#000"
+        />
+      </svg>
+
+      <img class="footer-zone__city" src="assets/ville2.png" alt="" />
+      <img class="deco deco--ring-footer" src="assets/ring5.png" alt="" />
+      <img class="deco deco--burger" src="assets/burger.png" alt="" />
+
+      <div class="footer-zone__spacer"></div>
+
+      <footer class="site-footer" id="connexion">
+        <img class="site-footer__logo" src="assets/logo-blanc.png" alt="" />
+
+        <div class="site-footer__inner">
+          <div class="footer-cols">
+            <div class="footer-col">
+              <div class="footer-col__title">Plan du site</div>
+              <a href="#catalogue">Catalogue</a>
+              <a href="#prochainement">Prochainement</a>
+              <a href="#connexion">Se Connecter</a>
+            </div>
+
+            <div class="footer-col">
+              <div class="footer-col__title">Règles et conditions</div>
+              <a href="#confidentialite">Politique de confidentialité</a>
+              <a href="#utilisation">Conditions d'utilisation</a>
+              <a href="#cookies">Cookies détails</a>
+              <a href="#mentions">Mentions Légales</a>
+            </div>
+
+            <div class="footer-col">
+              <div class="footer-col__title">Règles et conditions</div>
+              <a href="#classification">Règles de classification des contenus</a>
+              <a href="#aide">Centre d'aide</a>
+            </div>
+          </div>
+
+          <div class="site-footer__copy">© 2026 IUT BORDEAUX MONTAIGNE</div>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Léon Marchand sur l'eau</title>
+  <meta name="description" content="Léon Marchand sur l'eau — le court métrage. Réalisé par Steven Spielberg. Comédie, animation.">
+  <meta name="color-scheme" content="dark">
+
+  <meta property="og:title" content="Léon Marchand sur l'eau">
+  <meta property="og:description" content="Le court métrage événement. Réalisé par Steven Spielberg.">
+  <meta property="og:type" content="video.movie">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E%F0%9F%8F%8A%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="dns-prefetch" href="https://www.youtube-nocookie.com">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Aller au contenu</a>
+
+  <header class="shell nav-wrap">
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav-left">
+        <a class="nav-logo" href="#main" aria-label="Léon Marchand sur l'eau — accueil">
+          <img src="assets/logo-mmi.png" alt="" width="66" height="46" fetchpriority="high">
+        </a>
+        <ul class="nav-links">
+          <li><a href="#main" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="#cast" data-i18n="nav.cinemas">Cinémas</a></li>
+          <li><a href="#reviews" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Choisir la langue / Choose language">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <button type="button" class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
+        </div>
+        <img class="nav-avatar" src="assets/profile.png" alt="" width="48" height="48">
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="shell page">
+    <h1 class="sr-only">Léon Marchand sur l'eau</h1>
+
+    <section class="hero">
+      <div class="hero-info">
+        <img class="hero-title" src="assets/title-logo.png"
+             alt="Léon Marchand sur l'eau" width="581" height="325" fetchpriority="high">
+
+        <div class="meta">
+          <div class="meta-row">
+            <span class="badge">5+</span>
+            <span class="badge">CC</span>
+            <span class="meta-text" data-i18n="meta.season">2026 • 1ère Saison</span>
+          </div>
+          <p class="meta-text" data-i18n="meta.genres">Comédie, Animation, Court métrage</p>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-play" id="playBtn">
+            <svg class="ic ic-play" viewBox="0 0 16 18.4" aria-hidden="true">
+              <path fill="currentColor" d="M1.85 18.4a1.9 1.9 0 0 1-.88-.23A1.98 1.98 0 0 1 0 16.45V1.95C0 1.23.37.57.97.23A1.9 1.9 0 0 1 2.76.26l12.4 7.42c.4.25.68.63.8 1.06a1.98 1.98 0 0 1-.8 2.28L2.76 18.15a1.9 1.9 0 0 1-.91.25Z"/>
+            </svg>
+            <span data-i18n="btn.play">LECTURE</span>
+          </button>
+
+          <button type="button" class="btn-icon" id="addBtn"
+                  data-i18n-attr="aria-label:btn.add" aria-label="Ajouter à ma liste">
+            <svg class="ic ic-plus" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="23" fill="none" stroke="var(--line-strong)" stroke-width="2"/>
+              <path d="M24 14.5v19M14.5 24h19" fill="none" stroke="currentColor" stroke-width="2.4"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="synopsis">
+          <p class="h-director" data-i18n="hero.director">Réalisé par Steven Spielberg</p>
+          <p class="synopsis-text" data-i18n="hero.synopsis">Habillé de son plus beau bonnet de bain et de ses lunettes de plongée, notre héros prend la pose au Miroir d'Eau. Entre marché des Capucins et affaires louches, découvrez le parcours de la caricature parfaite de Léon Marchand… marchant littéralement sur l'eau.</p>
+        </div>
+      </div>
+
+      <button type="button" class="poster" id="posterBtn"
+              data-i18n-attr="aria-label:poster.watch" aria-label="Regarder la vidéo">
+        <img class="poster-art" id="posterArt" alt="" hidden>
+        <span class="poster-glow" aria-hidden="true"></span>
+        <span class="poster-play" aria-hidden="true">
+          <svg viewBox="0 0 16 18.4"><path fill="currentColor" d="M1.85 18.4a1.9 1.9 0 0 1-.88-.23A1.98 1.98 0 0 1 0 16.45V1.95C0 1.23.37.57.97.23A1.9 1.9 0 0 1 2.76.26l12.4 7.42c.4.25.68.63.8 1.06a1.98 1.98 0 0 1-.8 2.28L2.76 18.15a1.9 1.9 0 0 1-.91.25Z"/></svg>
+        </span>
+        <span class="poster-label" data-i18n="poster.watch">Regarder la vidéo</span>
+      </button>
+    </section>
+
+    <section class="section" id="cast" aria-labelledby="cast-title">
+      <h2 class="section-title" id="cast-title" data-i18n="section.cast">Acteurs</h2>
+      <ul class="cast-grid">
+        <li class="cast-card">
+          <a class="cast-link" href="https://fr.wikipedia.org/wiki/L%C3%A9on_Marchand" target="_blank" rel="noopener noreferrer">
+            <span class="cast-photo"><img src="assets/cast/leon-marchand.jpg" alt="Léon Marchand" loading="lazy" width="420" height="280"></span>
+            <span class="cast-name">Léon Marchand <span class="cast-ext" aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+        <li class="cast-card">
+          <a class="cast-link" href="https://fr.wikipedia.org/w/index.php?search=Bonnie%20Blue%20actrice" target="_blank" rel="noopener noreferrer">
+            <span class="cast-photo"><img src="assets/cast/bonnie-blue.jpg" alt="Bonnie Blue" loading="lazy" width="400" height="225"></span>
+            <span class="cast-name">Bonnie Blue <span class="cast-ext" aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+        <li class="cast-card">
+          <a class="cast-link" href="https://fr.wikipedia.org/wiki/Sylvain_Durif" target="_blank" rel="noopener noreferrer">
+            <span class="cast-photo"><img src="assets/cast/sylvain-durif.jpg" alt="Sylvain Durif" loading="lazy" width="420" height="441"></span>
+            <span class="cast-name">Sylvain Durif <span class="cast-ext" aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+        <li class="cast-card">
+          <a class="cast-link" href="https://fr.wikipedia.org/w/index.php?search=Rahul%20Rai" target="_blank" rel="noopener noreferrer">
+            <span class="cast-photo"><img src="assets/cast/rahul-rai.jpg" alt="Rahul Rai" loading="lazy" width="420" height="631"></span>
+            <span class="cast-name">Rahul Rai <span class="cast-ext" aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+        <li class="cast-card">
+          <a class="cast-link" href="https://fr.wikipedia.org/w/index.php?search=Future%20Bae" target="_blank" rel="noopener noreferrer">
+            <span class="cast-photo"><img src="assets/cast/future-bae.jpg" alt="Future Bae" loading="lazy" width="373" height="536"></span>
+            <span class="cast-name">Future Bae <span class="cast-ext" aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+        <li class="cast-card">
+          <a class="cast-link" href="https://fr.wikipedia.org/wiki/Glen_Powell" target="_blank" rel="noopener noreferrer">
+            <span class="cast-photo"><img src="assets/cast/glen-powell.jpg" alt="Glen Powell" loading="lazy" width="399" height="501"></span>
+            <span class="cast-name">Glen Powell <span class="cast-ext" aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <h2 class="section-title" id="reviews-title" data-i18n="section.reviews">Avis du public</h2>
+      <ul class="reviews-grid">
+        <li class="review">
+          <img class="review-avatar" src="assets/reviews/regelegorila.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="review-body">
+            <p class="review-name">Regelegorila</p>
+            <div class="stars" data-rating="3"></div>
+            <p class="review-text" data-i18n="review.regelegorila">Ce film est tellement dingue, ça met une tempête à Interstellar, ça c'est sûr. Par contre la VF est pourrie.</p>
+          </div>
+        </li>
+        <li class="review">
+          <img class="review-avatar" src="assets/reviews/john-pork.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="review-body">
+            <p class="review-name">John Pork</p>
+            <div class="stars" data-rating="5"></div>
+            <p class="review-text" data-i18n="review.johnpork">C'est époustouflant, j'ai très envie d'appeler Léon Marchant pour l'applaudir.</p>
+          </div>
+        </li>
+        <li class="review">
+          <img class="review-avatar" src="assets/reviews/matthieu-meriot.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="review-body">
+            <p class="review-name">Matthieu Meriot</p>
+            <div class="stars" data-rating="3"></div>
+            <p class="review-text" data-i18n="review.matthieu">J'ai bien mangé au KFC de Châteauroux après avoir visionné ce super film.</p>
+          </div>
+        </li>
+        <li class="review">
+          <img class="review-avatar" src="assets/reviews/charlie-kirk.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="review-body">
+            <p class="review-name">Charlie Kirk</p>
+            <div class="stars" data-rating="4"></div>
+            <p class="review-text" data-i18n="review.charliekirk">Ce film est très touchant, la performance de Futur Bae est révolutionnaire.</p>
+          </div>
+        </li>
+      </ul>
+
+      <button type="button" class="btn btn-more" id="moreReviewsBtn">
+        <svg class="ic ic-plus-sm" viewBox="0 0 23 23" aria-hidden="true">
+          <path d="M11.6 1.2v20.6M1.3 11.6h20.6" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        </svg>
+        <span data-i18n="btn.moreReviews">LIRE PLUS D'AVIS</span>
+      </button>
+    </section>
+
+    <footer class="site-foot">
+      <p data-i18n="foot.note">Fan project non officiel — aucune affiliation avec The Walt Disney Company.</p>
+    </footer>
+  </main>
+
+  <div class="modal" id="videoModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+      <h2 class="sr-only" id="modal-heading">Léon Marchand sur l'eau — vidéo</h2>
+      <button type="button" class="modal-close" data-close
+              data-i18n-attr="aria-label:modal.close" aria-label="Fermer la vidéo">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="modal-stage" id="videoStage"></div>
+      <p class="modal-error" id="videoError" hidden data-i18n="modal.error">Impossible de charger la vidéo. Vérifiez le lien.</p>
+    </div>
+  </div>
+
+  <div class="editor" id="editor" hidden>
+    <div class="editor-backdrop" data-editor-close></div>
+    <div class="editor-panel" role="dialog" aria-modal="true" aria-labelledby="editor-title">
+      <button type="button" class="editor-x" data-editor-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <h2 id="editor-title" data-i18n="editor.title">Édition rapide</h2>
+      <p class="editor-note" data-i18n="editor.note">Ces changements ne sont visibles que sur cet appareil (ce navigateur). Pour publier pour tout le monde, modifie <code>script.js</code> puis pousse sur GitHub.</p>
+
+      <div class="editor-field">
+        <label for="editorVideoFile" data-i18n="editor.videoFile">Vidéo depuis mon PC</label>
+        <input type="file" id="editorVideoFile" accept="video/*">
+      </div>
+
+      <div class="editor-field">
+        <label for="editorVideoUrl" data-i18n="editor.videoUrl">…ou coller un lien (YouTube, Vimeo)</label>
+        <div class="editor-row">
+          <input type="url" id="editorVideoUrl" placeholder="https://www.youtube.com/watch?v=…">
+          <button type="button" class="btn editor-mini" id="editorVideoUrlApply" data-i18n="editor.apply">OK</button>
+        </div>
+      </div>
+
+      <div class="editor-field">
+        <label for="editorPosterFile" data-i18n="editor.poster">Image derrière le lecteur</label>
+        <input type="file" id="editorPosterFile" accept="image/*">
+      </div>
+
+      <p class="editor-status" id="editorStatus" role="status" hidden></p>
+
+      <div class="editor-actions">
+        <button type="button" class="btn" id="editorReset" data-i18n="editor.reset">Tout réinitialiser</button>
+        <button type="button" class="btn" data-editor-close data-i18n="editor.done">Terminé</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
