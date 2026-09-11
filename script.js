@@ -32,32 +32,28 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function buildPosterCandidates(group, siteFolder) {
+function mediaFolders(group, siteFolder) {
   const actualSite = siteFolder.replace(/\/dist(?:\/client)?$/, "");
-  const groupRoot = actualSite.replace(/\/[^/]+$/, "");
-  return [groupRoot, `${actualSite}/assets/images`].flatMap(root =>
-    ["png", "jpg", "jpeg", "pdf"].map(extension => `${root}/affiche_${group}.${extension}`)
+  return [...new Set([`${group}/siteweb_${group}`, actualSite])];
+}
+function buildPosterCandidates(group, siteFolder) {
+  return mediaFolders(group, siteFolder).flatMap(folder =>
+    ["png", "jpg", "jpeg", "pdf"].map(extension => `${folder}/assets/images/affiche_${group}.${extension}`)
+  );
+}
+function buildVideoCandidates(group, siteFolder) {
+  return mediaFolders(group, siteFolder).flatMap(folder =>
+    ["mp4", "mov"].map(extension => `${folder}/assets/videos/video_${group}.${extension}`)
   );
 }
 
 const mediaDialog = document.getElementById("mediaDialog");
 const mediaContent = document.getElementById("mediaContent");
-const mediaCache = new Map();
 let mediaRequest = 0;
 let previousOverflow = "";
 
-async function findMedia(candidates) {
-  const key = candidates.join("|");
-  if (!mediaCache.has(key)) mediaCache.set(key, (async () => {
-    for (const src of candidates) {
-      try {
-        const response = await fetch(src, { method: "HEAD" });
-        if (response.ok && !response.headers.get("content-type")?.includes("text/html")) return src;
-      } catch { /* Essayer le format suivant. */ }
-    }
-    return null;
-  })());
-  return mediaCache.get(key);
+function findMedia(candidates) {
+  return window.GroupMedia.findCandidates(candidates);
 }
 
 function clearMedia() {
@@ -90,13 +86,26 @@ async function openMedia(kind, group, title, siteFolder) {
   }
   const actualSite = siteFolder.replace(/\/dist(?:\/client)?$/, "");
   const candidates = kind === "video"
-    ? ["mp4", "mov"].map(extension => `${actualSite}/assets/videos/video_${group}.${extension}`)
+    ? buildVideoCandidates(group, siteFolder)
     : buildPosterCandidates(group, siteFolder);
   const src = await findMedia(candidates);
   if (request !== mediaRequest || !mediaDialog.open) return;
   mediaContent.replaceChildren();
   if (!src) {
-    mediaContent.textContent = `${kind === "video" ? "La vidéo" : "L’affiche"} de ${group} n’est pas encore disponible.`;
+    mediaContent.textContent = location.protocol === "file:"
+      ? "Le navigateur ne peut pas détecter ce fichier local automatiquement."
+      : `${kind === "video" ? "La vidéo" : "L’affiche"} de ${group} n’est pas encore disponible.`;
+    if (location.protocol === "file:") {
+      const note = document.createElement("p");
+      note.textContent = "Vous pouvez aussi ouvrir directement le fichier :";
+      mediaContent.appendChild(note);
+      for (const candidate of candidates) {
+        const link = document.createElement("a");
+        link.href = candidate; link.target = "_blank"; link.rel = "noopener noreferrer";
+        link.textContent = candidate.split('/').pop();
+        mediaContent.appendChild(link);
+      }
+    }
     return;
   }
   let media;

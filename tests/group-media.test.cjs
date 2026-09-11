@@ -52,3 +52,32 @@ test('Les builds contiennent du JS compilé et des ressources relatives présent
     }
   }
 });
+
+test('Accueil : médias dans assets, jamais à la racine du groupe ni dans dist', () => {
+  const home = readFileSync(path.join(root, 'script.js'), 'utf8');
+  const helpers = home.slice(home.indexOf('function mediaFolders'), home.indexOf('const mediaDialog'));
+  const ctx = {};
+  vm.runInNewContext(helpers, ctx);
+  for (let n = 1; n <= 20; n++) {
+    const group = `G${String(n).padStart(2, '0')}`;
+    const folder = n === 3 ? `${group}/siteweb_${group}/dist/client` : `${group}/siteweb_${group}`;
+    assert.equal(ctx.buildPosterCandidates(group, folder)[0], `${group}/siteweb_${group}/assets/images/affiche_${group}.png`);
+    assert.equal(ctx.buildVideoCandidates(group, folder)[0], `${group}/siteweb_${group}/assets/videos/video_${group}.mp4`);
+  }
+  assert.ok(ctx.buildVideoCandidates('G15', 'G15/GRP15_site_web/dist').includes('G15/GRP15_site_web/assets/videos/video_G15.mov'));
+});
+
+test('Ouverture locale : image et vidéo détectées sans fetch', async () => {
+  const doc = { documentElement: { dataset: {}, nodeType: 1, getAttribute: () => null, querySelectorAll: () => [] },
+    createElement: tag => ({ tagName: tag.toUpperCase(), removeAttribute() {}, load() {},
+      set src(value) { queueMicrotask(() => { if (value.endsWith('.jpg') || value.endsWith('.mov')) (this.onload || this.onloadedmetadata)?.(); else this.onerror?.(); }); }
+    }) };
+  const ctx = { URL, Map, Promise, RegExp, document: doc, window: {}, setTimeout, clearTimeout,
+    location: { protocol: 'file:', pathname: '/tmp/G09/siteweb_G09/index.html', href: 'file:///tmp/G09/siteweb_G09/index.html' },
+    MutationObserver: class { observe() {} }, fetch: () => { throw Error('fetch ne doit pas être appelé'); }
+  };
+  vm.runInNewContext(source, ctx);
+  const media = await ctx.window.GroupMedia.ready;
+  assert.ok(media.poster.endsWith('assets/images/affiche_G09.jpg'));
+  assert.ok(media.video.endsWith('assets/videos/video_G09.mov'));
+});

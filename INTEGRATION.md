@@ -1,3 +1,5 @@
+> Mise à jour après correction : l’accueil cherche les médias exclusivement dans `GXX/siteweb_GXX/assets/images` et `assets/videos` (avec repli vers les noms historiques des dossiers G15/G20). G04 privilégie maintenant le film officiel présent ; G12 propose un bouton de son. La détection des images/vidéos prend aussi en charge `file://`. Pour un PDF en ouverture locale, utiliser le lien direct proposé ; la détection PDF automatique nécessite HTTP. Les observations historiques ci-dessous précèdent ces corrections.
+
 # Correction de l’intégration des groupes
 
 Les 14 groupes présents dans ce dépôt ont été examinés. Les groupes G01, G08, G13, G17, G18 et G19 sont absents : leurs liens restent prévus dans l’accueil, mais leurs sites ne peuvent pas être corrigés sans leurs fichiers.

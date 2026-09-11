@@ -294,6 +294,8 @@ async function idbDel(key) {
 let CURRENT_VIDEO = null;
 
 async function computeCurrentVideo() {
+  const officialVideo = (await window.GroupMedia.ready).video;
+  if (officialVideo) return resolveVideo(officialVideo);
   const blob = await idbGet(IDB_VIDEO_KEY);
   if (blob) {
     try { return { type: "video", src: URL.createObjectURL(blob) }; } catch (e) { /* fall through */ }

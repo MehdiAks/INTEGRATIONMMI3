@@ -239,6 +239,14 @@
       });
     }
 
+    var son = document.getElementById('teleSon');
+    if (son) son.addEventListener('click', function () {
+      video.muted = !video.muted;
+      son.setAttribute('aria-pressed', String(!video.muted));
+      son.setAttribute('aria-label', video.muted ? 'Activer le son' : 'Couper le son');
+      son.textContent = video.muted ? 'Son' : 'Muet';
+    });
+
     if (plein) {
       var ecran = document.querySelector('.tele__ecran');
       plein.addEventListener('click', function () {
