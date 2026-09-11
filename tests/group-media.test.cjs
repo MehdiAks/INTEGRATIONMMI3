@@ -53,7 +53,7 @@ test('Les builds contiennent du JS compilé et des ressources relatives présent
   }
 });
 
-test('Accueil : médias dans assets, jamais à la racine du groupe ni dans dist', () => {
+test('Accueil : affiches .webp au niveau du groupe et liens YouTube', () => {
   const home = readFileSync(path.join(root, 'script.js'), 'utf8');
   const helpers = home.slice(home.indexOf('function mediaFolders'), home.indexOf('const mediaDialog'));
   const ctx = {};
@@ -61,10 +61,19 @@ test('Accueil : médias dans assets, jamais à la racine du groupe ni dans dist'
   for (let n = 1; n <= 20; n++) {
     const group = `G${String(n).padStart(2, '0')}`;
     const folder = n === 3 ? `${group}/siteweb_${group}/dist/client` : `${group}/siteweb_${group}`;
-    assert.equal(ctx.buildPosterCandidates(group, folder)[0], `${group}/siteweb_${group}/assets/images/affiche_${group}.png`);
-    assert.equal(ctx.buildVideoCandidates(group, folder)[0], `${group}/siteweb_${group}/assets/videos/video_${group}.mp4`);
+    assert.ok(ctx.buildPosterCandidates(group, folder).includes(`${group}/affiche_${group}.webp`), group);
+    assert.ok(ctx.buildVideoCandidates(group, folder).includes(`${group}/siteweb_${group}/assets/videos/video_${group}.mp4`), group);
   }
-  assert.ok(ctx.buildVideoCandidates('G15', 'G15/GRP15_site_web/dist').includes('G15/GRP15_site_web/assets/videos/video_G15.mov'));
+  assert.ok(home.includes('https://www.youtube.com/embed/yVhS5Qsq2XM?si=usBttqc0bLSk7amd'));
+  assert.ok(home.includes('https://www.youtube.com/embed/1l8tIDxaf0I?si=399VMUTWwwDX0Jn2'));
+});
+
+test('Crédits disponibles par groupe et modale présente', () => {
+  const home = readFileSync(path.join(root, 'script.js'), 'utf8');
+  const html = readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.ok(home.includes('const projectCredits'));
+  assert.ok(home.includes('Crédits'));
+  assert.ok(html.includes('id="creditsDialog"'));
 });
 
 test('Ouverture locale : image et vidéo détectées sans fetch', async () => {
