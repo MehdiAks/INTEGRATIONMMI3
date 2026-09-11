@@ -74,3 +74,11 @@ La commande `build:static` de G03 compile le site sans son ancien déploiement S
 Les vrais films et affiches ne sont pas présents : leur contenu et leur décodage ne sont donc pas validés. Les fixtures de test ne sont pas ajoutées aux dossiers des groupes.
 
 `AUDIT-RESSOURCES.txt` liste aussi les ressources annexes absentes (décors, portraits, logos, animations du téléphone G12…). Ce relevé porte sur les références HTML/CSS, pas sur toutes les URL générées en JavaScript. G15 attend également `assets/images/pi_corps.png`. Aucun fichier de camarade absent n’a été recréé. Certaines mises en page resteront visuellement incomplètes jusqu’à récupération de ces ressources.
+
+## Ouverture de G03 et G15 — correction du chargement JavaScript
+
+Les deux sorties utilisaient des scripts ES modules (`type="module"`), soumis aux restrictions d’origine en ouverture `file://`. Les configurations Vite produisent désormais un script classique autonome (IIFE), chargé avec `defer`, via `scripts/classic-static-build.mjs`. Les styles sont intégrés au script par Vite et les ressources restent relatives au fichier compilé. Les sources React et le serveur de développement sont conservés.
+
+Les nouvelles sorties `dist` ont été générées. G03 et G15 s’ouvrent sur le serveur local, les styles de G15 sont appliqués et les liens de l’accueil ciblent ces sorties. Les neuf tests automatisés passent, notamment l’analyse des bundles comme scripts classiques. L’ouverture directe `file://` ne peut pas être testée avec le navigateur de vérification, dont la politique bloque ces URL ; sa compatibilité est vérifiée au niveau des fichiers produits, pas par un essai navigateur direct.
+
+Lors de la copie ou de la mise à jour du site, inclure les nouveaux fichiers JavaScript de `dist/assets` (et `dist/client/assets` pour G03) avec les HTML correspondants. Les noms des bundles changent à la compilation. Les médias absents doivent toujours être fournis séparément.
