@@ -557,3 +557,70 @@ footer {
     transform: none;
   }
 }
+
+/* Trois actions accessibles au survol, au clavier et sur écran tactile. */
+.project-actions {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: clamp(14px, 2vw, 28px);
+  background: rgba(19, 9, 34, .8);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+.poster:hover .project-actions,
+.poster:focus-within .project-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+.project-actions a,
+.project-actions button {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 12px;
+  padding: 14px 10px;
+  font: inherit;
+  font-weight: 700;
+  font-size: .9rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background: rgba(255,255,255,.1);
+  cursor: pointer;
+}
+.project-actions a { background: var(--yellow); color: #241234; border-color: var(--yellow); }
+.project-actions :is(a,button):hover { background: white; color: #241234; }
+.project-actions :is(a,button):focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.poster .pdf-poster { pointer-events: none; }
+.media-dialog {
+  width: min(1000px, calc(100vw - 24px));
+  max-height: 92dvh;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 20px;
+  background: #180d25;
+  color: white;
+}
+.media-dialog::backdrop { background: rgba(0,0,0,.85); }
+.media-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.media-dialog-header h2 { font-size: clamp(1rem, 2vw, 1.4rem); margin: 0; }
+.media-dialog-header button { flex: 0 0 44px; height: 44px; border: 1px solid #aaa; border-radius: 50%; background: transparent; color: white; font-size: 1.3rem; cursor: pointer; }
+.media-dialog-content { display: grid; gap: 16px; text-align: center; }
+.media-dialog-content img { display: block; max-width: 100%; max-height: 70dvh; margin: auto; object-fit: contain; }
+.media-dialog-content video { width: 100%; max-height: 70dvh; background: black; }
+.media-dialog-content iframe { width: 100%; height: 70dvh; border: 0; background: white; }
+.media-dialog-content a { color: var(--yellow); }
+@media (hover: none), (pointer: coarse) {
+  .project-actions { opacity: 1; pointer-events: auto; justify-content: flex-end; background: linear-gradient(transparent, rgba(19,9,34,.95)); backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-actions { transition: none; }
+}

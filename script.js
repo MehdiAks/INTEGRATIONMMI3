@@ -40,24 +40,129 @@ function buildPosterCandidates(group, siteFolder) {
   );
 }
 
+const mediaDialog = document.getElementById("mediaDialog");
+const mediaContent = document.getElementById("mediaContent");
+const mediaCache = new Map();
+let mediaRequest = 0;
+let previousOverflow = "";
+
+async function findMedia(candidates) {
+  const key = candidates.join("|");
+  if (!mediaCache.has(key)) mediaCache.set(key, (async () => {
+    for (const src of candidates) {
+      try {
+        const response = await fetch(src, { method: "HEAD" });
+        if (response.ok && !response.headers.get("content-type")?.includes("text/html")) return src;
+      } catch { /* Essayer le format suivant. */ }
+    }
+    return null;
+  })());
+  return mediaCache.get(key);
+}
+
+function clearMedia() {
+  mediaContent.querySelector("video")?.pause();
+  mediaContent.replaceChildren();
+}
+
+mediaDialog.addEventListener("close", () => {
+  mediaRequest++;
+  clearMedia();
+  document.body.style.overflow = previousOverflow;
+});
+document.getElementById("mediaClose").addEventListener("click", () => mediaDialog.close());
+mediaDialog.addEventListener("click", event => {
+  if (event.target === mediaDialog) {
+    const box = mediaDialog.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) mediaDialog.close();
+  }
+});
+
+async function openMedia(kind, group, title, siteFolder) {
+  const request = ++mediaRequest;
+  clearMedia();
+  document.getElementById("mediaTitle").textContent = `${kind === "video" ? "Vidéo" : "Affiche"} — ${group} · ${title}`;
+  mediaContent.textContent = "Chargement…";
+  if (!mediaDialog.open) {
+    previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    mediaDialog.showModal();
+  }
+  const actualSite = siteFolder.replace(/\/dist(?:\/client)?$/, "");
+  const candidates = kind === "video"
+    ? ["mp4", "mov"].map(extension => `${actualSite}/assets/videos/video_${group}.${extension}`)
+    : buildPosterCandidates(group, siteFolder);
+  const src = await findMedia(candidates);
+  if (request !== mediaRequest || !mediaDialog.open) return;
+  mediaContent.replaceChildren();
+  if (!src) {
+    mediaContent.textContent = `${kind === "video" ? "La vidéo" : "L’affiche"} de ${group} n’est pas encore disponible.`;
+    return;
+  }
+  let media;
+  if (kind === "video") {
+    media = document.createElement("video");
+    media.controls = true;
+    media.playsInline = true;
+    media.preload = "metadata";
+  } else if (src.endsWith(".pdf")) {
+    media = document.createElement("iframe");
+    media.title = `Affiche PDF de ${group}`;
+  } else {
+    media = document.createElement("img");
+    media.alt = `Affiche de ${group} — ${title}`;
+  }
+  media.src = src;
+  mediaContent.appendChild(media);
+  const link = document.createElement("a");
+  link.href = src;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Ouvrir le fichier dans un nouvel onglet ↗";
+  mediaContent.appendChild(link);
+  media.addEventListener("error", () => {
+    const message = document.createElement("p");
+    message.textContent = "Ce fichier ne peut pas être affiché dans ce navigateur. Vous pouvez l’ouvrir avec le lien ci-dessous.";
+    media.replaceWith(message);
+  }, { once: true });
+  if (kind === "video") media.play().catch(() => {});
+}
+
 projects.forEach(({ group, title, pagePath }, index) => {
   const siteFolder = pagePath.replace(/\/index\.html$/i, "").replace(/\/[^/]+\.html$/i, "");
-  const card = document.createElement("a");
+  const card = document.createElement("article");
   card.className = "project-card";
   card.classList.add("is-pending");
   card.style.transitionDelay = `${Math.min(index % 4, 3) * 75}ms`;
-  card.href = pagePath;
-  card.target = "_blank";
-  card.rel = "noopener noreferrer";
-  card.setAttribute("aria-label", `Ouvrir le projet ${group} : ${title}`);
+  card.setAttribute("aria-label", `Projet ${group} : ${title}`);
 
   const poster = document.createElement("div");
   poster.className = "poster";
 
   poster.innerHTML = `
     <span class="project-number">${group}</span>
-    <span class="project-arrow" aria-hidden="true">↗</span>
+
   `;
+
+  const actions = document.createElement("div");
+  actions.className = "project-actions";
+  const visit = document.createElement("a");
+  visit.href = pagePath;
+  visit.target = "_blank";
+  visit.rel = "noopener noreferrer";
+  visit.textContent = "Visiter le site ↗";
+  visit.setAttribute("aria-label", `Visiter le site de ${group}`);
+  actions.appendChild(visit);
+  for (const [kind, label] of [["poster", "Afficher l’affiche"], ["video", "Voir la vidéo"]]) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = label;
+    button.setAttribute("aria-label", `${label} — ${group}`);
+    button.setAttribute("aria-haspopup", "dialog");
+    button.addEventListener("click", () => openMedia(kind, group, title, siteFolder));
+    actions.appendChild(button);
+  }
+  poster.appendChild(actions);
 
   const image = document.createElement("img");
   image.alt = `Affiche du projet ${group} — ${title}`;
@@ -104,6 +209,7 @@ projects.forEach(({ group, title, pagePath }, index) => {
       const frame = document.createElement("iframe");
       frame.className = "pdf-poster";
       frame.title = `Affiche PDF du projet ${group}`;
+      frame.tabIndex = -1;
       frame.src = src;
       frame.addEventListener("error", tryNext);
       appendMedia(frame);
