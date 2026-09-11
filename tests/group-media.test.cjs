@@ -81,3 +81,17 @@ test('Ouverture locale : image et vidéo détectées sans fetch', async () => {
   assert.ok(media.poster.endsWith('assets/images/affiche_G09.jpg'));
   assert.ok(media.video.endsWith('assets/videos/video_G09.mov'));
 });
+
+test('G03 et G15 : scripts classiques autonomes, sans modules ES bloqués en file://', () => {
+  for (const entry of ['G03/siteweb_G03/dist/client/index.html', 'G15/GRP15_site_web/dist/index.html']) {
+    const file = path.join(root, entry);
+    const html = readFileSync(file, 'utf8');
+    assert.ok(!/type=["']module["']|crossorigin|modulepreload/.test(html), entry);
+    const scripts = [...html.matchAll(/<script src="([^"]+)" defer><\/script>/g)];
+    assert.equal(scripts.length, 1);
+    const js = readFileSync(path.resolve(path.dirname(file), scripts[0][1]), 'utf8');
+    assert.ok(js.startsWith('(function()'));
+    assert.ok(!js.includes('import.meta'));
+    new (require('node:vm').Script)(js); // Analyse comme script classique, sans l’exécuter.
+  }
+});
