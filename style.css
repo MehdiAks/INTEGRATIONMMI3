@@ -1,6 +1,6 @@
 /* =========================================================
    SEMAINE D'INTÉGRATION MMI 2026
-   ========================================================= */
+   ========================================================== */
 
 :root {
   --purple: #a868ff;
@@ -263,6 +263,7 @@ h1 span {
 
 .story-copy {
   color: rgba(247,244,255,.88);
+  font-family: "Inter", Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -270,9 +271,17 @@ h1 span {
 .story-copy h3 {
   margin: 26px 0 12px;
   color: var(--yellow);
+  font-family: "Inter", Arial, sans-serif;
   font-size: clamp(1.2rem, 1.8vw, 1.7rem);
   line-height: 1.2;
   letter-spacing: -.02em;
+}
+
+.story-copy p,
+.story-copy li,
+.story-copy strong,
+.story-copy ul {
+  font-family: "Inter", Arial, sans-serif;
 }
 
 .story-copy p {
@@ -675,14 +684,27 @@ footer {
   padding: clamp(14px, 2vw, 28px);
   background: rgba(19, 9, 34, .8);
   backdrop-filter: blur(5px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s ease;
-}
-.poster:hover .project-actions,
-.poster:focus-within .project-actions {
   opacity: 1;
   pointer-events: auto;
+  transition: opacity .2s ease;
+}
+@media (hover: hover) {
+  .project-actions {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .poster:hover .project-actions,
+  .poster:focus-within .project-actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .project-actions {
+    opacity: 1;
+    pointer-events: auto;
+    background: linear-gradient(180deg, rgba(19,9,34,.2), rgba(19,9,34,.92));
+  }
 }
 .project-actions a,
 .project-actions button {
