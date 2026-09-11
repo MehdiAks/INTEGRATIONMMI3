@@ -156,19 +156,14 @@
         });
     }
 
-    if (filmVideo && filmSource) {
-        const realPath = filmSource.getAttribute('data-src');
-        const probe = document.createElement('video');
-        probe.preload = 'metadata';
-        probe.addEventListener('loadedmetadata', () => {
-            filmSource.setAttribute('src', realPath);
-            filmVideo.load();
-            filmVideo.hidden = false;
-            if (videoPoster) videoPoster.hidden = true;
-        });
-        // Aucune action nécessaire en cas d'échec : le lecteur factice reste affiché.
-        probe.src = realPath;
-    }
+    window.GroupMedia.ready.then(({ video }) => {
+        if (!filmVideo || !filmSource || !video) return;
+        filmSource.src = video;
+        filmSource.removeAttribute('type');
+        filmVideo.load();
+        filmVideo.hidden = false;
+        if (videoPoster) videoPoster.hidden = true;
+    });
 
     /* -----------------------------------------------------
        7. AFFICHE — bascule vers la vraie image si présente
@@ -192,7 +187,13 @@
     const posterFallbackLarge = document.getElementById('posterFallbackLarge');
     const posterPath = posterPhoto ? posterPhoto.getAttribute('data-src') : null;
 
-    swapImageIfExists(posterPhoto, posterFallback, posterPath);
+    window.GroupMedia.ready.then(({ poster }) => {
+        if (!poster) return;
+        if (poster.endsWith('.pdf')) {
+            posterPhoto.src = poster;
+            posterFallback.hidden = true;
+        } else swapImageIfExists(posterPhoto, posterFallback, poster);
+    });
 
     const posterOpenBtn  = document.getElementById('posterOpenBtn');
     const posterCloseBtn = document.getElementById('posterCloseBtn');
@@ -201,7 +202,10 @@
     function openPosterLightbox() {
         if (!posterLightbox) return;
         // Miroir de l'état courant (vraie photo ou illustration) dans la visionneuse
-        if (posterPhoto && !posterPhoto.hidden) {
+        if (posterPhoto?.src.endsWith('.pdf')) {
+            posterPhotoLarge.src = posterPhoto.src;
+            posterFallbackLarge.hidden = true;
+        } else if (posterPhoto && !posterPhoto.hidden) {
             posterPhotoLarge.src = posterPhoto.src;
             posterPhotoLarge.hidden = false;
             posterFallbackLarge.hidden = true;

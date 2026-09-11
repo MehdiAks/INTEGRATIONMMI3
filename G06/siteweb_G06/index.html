@@ -13,6 +13,7 @@
   />
 
   <link rel="stylesheet" href="css/style.css" />
+  <script src="../../group-media.js"></script>
 </head>
 <body>
 
@@ -49,35 +50,18 @@
         <div class="hero__date">11 SEPTEMBRE</div>
 
         <div class="media-grid">
-
-          <!--
-            AFFICHE DU FILM
-            1. Déposer le fichier dans : assets/affiche.jpg
-            2. Supprimer le <span> ci-dessous et décommenter le <img>.
-          -->
           <div class="media-card media-card--poster">
             <span class="media-card__label">affiche du film</span>
             <img src="assets/images/affiche_G06.png" alt="Affiche du film Food Wars" class="media-card__fill" />
           </div>
-
-          <!--
-            BANDE-ANNONCE
-            1. Déposer la vidéo dans : assets/bande-annonce.mp4
-            2. Image d'aperçu facultative : assets/bande-annonce.jpg (attribut poster).
-            3. Supprimer le bloc placeholder ci-dessous et décommenter le <video>.
-          -->
           <div class="media-card media-card--trailer">
-            <div class="media-card__play"></div>
-            <span class="media-card__label">bande-annonce</span>
-            <!--
             <video
               class="media-card__fill"
-              src="assets/vidéos/video_g6.mp4"
-              poster="assets/bande-annonce.jpg"
+              src="assets/videos/video_G06.mp4"
+              poster="assets/images/affiche_G06.png" playsinline
               controls
               preload="metadata"
             ></video>
-            -->
           </div>
 
         </div>

@@ -7,6 +7,7 @@
 <meta name="description" content="L'Appel Inconnu — Unknown Call.">
 <link rel="stylesheet" href="assets/css/devices.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
+  <script src="../../group-media.js"></script>
 </head>
 <body class="is-locked">
 
@@ -49,7 +50,7 @@
     </div>
 
     <div class="hero__centre">
-      <img class="affiche" id="afficheImg" src="assets/img/affiche.png" alt="Affiche du film">
+      <img class="affiche" id="afficheImg" src="assets/images/affiche_G12.png" alt="Affiche du film">
     </div>
 
     <div class="rubans" aria-hidden="true">
@@ -76,13 +77,13 @@
       <!-- l'écran vit DERRIÈRE le png ajouré -->
       <div class="tele__ecran">
         <video class="tele__video" id="teleVideo" playsinline muted loop preload="none">
-          <source src="assets/video/enregistrement.mp4" type="video/mp4">
+          <source src="assets/videos/video_G12.mp4" type="video/mp4">
         </video>
         <canvas class="tele__neige" id="neige" width="80" height="60" aria-hidden="true"></canvas>
         <div class="tele__scanlines" aria-hidden="true"></div>
         <p class="tele__absent" id="teleAbsent">
           <span class="phos">PAS DE SIGNAL</span>
-          <span class="mono">assets/video/enregistrement.mp4</span>
+          <span class="mono">assets/videos/video_G12.mp4</span>
         </p>
         <div class="tele__controles" id="teleControles" hidden>
           <button class="tele__ctrl" id="teleBouton" type="button" aria-label="Lecture">▶</button>

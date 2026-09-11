@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Volume2, VolumeX } from 'lucide-react';
-import piCorpsImg from '../assets/pi_corps.png';
+const piCorpsImg = window.GroupMedia.root + 'assets/images/pi_corps.png';
 import InteractiveCharacter from './InteractiveCharacter';
 
 gsap.registerPlugin(ScrollTrigger);

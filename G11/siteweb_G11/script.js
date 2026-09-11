@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (loadVideo && videoInput) {
-    loadVideo.addEventListener('click', function () {
+    loadVideo.addEventListener('click', async function () {
       const video = document.createElement('video');
       video.className = 'trailer-video';
       video.controls = true;
       video.autoplay = true;
-      video.src = 'assets/videos/video_G11.mp4';
+      video.src = (await window.GroupMedia.ready).video || 'assets/videos/video_G11.mp4';
       const placeholder = trailerFrame.querySelector('.trailer-placeholder');
       const backdrop = trailerFrame.querySelector('.trailer-backdrop');
       const overlay = trailerFrame.querySelector('.trailer-overlay');

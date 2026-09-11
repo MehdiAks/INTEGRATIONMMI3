@@ -5,7 +5,7 @@ import SynopsisSection from './components/SynopsisSection';
 import CastSection from './components/CastSection';
 import ReviewsSection from './components/ReviewsSection';
 import Footer from './components/Footer';
-import piCorpsImg from './assets/pi_corps.png';
+const piCorpsImg = window.GroupMedia.root + 'assets/images/pi_corps.png';
 
 export default function App() {
   const [customCharacterUrl, setCustomCharacterUrl] = useState(piCorpsImg);

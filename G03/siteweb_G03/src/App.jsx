@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Info, List, Play, Star, X } from "@phosphor-icons/react";
 import directorImage from "../assets/images/michel-director.webp";
-import posterImage from "../assets/images/affiche_G03.png";
+const posterImage = window.GroupMedia.root + "assets/images/affiche_G03.png";
 import synopsisImage from "../assets/images/synopsis-waiting-for-love.webp";
 
 const navItems = [
@@ -134,13 +134,15 @@ export function App() {
             <FilmMeta />
             <p className="hero__summary">Un rendez-vous. Un message. Et cette étrange sensation d’avoir déjà vécu exactement la même scène.</p>
             <div className="hero__actions">
-              <button className="button button--primary" onClick={() => jumpTo("synopsis")}><Play weight="fill" aria-hidden="true" /> Découvrir le film</button>
+              <button className="button button--primary" onClick={() => jumpTo("video")}><Play weight="fill" aria-hidden="true" /> Découvrir le film</button>
               <button className="button button--secondary" onClick={() => setModalOpen(true)}><Info weight="bold" aria-hidden="true" /> Plus d’infos</button>
             </div>
             <p className="hero__release">Sortie le <strong>11 septembre</strong></p>
           </div>
           <button className="scroll-cue" onClick={() => jumpTo("synopsis")} aria-label="Aller au synopsis"><span>Défiler</span><span className="scroll-cue__line" aria-hidden="true" /></button>
         </section>
+
+        <section className="section" id="video" aria-label="Voir le film"><div className="section__inner"><video controls playsInline preload="metadata" poster={posterImage} src={window.GroupMedia.root + "assets/videos/video_G03.mp4"} style={{width: "100%", maxHeight: "80vh"}} /></div></section>
 
         <section className="section synopsis" id="synopsis" aria-labelledby="synopsis-title">
           <div className="section__inner synopsis__grid">
@@ -219,7 +221,7 @@ export function App() {
           <div className="final-cta__content" data-reveal>
             <span className="eyebrow">Cinetflix présente</span><h2 id="final-title">Jusqu’où seriez-vous<br />prêt à attendre&nbsp;?</h2>
             <p className="final-cta__film">Waiting for Love</p><p className="final-cta__date">11 septembre</p>
-            <button className="button button--primary" onClick={() => setModalOpen(true)}><Play weight="fill" aria-hidden="true" /> Voir le court métrage</button>
+            <button className="button button--primary" onClick={() => jumpTo("video")}><Play weight="fill" aria-hidden="true" /> Voir le court métrage</button>
           </div>
         </section>
       </main>

@@ -196,7 +196,8 @@ const posterImage = document.getElementById("poster-image");
 posterImage.addEventListener("error", () => {
   posterImage.classList.add("is-broken");
 });
-posterImage.src = POSTER_SRC;
+posterImage.addEventListener("load", () => posterImage.classList.remove("is-broken"));
+window.GroupMedia.ready.then(({ poster }) => { posterImage.src = poster || POSTER_SRC; });
 
 const modalVideoWrap = document.getElementById("modal-video-wrap");
 const modalPlayButton = document.getElementById("modal-play");
@@ -213,9 +214,9 @@ function resetVideo() {
   modalVideoWrap.appendChild(modalPlayButton);
 }
 
-modalPlayButton.addEventListener("click", () => {
+modalPlayButton.addEventListener("click", async () => {
   const video = document.createElement("video");
-  video.src = VIDEO_SRC;
+  video.src = (await window.GroupMedia.ready).video || VIDEO_SRC;
   video.controls = true;
   video.autoplay = true;
   video.addEventListener("error", resetVideo);
