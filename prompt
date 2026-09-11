@@ -1,9 +1,0 @@
- j'ai ma page principale index.html qui reference tout les sous page crée par mes camarades.
-les liens vers ces pages marche mais depuis que j'ai déplacé leurs site dans mon site en renommant leurs dossier principales, certains site ne marche plus : le groupes : 3, 9, 15.
-dans le git hub, je n'ai pas upload les affiche et les vidéo mais il faut savoir que dans chaque dossier du type : NTEGRATIONMMI3/G14 ou INTEGRATIONMMI3/G03 etc il y'a a chaque fois un dossier "siteweb_G14" ou "siteweb_G03" ainsi que l'affiche du filme comme par exemple ici affiche_G14 ou affiche_G03. dans chaque dossier du type siteweb_G14 il y'a un sous dossier "assets" avec dedans a chaque fois deux sous dosseir "videos" dans lequel on peut retrouvé la vidéo du film sous le nom "video_G14.mp4 ou "video_G14.mov". il y'a aussi un autre sous dossier dans assets qui est images dans lequel on retrouve "affiche_G14.png ou .jpg ou pdf.
-
-normalement sur chaque site des groupe 1 à 20 (tous) il dois y avoir a un moment une réference a une affiche et a une video qui dois etre présenté. certain on mis des placehorlder avec des liens de video, certain on mis des lecteur youtube intégré etc.
-
-la consigne initiale etait que tout le monde devait avoir cette structure/architecture la, malheuresmeent certain n'ont pas respecté cette consigne et ont fait appel a des images dans d'autre dossier.
-
-tu va devoir analyser chaque sous site par sous site pour corrigé les probleme de lien, faire appelle a chaque fois quand (quand ils ont prévue) a la vidéo video_G** et a l'affiche affiche_G**.
