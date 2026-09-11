@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, Film, Share2, Sparkles } from 'lucide-react';
+import posterImage from '../../assets/images/affiche_G15.png';
+import trailerVideo from '../../assets/videos/video_G15.mov';
 
 export default function TrailerSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -52,8 +54,8 @@ export default function TrailerSection() {
             <video
               ref={videoRef}
               className="w-full h-full object-cover filter grayscale contrast-125 brightness-90"
-              poster="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1250&q=80"
-              src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+              poster={posterImage}
+              src={trailerVideo}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
             />

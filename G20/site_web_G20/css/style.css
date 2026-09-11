@@ -290,7 +290,7 @@ h1, h2, h3 { font-family: var(--font-head); margin: 0; text-transform: uppercase
    with that exact name in the folder and it replaces the gradient
    automatically — no code change needed. Until then, the image layer just
    fails to load (404) and the gradient underneath keeps showing. */
-.film-poster--1 { background: url('../assets/posters/affiche.jpg') center/cover no-repeat, linear-gradient(160deg, #08288b, #001340); }
+.film-poster--1 { background: url('../assets/images/affiche_G20.png') center/cover no-repeat, linear-gradient(160deg, #08288b, #001340); }
 .film-poster--2 { background: url('../assets/posters/31-aout.jpg') center/cover no-repeat, linear-gradient(160deg, #d50032, #5c0016); }
 .film-poster--3 { background: url('../assets/posters/echo-profondeurs.jpg') center/cover no-repeat, linear-gradient(160deg, #04606e, #00232a); }
 .film-poster--4 { background: url('../assets/posters/manoir_nice.png') center/cover no-repeat, linear-gradient(160deg, #3a2a6d, #140d2b); }

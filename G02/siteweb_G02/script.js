@@ -5,8 +5,8 @@ const FOCUS_X = 0.486;
 /* --------------------------------------------------------
   Changer les liens ici :
    -------------------------------------------------------- */
-const POSTER_SRC = "assets/images/affiche_Groupe02.jpg";
-const VIDEO_SRC = "assets/video/video_Groupe02.mp4";
+const POSTER_SRC = "assets/images/affiche_G02.png";
+const VIDEO_SRC = "assets/videos/video_G02.mp4";
 
 const buildingTrack = document.getElementById("building-track");
 const buildingImage = document.getElementById("building-image");

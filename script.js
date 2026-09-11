@@ -1,19 +1,19 @@
 const projects = [
   { group: "G01", title: "Gavé", pagePath: "G01/siteweb_G01/index.html" },
   { group: "G02", title: "Rive Droite vs Rive Gauche", pagePath: "G02/siteweb_G02/index.html" },
-  { group: "G03", title: "Le Batcub", pagePath: "G03/siteweb_G03/index.html" },
+  { group: "G03", title: "Le Batcub", pagePath: "G03/siteweb_G03/dist/client/index.html" },
   { group: "G04", title: "Le miroir d’eau sans eau", pagePath: "G04/siteweb_G04/index.html" },
   { group: "G05", title: "La gourde oubliée", pagePath: "G05/siteweb_G05/index.html" },
   { group: "G06", title: "Le choix du resto à midi", pagePath: "G06/siteweb_G06/index.html" },
   { group: "G07", title: "Le café à 40 centimes", pagePath: "G07/siteweb_G07/index.html" },
   { group: "G08", title: "Le distributeur", pagePath: "G08/siteweb_G08/index.html" },
-  { group: "G09", title: "One prise", pagePath: "G09/siteweb_G09/site_grp09.html" },
+  { group: "G09", title: "One prise", pagePath: "G09/siteweb_G09/index.html" },
   { group: "G10", title: "Le AirDrop inconnu", pagePath: "G10/siteweb_G10/index.html" },
   { group: "G11", title: "Le message supprimé", pagePath: "G11/siteweb_G11/index.html" },
   { group: "G12", title: "L’appel inconnu", pagePath: "G12/siteweb_G12/index.html" },
   { group: "G13", title: "« J’arrive dans 5 minutes »", pagePath: "G13/siteweb_G13/index.html" },
   { group: "G14", title: "Le raccourci qui prend plus de temps", pagePath: "G14/siteweb_G14/index.html" },
-  { group: "G15", title: "La porte qu’on tient", pagePath: "G15/GRP15_site_web/index.html" },
+  { group: "G15", title: "La porte qu’on tient", pagePath: "G15/GRP15_site_web/dist/index.html" },
   { group: "G16", title: "La chaise parfaite", pagePath: "G16/siteweb_G16/index.html" },
   { group: "G17", title: "La pause clope sans clope", pagePath: "G17/Siteweb_G17/index.html" },
   { group: "G18", title: "« Ça prend 5 minutes »", pagePath: "G18/siteweb_G18/index.html" },
@@ -86,6 +86,8 @@ projects.forEach(({ group, title, pagePath }, index) => {
   const siteFolder = pagePath.replace(/\/index\.html$/i, "").replace(/\/[^/]+\.html$/i, "");
   const card = document.createElement("a");
   card.className = "project-card";
+  card.classList.add("is-pending");
+  card.style.transitionDelay = `${Math.min(index % 4, 3) * 75}ms`;
   card.href = pagePath;
   card.target = "_blank";
   card.rel = "noopener noreferrer";
@@ -177,6 +179,47 @@ projects.forEach(({ group, title, pagePath }, index) => {
   card.appendChild(titleElement);
   grid.appendChild(card);
 });
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!prefersReducedMotion) {
+  const cardObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".project-card").forEach((card) => cardObserver.observe(card));
+
+  const parallaxTargets = [
+    [document.querySelector(".background video"), 0.035],
+    [document.querySelector(".aurora-one"), -0.025],
+    [document.querySelector(".aurora-two"), 0.045],
+    [document.querySelector(".section-orb-one"), -0.04],
+    [document.querySelector(".section-orb-two"), 0.03]
+  ];
+
+  let ticking = false;
+  function updateParallax() {
+    const scrollY = window.scrollY;
+    parallaxTargets.forEach(([element, speed]) => {
+      if (element) element.style.translate = `0 ${scrollY * speed}px`;
+    });
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+  updateParallax();
+} else {
+  document.querySelectorAll(".project-card").forEach((card) => card.classList.add("is-visible"));
+}
 
 const video = document.getElementById("backgroundVideo");
 if (video) {

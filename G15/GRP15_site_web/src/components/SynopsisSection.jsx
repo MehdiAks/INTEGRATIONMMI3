@@ -1,5 +1,6 @@
 import React from 'react';
 import { Quote, Film, Sparkles, Image as ImageIcon } from 'lucide-react';
+import posterImage from '../../assets/images/affiche_G15.png';
 
 export default function SynopsisSection() {
   return (
@@ -57,17 +58,18 @@ export default function SynopsisSection() {
             <div className="w-full h-full bg-white border-[3.5px] border-stone-900 rounded-[28px] p-3.5 shadow-xl relative flex flex-col justify-between">
               
               {/* Poster Slot with Watermarks */}
-              <div className="w-full aspect-[2/3] bg-[#faf9f5] rounded-[20px] border-2 border-dashed border-stone-800 relative overflow-hidden flex flex-col items-center justify-center p-6 select-none shadow-inner">
+              <div className="w-full aspect-[2/3] bg-[#faf9f5] rounded-[20px] border-2 border-dashed border-stone-800 relative overflow-hidden shadow-inner">
+                <img src={posterImage} alt="Affiche officielle de La porte qu'on tient" className="absolute inset-0 h-full w-full object-cover" />
                 
                 {/* Diagonal watermark pattern in background */}
-                <div className="absolute inset-0 flex flex-col justify-around items-center opacity-10 pointer-events-none -rotate-25 scale-125 whitespace-nowrap font-mono-spaced text-xl font-bold uppercase tracking-widest text-stone-900">
+                <div className="absolute inset-0 hidden flex-col justify-around items-center opacity-10 pointer-events-none -rotate-25 scale-125 whitespace-nowrap font-mono-spaced text-xl font-bold uppercase tracking-widest text-stone-900">
                   <span>METTRE L'AFFICHE ICI • METTRE L'AFFICHE ICI</span>
                   <span>METTRE L'AFFICHE ICI • METTRE L'AFFICHE ICI</span>
                   <span>METTRE L'AFFICHE ICI • METTRE L'AFFICHE ICI</span>
                 </div>
 
                 {/* Central watermark card */}
-                <div className="relative z-10 bg-white border-2 border-stone-900 p-6 sketch-box shadow-md flex flex-col items-center text-center max-w-[280px]">
+                <div className="relative z-10 hidden bg-white border-2 border-stone-900 p-6 sketch-box shadow-md flex-col items-center text-center max-w-[280px]">
                   <div className="w-12 h-12 rounded-full bg-stone-100 border border-stone-800 flex items-center justify-center mb-3">
                     <ImageIcon size={24} className="text-stone-700" />
                   </div>

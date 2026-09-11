@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Info, List, Play, Star, X } from "@phosphor-icons/react";
 import directorImage from "../assets/images/michel-director.webp";
-import posterImage from "../assets/images/poster-waiting-for-love.webp";
+import posterImage from "../assets/images/affiche_G03.png";
 import synopsisImage from "../assets/images/synopsis-waiting-for-love.webp";
 
 const navItems = [
