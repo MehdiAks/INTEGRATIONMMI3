@@ -7,6 +7,7 @@
     <title>M.X</title>
     <link rel="stylesheet" href="src/css/reset.css">
     <link rel="stylesheet" href="src/css/style.css">
+  <script src="../../group-media.js"></script>
 </head>
 
 <body>
@@ -34,13 +35,13 @@
                 <h1>M.X</h1>
                 <h2>Un film de mystère</h2>
                 <p>Tout a commencé par une simple photo. <br> Une bibliothèque, un inconnu</p>
-                <a href="https://youtu.be/p8s-kBQfwd8?si=NtDJcKsdfIwH6e5y" target="_blank" rel="noopener noreferrer"
+                <a href="#film-video"
                     class="bouton-trailer">
                     <img src="src/assets/pictures/btnPlay.svg" alt="Bouton jouer">
                     <span>Voir la bande annonce</span>
                 </a>
             </div>
-            <div class="video-container">
+            <div class="video-container" id="film-video">
                 <video width="1026" height="577" controls playsinline>
                     <source src="assets/videos/video_G10.mp4" type="video/mp4">
                     Votre navigateur ne prend pas en charge la vidéo HTML5.
@@ -61,7 +62,7 @@
         <section id="enigme">
             <div class="timer-section">
                 <object data="assets/images/affiche_G10.pdf" type="application/pdf" class="AffichePaysage" aria-label="Affiche du film M.X"></object>
-                
+
                 <div class="airdrop-card">
                     <div class="airdrop-header">
                         <img src="src/assets/pictures/airdrop.svg" alt="AirDrop" class="airdrop-icon">

@@ -9,10 +9,8 @@
 **/Affiche.*
 **/poster.*
 **/*_affiche.*
-**/*.jpg
-**/*.jpeg
-**/*.png
-**/*.pdf
+**/affiche_G*.*
+**/Affiche_G*.*
 
 # Fichiers système
 .DS_Store
@@ -22,3 +20,9 @@ Thumbs.db
 node_modules/
 dist/
 .vite/
+
+# Versions statiques nécessaires aux liens de l’accueil (sans médias lourds).
+!G03/siteweb_G03/dist/
+G03/siteweb_G03/dist/*
+!G03/siteweb_G03/dist/client/
+!G15/GRP15_site_web/dist/

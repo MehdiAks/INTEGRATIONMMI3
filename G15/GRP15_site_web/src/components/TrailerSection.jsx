@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, Film, Share2, Sparkles } from 'lucide-react';
-import posterImage from '../../assets/images/affiche_G15.png';
-import trailerVideo from '../../assets/videos/video_G15.mov';
+const posterImage = window.GroupMedia.root + "assets/images/affiche_G15.png";
+const trailerVideo = window.GroupMedia.root + "assets/videos/video_G15.mov";
 
 export default function TrailerSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -13,9 +13,9 @@ export default function TrailerSection() {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play();
+        videoRef.current.play().catch(() => setIsPlaying(false));
       }
-      setIsPlaying(!isPlaying);
+
     }
   };
 
@@ -53,6 +53,8 @@ export default function TrailerSection() {
             {/* HTML5 Video Element (Or embed sample stylized video / canvas animation) */}
             <video
               ref={videoRef}
+              playsInline
+              preload="metadata"
               className="w-full h-full object-cover filter grayscale contrast-125 brightness-90"
               poster={posterImage}
               src={trailerVideo}
@@ -87,12 +89,12 @@ export default function TrailerSection() {
                 <button onClick={toggleMute} className="hover:text-amber-400 transition-colors cursor-pointer">
                   {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                 </button>
-                <span className="text-stone-400 text-[11px]">00:42 / 01:45</span>
+
               </div>
 
               <div className="flex items-center gap-3">
                 <span className="text-[10px] text-stone-400 uppercase tracking-widest hidden sm:inline">PROCHAINEMENT AU CINÉMA</span>
-                <button className="hover:text-amber-400 transition-colors cursor-pointer">
+                <button aria-label="Plein écran" onClick={() => videoRef.current?.requestFullscreen?.().catch(() => {})} className="hover:text-amber-400 transition-colors cursor-pointer">
                   <Maximize size={18} />
                 </button>
               </div>

@@ -299,7 +299,7 @@ async function computeCurrentVideo() {
     try { return { type: "video", src: URL.createObjectURL(blob) }; } catch (e) { /* fall through */ }
   }
   const savedUrl = lsGet(LS_VIDEO_URL);
-  return resolveVideo(savedUrl || VIDEO_URL);
+  return resolveVideo(savedUrl || (await window.GroupMedia.ready).video || VIDEO_URL);
 }
 
 function currentPoster() {

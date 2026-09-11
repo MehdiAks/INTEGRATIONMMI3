@@ -128,8 +128,8 @@
 		var videoBackdrop = document.getElementById('videoModalBackdrop');
 		var videoClose = document.getElementById('videoModalClose');
 
-		function openTrailer(src) {
-			videoPlayer.src = src;
+		async function openTrailer(src) {
+			videoPlayer.src = (await window.GroupMedia.ready).video || src;
 			videoModal.hidden = false;
 			document.body.style.overflow = 'hidden';
 			videoPlayer.play().catch(function () {});

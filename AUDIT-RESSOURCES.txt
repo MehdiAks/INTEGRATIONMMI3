@@ -1,0 +1,129 @@
+G01: ABSENT — G01/siteweb_G01/index.html
+G02: OK — G02/siteweb_G02/index.html
+G03: OK — G03/siteweb_G03/dist/client/index.html
+G04: OK — G04/siteweb_G04/index.html
+G05: OK — G05/siteweb_G05/index.html
+G06: OK — G06/siteweb_G06/index.html
+G07: OK — G07/siteweb_G07/index.html
+G08: ABSENT — G08/siteweb_G08/index.html
+G09: OK — G09/siteweb_G09/index.html
+G10: OK — G10/siteweb_G10/index.html
+G11: OK — G11/siteweb_G11/index.html
+G12: OK — G12/siteweb_G12/index.html
+G13: ABSENT — G13/siteweb_G13/index.html
+G14: OK — G14/siteweb_G14/index.html
+G15: OK — G15/GRP15_site_web/dist/index.html
+G16: OK — G16/siteweb_G16/index.html
+G17: ABSENT — G17/Siteweb_G17/index.html
+G18: ABSENT — G18/siteweb_G18/index.html
+G19: ABSENT — G19/siteweb_G19/index.html
+G20: OK — G20/site_web_G20/index.html
+
+Ressources HTML/CSS absentes (les variantes des médias sont résolues à l’ouverture) :
+G02/siteweb_G02/index.html: assets/img/immeuble-avec-personnages.png
+G02/siteweb_G02/index.html: assets/img/immeuble-lueur-boys.png
+G02/siteweb_G02/index.html: assets/img/immeuble-lueur-chat.png
+G02/siteweb_G02/index.html: assets/img/immeuble-lueur-pigeon.png
+G02/siteweb_G02/index.html: assets/img/immeuble-lueur-women.png
+G04/siteweb_G04/index.html: assets/cast/bonnie-blue.jpg
+G04/siteweb_G04/index.html: assets/cast/future-bae.jpg
+G04/siteweb_G04/index.html: assets/cast/glen-powell.jpg
+G04/siteweb_G04/index.html: assets/cast/leon-marchand.jpg
+G04/siteweb_G04/index.html: assets/cast/rahul-rai.jpg
+G04/siteweb_G04/index.html: assets/cast/sylvain-durif.jpg
+G04/siteweb_G04/index.html: assets/logo-mmi.png
+G04/siteweb_G04/index.html: assets/profile.png
+G04/siteweb_G04/index.html: assets/reviews/charlie-kirk.jpg
+G04/siteweb_G04/index.html: assets/reviews/john-pork.jpg
+G04/siteweb_G04/index.html: assets/reviews/matthieu-meriot.jpg
+G04/siteweb_G04/index.html: assets/reviews/regelegorila.jpg
+G04/siteweb_G04/index.html: assets/title-logo.png
+G05/siteweb_G05/index.html: assets/images/affiche_G05.png
+G05/siteweb_G05/index.html: assets/videos/video_G05.mp4
+G05/siteweb_G05/style.css: %23n
+G05/siteweb_G05/style.css: assets/casting-triptyque.png
+G05/siteweb_G05/style.css: assets/greg-guillotin.jpg
+G05/siteweb_G05/style.css: assets/guillaume-pley.jpg
+G05/siteweb_G05/style.css: assets/victoire-nocturne.png
+G06/siteweb_G06/index.html: assets/boxer.png
+G06/siteweb_G06/index.html: assets/burger.png
+G06/siteweb_G06/index.html: assets/images/affiche_G06.png
+G06/siteweb_G06/index.html: assets/logo-blanc.png
+G06/siteweb_G06/index.html: assets/logo.png
+G06/siteweb_G06/index.html: assets/onion.png
+G06/siteweb_G06/index.html: assets/ring5.png
+G06/siteweb_G06/index.html: assets/videos/video_G06.mp4
+G06/siteweb_G06/index.html: assets/ville2.png
+G06/siteweb_G06/index.html: assets/wrap.png
+G07/siteweb_G07/index.html: assets/images/affiche_G07.png
+G07/siteweb_G07/index.html: assets/videos/video_G07.mp4
+G07/siteweb_G07/intro.css: %23n
+G07/siteweb_G07/style.css: %23n
+G09/siteweb_G09/index.html: ./assets/images/affiche_G09.png
+G09/siteweb_G09/index.html: ./assets/videos/video_G09.mp4
+G09/siteweb_G09/index.html: assets/images/CNC-logo.png
+G09/siteweb_G09/index.html: assets/images/canal.jpg
+G09/siteweb_G09/index.html: assets/images/monsieur.jpg
+G09/siteweb_G09/index.html: assets/images/nikon.png
+G09/siteweb_G09/style.css: assets/images/fond.png
+G10/siteweb_G10/index.html: assets/images/affiche_G10.pdf
+G10/siteweb_G10/index.html: assets/videos/video_G10.mp4
+G10/siteweb_G10/index.html: src/assets/pictures/MainFond.png
+G10/siteweb_G10/src/css/style.css: ../assets/fonts/Quablo-Regular.woff
+G10/siteweb_G10/src/css/style.css: ../assets/fonts/Quablo-Regular.woff2
+G11/siteweb_G11/index.html: assets/images/affiche_G11.png
+G11/siteweb_G11/index.html: images/hero.jpg
+G11/siteweb_G11/style.css: %23n
+G12/siteweb_G12/__chk.html: assets/images/affiche_G12.png
+G12/siteweb_G12/__chk.html: assets/img/herofond.png
+G12/siteweb_G12/__chk.html: assets/img/tv.png
+G12/siteweb_G12/__chk.html: assets/video/phone/pickup.mp4
+G12/siteweb_G12/__chk.html: assets/video/phone/ringing.mp4
+G12/siteweb_G12/__chk.html: assets/videos/video_G12.mp4
+G12/siteweb_G12/__chk2.html: assets/images/affiche_G12.png
+G12/siteweb_G12/__chk2.html: assets/img/herofond.png
+G12/siteweb_G12/__chk2.html: assets/img/tv.png
+G12/siteweb_G12/__chk2.html: assets/video/phone/pickup.mp4
+G12/siteweb_G12/__chk2.html: assets/video/phone/ringing.mp4
+G12/siteweb_G12/__chk2.html: assets/videos/video_G12.mp4
+G12/siteweb_G12/__wp.html: assets/images/affiche_G12.png
+G12/siteweb_G12/__wp.html: assets/img/herofond.png
+G12/siteweb_G12/__wp.html: assets/img/tv.png
+G12/siteweb_G12/__wp.html: assets/video/phone/pickup.mp4
+G12/siteweb_G12/__wp.html: assets/video/phone/ringing.mp4
+G12/siteweb_G12/__wp.html: assets/videos/video_G12.mp4
+G12/siteweb_G12/index.html: assets/images/affiche_G12.png
+G12/siteweb_G12/index.html: assets/img/herofond.png
+G12/siteweb_G12/index.html: assets/img/tv.png
+G12/siteweb_G12/index.html: assets/video/phone/pickup.mp4
+G12/siteweb_G12/index.html: assets/video/phone/ringing.mp4
+G12/siteweb_G12/index.html: assets/videos/video_G12.mp4
+G14/siteweb_G14/404.html: assets/images/icon-moon.png
+G14/siteweb_G14/chemin.html: assets/images/icon-moon.png
+G14/siteweb_G14/chemins.html: assets/images/icon-moon.png
+G14/siteweb_G14/contact.html: assets/images/icon-moon.png
+G14/siteweb_G14/documentaires.html: assets/images/affiche_G14.png
+G14/siteweb_G14/documentaires.html: assets/images/icon-moon.png
+G14/siteweb_G14/documentaires.html: assets/videos/video_G14.mp4
+G14/siteweb_G14/index.html: assets/images/icon-moon.png
+G14/siteweb_G14/mentions.html: assets/images/icon-moon.png
+G15/GRP15_site_web/index.html: ./assets/images/affiche_G15.png
+G16/siteweb_G16/index.html: assets/images/affiche_G16.png
+G16/siteweb_G16/index.html: assets/images/partenaires/partenaire1.jpeg
+G16/siteweb_G16/index.html: assets/images/partenaires/partenaire2.png
+G16/siteweb_G16/index.html: assets/images/partenaires/partenaire4.jpg
+G16/siteweb_G16/index.html: assets/images/partenaires/partenaire5.png
+G16/siteweb_G16/index.html: assets/images/partenaires/partenaire6.png
+G16/siteweb_G16/index.html: assets/videos/video_G16.mp4
+G20/site_web_G20/css/style.css: ../assets/hero/aftersun.jpg
+G20/site_web_G20/css/style.css: ../assets/hero/portrait.jpg
+G20/site_web_G20/css/style.css: ../assets/hero/shrek.jpg
+G20/site_web_G20/css/style.css: ../assets/posters/31-aout.jpg
+G20/site_web_G20/css/style.css: ../assets/posters/echo-profondeurs.jpg
+G20/site_web_G20/css/style.css: ../assets/posters/manoir_nice.png
+G20/site_web_G20/index.html: assets/images/affiche_G20.png
+G20/site_web_G20/index.html: assets/logo-ugc.png
+G20/site_web_G20/index.html: assets/reviews/arnaud.jpg
+G20/site_web_G20/index.html: assets/reviews/marlene.jpg
+G20/site_web_G20/index.html: assets/reviews/oscar.jpg
+G20/site_web_G20/index.html: assets/videos/video_G20.mp4

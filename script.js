@@ -33,53 +33,11 @@ function escapeHtml(value) {
 }
 
 function buildPosterCandidates(group, siteFolder) {
-  const siteRoot = siteFolder.replace(/\/[^/]+$/, "");
-  const roots = [
-    siteRoot,
-    siteFolder,
-    `${siteRoot}/images`,
-    `${siteRoot}/img`,
-    `${siteRoot}/assets`,
-    `${siteRoot}/assets/images`,
-    `${siteRoot}/assets/img`,
-    `${siteRoot}/assets/posters`,
-    `${siteRoot}/assets/image`,
-    `${siteRoot}/files`,
-    `${siteRoot}/public`,
-    `${siteFolder}/images`,
-    `${siteFolder}/img`,
-    `${siteFolder}/assets`,
-    `${siteFolder}/assets/images`,
-    `${siteFolder}/assets/img`,
-    `${siteFolder}/assets/posters`,
-    `${siteFolder}/assets/image`,
-    `${siteFolder}/files`,
-    `${siteFolder}/public`
-  ];
-
-  const baseNames = [
-    `affiche_${group}`,
-    `Affiche_${group}`,
-    "affiche",
-    "Affiche",
-    "poster",
-    "image",
-    "video",
-    "bande-annonce"
-  ];
-
-  const extensions = ["jpg", "jpeg", "png", "gif", "webp", "svg", "pdf", "mp4", "mov", "webm", "m4v"];
-  const candidates = [];
-
-  roots.forEach((root) => {
-    baseNames.forEach((baseName) => {
-      extensions.forEach((extension) => {
-        candidates.push(`${root}/${baseName}.${extension}`);
-      });
-    });
-  });
-
-  return [...new Set(candidates)];
+  const actualSite = siteFolder.replace(/\/dist(?:\/client)?$/, "");
+  const groupRoot = actualSite.replace(/\/[^/]+$/, "");
+  return [groupRoot, `${actualSite}/assets/images`].flatMap(root =>
+    ["png", "jpg", "jpeg", "pdf"].map(extension => `${root}/affiche_${group}.${extension}`)
+  );
 }
 
 projects.forEach(({ group, title, pagePath }, index) => {
@@ -119,7 +77,7 @@ projects.forEach(({ group, title, pagePath }, index) => {
     currentMedia = element;
   }
 
-  function tryNext() {
+  async function tryNext() {
     if (candidateIndex >= candidates.length) {
       poster.insertAdjacentHTML(
         "beforeend",
@@ -139,6 +97,10 @@ projects.forEach(({ group, title, pagePath }, index) => {
     const isVideo = ["mp4", "mov", "webm", "m4v"].includes(extension);
 
     if (isPdf) {
+      try {
+        const response = await fetch(src, { method: "HEAD" });
+        if (!response.ok || response.headers.get("content-type")?.includes("text/html")) return tryNext();
+      } catch { return tryNext(); }
       const frame = document.createElement("iframe");
       frame.className = "pdf-poster";
       frame.title = `Affiche PDF du projet ${group}`;
