@@ -52,7 +52,21 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (loadVideo && videoInput) {
-    loadVideo.addEventListener('click', function () { videoInput.click(); });
+    loadVideo.addEventListener('click', function () {
+      const video = document.createElement('video');
+      video.className = 'trailer-video';
+      video.controls = true;
+      video.autoplay = true;
+      video.src = 'assets/videos/video_G11.mp4';
+      const placeholder = trailerFrame.querySelector('.trailer-placeholder');
+      const backdrop = trailerFrame.querySelector('.trailer-backdrop');
+      const overlay = trailerFrame.querySelector('.trailer-overlay');
+      if (placeholder) placeholder.remove();
+      if (backdrop) backdrop.remove();
+      if (overlay) overlay.remove();
+      trailerFrame.classList.add('has-video');
+      trailerFrame.prepend(video);
+    });
     videoInput.addEventListener('change', function () {
       const file = videoInput.files && videoInput.files[0];
       if (!file) return;

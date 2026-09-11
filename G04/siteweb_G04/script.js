@@ -21,8 +21,8 @@
       (ce navigateur seulement) — pour publier, édite ce fichier et pousse.
    ============================================================ */
 
-const VIDEO_URL  = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-const POSTER_URL = "";   // ex : "assets/affiche.jpg"
+const VIDEO_URL  = "assets/videos/video_G04.mp4";
+const POSTER_URL = "assets/images/affiche_G04.png";
 const EDIT_CODE  = "leon";
 
 /* ============================================================
