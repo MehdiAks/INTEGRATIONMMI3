@@ -47,7 +47,7 @@
         <p class="eyebrow dark">20 projets · 20 groupes</p>
         <h2>Les projets</h2>
       </div>
-      <p class="section-intro">Cliquez sur un projet pour accéder à son site.</p>
+      <p class="section-intro">Survolez une affiche pour visiter le site, afficher l’affiche ou voir le film.</p>
     </div>
 
     <div id="projectGrid" class="project-grid"></div>
@@ -58,6 +58,13 @@
     <span>MMI · BORDEAUX</span>
   </footer>
 
+  <dialog id="mediaDialog" class="media-dialog" aria-labelledby="mediaTitle">
+    <header class="media-dialog-header">
+      <h2 id="mediaTitle"></h2>
+      <button type="button" id="mediaClose" aria-label="Fermer la fenêtre">✕</button>
+    </header>
+    <div id="mediaContent" class="media-dialog-content" aria-live="polite"></div>
+  </dialog>
   <script src="script.js"></script>
 </body>
 </html>
