@@ -4,22 +4,54 @@
   const root = match ? new URL(match[1], location.href) : new URL('./', location.href);
   const group = match?.[1].match(/\/(G\d{2})\//i)?.[1].toUpperCase() || document.documentElement.dataset.group;
   const cache = new Map();
-  async function find(base, extensions) {
-    const key = base + extensions.join();
+  function probeMedia(url) {
+    return new Promise(resolve => {
+      const extension = url.split('.').pop().toLowerCase();
+      if (extension === 'pdf') return resolve(false);
+      const media = document.createElement(['mp4', 'mov'].includes(extension) ? 'video' : 'img');
+      let timer;
+      const finish = success => {
+        clearTimeout(timer);
+        media.onload = media.onerror = media.onloadedmetadata = null;
+        if (media.tagName === 'VIDEO') { media.removeAttribute('src'); media.load(); }
+        resolve(success);
+      };
+      media.onload = media.onloadedmetadata = () => finish(true);
+      media.onerror = () => finish(false);
+      timer = setTimeout(() => finish(false), 5000);
+      media.preload = 'metadata';
+      media.src = url;
+    });
+  }
+  async function findCandidates(candidates) {
+    const key = candidates.join('|');
     if (!cache.has(key)) cache.set(key, (async () => {
-      for (const extension of extensions) {
-        const url = `${base}.${extension}`;
+      for (const url of candidates) {
+        if (location.protocol === 'file:') {
+          if (await probeMedia(url)) return url;
+          continue;
+        }
         try {
-          const response = await fetch(url, { method: 'HEAD' });
-          // Écarte les serveurs qui renvoient index.html pour un fichier absent.
+          let response = await fetch(url, { method: 'HEAD' });
+          if (response.status === 405 || response.status === 501) {
+            response = await fetch(url, { headers: { Range: 'bytes=0-0' } });
+            response.body?.cancel().catch(() => {});
+          }
           if (response.ok && !response.headers.get('content-type')?.includes('text/html')) return url;
-        } catch { /* Fichier absent ou serveur indisponible. */ }
+        } catch {
+          if (await probeMedia(url)) return url;
+        }
       }
       return null;
     })());
-    return cache.get(key);
+    const result = await cache.get(key);
+    if (!result) cache.delete(key); // Un fichier ajouté ensuite doit pouvoir être retrouvé.
+    return result;
   }
-  window.GroupMedia = { root: root.href, group, find };
+  function find(base, extensions) {
+    return findCandidates(extensions.map(extension => `${base}.${extension}`));
+  }
+  window.GroupMedia = { root: root.href, group, find, findCandidates };
   if (!group) return;
   const poster = find(new URL(`assets/images/affiche_${group}`, root).href, ['png', 'jpg', 'jpeg', 'pdf']);
   const video = find(new URL(`assets/videos/video_${group}`, root).href, ['mp4', 'mov']);
