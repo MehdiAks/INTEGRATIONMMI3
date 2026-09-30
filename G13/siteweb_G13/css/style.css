@@ -1,0 +1,947 @@
+/* ==========================================================================
+   RAVE N' — Fiche œuvre
+   Intégration de la maquette Figma « INTE » (frame Desktop 1280 · node 1:2376)
+   Les custom properties reprennent les variables du fichier Figma.
+   ========================================================================== */
+
+/* --------------------------------------------------------------- Tokens */
+:root {
+  /* Neutres */
+  --c-50:  #f8f8f8;
+  --c-100: #efefef;
+  --c-200: #dadada;
+  --c-500: #727272;
+  --c-600: #484848;
+  --c-700: #363636;
+  --c-800: #242424;
+  --c-900: #141414;
+
+  /* Couleurs de marque */
+  --pink:         #ff0054;
+  --green:        #00e208;
+  --green-bright: #00ff3e;
+  --violet:       #ab4acf;
+
+  /* Typographie */
+  --font-base: "Fira Sans", "Helvetica Neue", Arial, sans-serif;
+
+  --text-50-size:  11px;  --text-50-lh:  14px;
+  --text-75-size:  12px;  --text-75-lh:  16px;
+  --text-100-size: 14px;  --text-100-lh: 20px;
+  --text-300-size: 20px;  --text-300-lh: 26px;
+  --text-400-size: 24px;  --text-400-lh: 32px;
+
+  /* Grille */
+  --col-12: 1096px;
+  --col-8:  724px;
+  --col-3:  259px;
+  --page-padding: 92px;
+  --gap: 20px;
+  --spacer: 24px;
+
+  /* Formes */
+  --radius-100: 4px;
+  --radius-store-card: 8px;
+  --radius-pill: 16px;
+  --radius-pill-lg: 20px;
+  --radius-anchor: 2px;
+
+  /* Boutons */
+  --button-icon-size: 14px;
+  --button-icon-container: 16px;
+  --button-icon-gap: 6px;
+  --button-padding-h: 16px;
+  --button-padding-v: 8px;
+  --icon-size: 16px;
+}
+
+/* ---------------------------------------------------------------- Reset */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--c-800);
+  color: var(--c-50);
+  font-family: var(--font-base);
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, dl, dd, dt, figure { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--pink);
+  color: var(--c-50);
+  font-weight: 600;
+}
+.skip-link:focus { left: 0; }
+
+/* ------------------------------------------------------------ Structure */
+.container {
+  width: 100%;
+  max-width: calc(var(--col-12) + var(--page-padding) * 2);
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+/* Rythme vertical repris des « Spacer » de la maquette : 24 en haut de page,
+   16 entre un en-tête de section et son contenu, 40 entre deux sections. */
+.product-heading { padding-top: var(--spacer); }
+
+#galerie,
+#distribution,
+#editorial,
+#boutique,
+#infos { margin-top: 40px; }
+
+main { padding-bottom: 40px; }
+
+/* Bande pleine largeur (fond --700 dans la maquette) */
+.section--band {
+  padding-block: 40px;
+  background: var(--c-700);
+}
+.section--band .nav-button { background: var(--c-800); }
+.section--band .nav-button:hover { background: var(--c-600); }
+.section--band .nav-button[disabled]:hover { background: var(--c-800); }
+
+/* ---------------------------------------------------------------- Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--c-800);
+  border-bottom: 1px solid var(--c-600);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: calc(var(--col-12) + var(--page-padding) * 2);
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+.header__left {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__right { display: flex; align-items: center; }
+
+.icon-button {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border-radius: var(--radius-100);
+  transition: background-color .15s ease;
+}
+.icon-button:hover { background: var(--c-700); }
+.icon-button img { width: var(--icon-size); height: var(--icon-size); }
+
+/* Burger */
+.burger {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+.burger__bar {
+  position: absolute;
+  left: 50%;
+  width: 14px;
+  height: 1.5px;
+  margin-left: -7px;
+  border-radius: 1px;
+  background: var(--c-50);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.burger__bar:nth-child(1) { top: 8.75px; }
+.burger__bar:nth-child(2) { top: 13.25px; }
+.burger__bar:nth-child(3) { top: 17.75px; }
+
+[aria-expanded="true"] .burger__bar:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
+[aria-expanded="true"] .burger__bar:nth-child(2) { opacity: 0; }
+[aria-expanded="true"] .burger__bar:nth-child(3) { transform: translateY(-4.5px) rotate(-45deg); }
+
+/* Logo */
+.logo { display: block; padding: 4px 0; }
+.logo__box {
+  display: block;
+  width: 98px;
+  height: 28px;
+  background: var(--pink);
+  border-radius: 48px 0 48px 0; /* top-left + bottom-right */
+}
+
+/* Navigation dépliable (ajout fonctionnel : la maquette ne détaille pas le menu) */
+.nav { border-top: 1px solid var(--c-600); }
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  width: 100%;
+  max-width: calc(var(--col-12) + var(--page-padding) * 2);
+  margin-inline: auto;
+  padding: 16px var(--page-padding);
+}
+.nav__link {
+  display: inline-block;
+  padding: 6px 0;
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  color: var(--c-200);
+  border-bottom: 2px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.nav__link:hover,
+.nav__link.is-current {
+  color: var(--c-50);
+  border-bottom-color: var(--pink);
+}
+
+/* Bandeau vert sous le header */
+.header-band {
+  height: 44px;
+  background: var(--green);
+  border-bottom: 1px solid var(--green-bright);
+}
+
+/* --------------------------------------------------- En-tête de section */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+.section-header__anchor {
+  flex: none;
+  align-self: stretch;
+  width: 4px;
+  margin-block: 2px;
+  background: var(--pink);
+  border-radius: var(--radius-anchor);
+}
+.section-header__anchor--light { background: var(--c-50); }
+.section-header__anchor--green { background: var(--green); }
+
+.section-header__title {
+  font-size: var(--text-400-size);
+  line-height: var(--text-400-lh);
+  font-weight: 700;
+  color: var(--c-50);
+}
+
+/* ------------------------------------------------------------- Diviseur */
+.divider { padding-block: 12px; }
+.divider::before {
+  content: "";
+  display: block;
+  height: 0;
+  border-top: 1px dashed var(--c-500);
+}
+
+/* -------------------------------------------------------------- Boutons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-icon-gap);
+  padding: var(--button-padding-v) var(--button-padding-h);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-75-size);
+  line-height: var(--text-75-lh);
+  font-weight: 600;
+  color: var(--c-50);
+  white-space: nowrap;
+  transition: filter .15s ease, background-color .15s ease;
+}
+.btn:hover { filter: brightness(1.12); }
+.btn:active { filter: brightness(.92); }
+
+.btn__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--button-icon-container);
+  height: var(--button-icon-container);
+  padding: 2px;
+}
+.btn__icon img { width: var(--button-icon-size); height: var(--button-icon-size); }
+
+.btn--primary { background: var(--pink); }
+.btn--neutral { background: var(--c-600); }
+.btn--grow    { flex: 1 0 0; min-width: 0; }
+.btn--icon-only { padding-inline: 8px; }
+
+.btn--block {
+  display: flex;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: var(--radius-100);
+}
+.btn--pill-lg { padding: 12px 20px; border-radius: var(--radius-pill-lg); }
+
+.btn--outline {
+  padding: 16px 28px;
+  background: rgba(0, 0, 0, .5);
+  border: 2px solid var(--c-50);
+  border-radius: var(--radius-100);
+}
+
+/* Favori actif */
+.btn[aria-pressed="true"] { background: var(--pink); }
+
+/* ---------------------------------------------------- Heading du produit */
+.product-heading__grid {
+  display: grid;
+  grid-template-columns: 352px minmax(0, 1fr);
+  gap: var(--gap);
+  align-items: start;
+}
+
+.poster {
+  position: relative;
+  width: 352px;
+  aspect-ratio: 352 / 497;
+  overflow: hidden;
+  background: var(--c-700);
+  border-radius: var(--radius-100);
+}
+.poster img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Intitulés posés sur les gabarits vides de la maquette. */
+.poster__hint,
+.gallery__hint {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 319px;
+  max-width: 90%;
+  color: #000;
+  font-size: var(--text-300-size);
+  line-height: var(--text-300-lh);
+  font-weight: 700;
+  text-align: center;
+}
+
+.product-heading__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-300-size);
+  line-height: var(--text-300-lh);
+  font-weight: 700;
+}
+.product-heading__rating-badge { flex: none; width: 30px; height: 30px; }
+
+/* --------------------------------------------------------- Notes presse */
+/* Le filet de la maquette est plus serré ici que dans les autres blocs. */
+.product-heading__content .divider { padding-block: 6px; }
+
+.ratings {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+/* Chaque logo garde ses propres dimensions (attributs width/height du HTML). */
+.rating__logo,
+.rating__stars { flex: none; object-fit: contain; }
+
+.note-spectateur {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: var(--text-300-size);
+  line-height: var(--text-300-lh);
+  font-weight: 700;
+}
+.note-spectateur img { flex: none; width: 130px; height: 27px; }
+
+.synopsis {
+  margin-top: 10px;
+  font-size: var(--text-75-size);
+  line-height: var(--text-75-lh);
+  font-weight: 700;
+}
+
+.purchase-area {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+/* ---------------------------------------------------------- Galerie média */
+.gallery-row {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
+.gallery {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gallery__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--c-700);
+  border-radius: 0 0 var(--radius-100) var(--radius-100);
+}
+.gallery__stage img { width: 100%; height: 100%; object-fit: cover; }
+
+.gallery__thumbbar {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.gallery__thumbs {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 8px;
+  overflow: hidden;
+}
+.gallery__thumbs > li { flex: 1 0 0; min-width: 0; }
+
+.thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--c-700);
+  border: 2px solid transparent;
+  border-radius: var(--radius-100);
+  padding: 0;
+}
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb.is-active { border-color: var(--violet); }
+
+.thumb--video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--pink);
+  opacity: .85;
+}
+.thumb__play {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb__play img { width: 40px; height: 40px; }
+
+/* Boutons de navigation (galerie + carrousels) */
+.nav-button {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-900);
+  border-radius: var(--radius-100);
+  transition: background-color .15s ease;
+}
+.nav-button:hover { background: var(--c-700); }
+.nav-button[disabled] { opacity: .35; cursor: default; }
+.nav-button[disabled]:hover { background: var(--c-900); }
+
+.nav-button--tall { width: 36px; padding: 8px; align-self: stretch; }
+.nav-button--tall img { width: 12px; height: 12px; }
+
+.nav-button--round { width: 32px; height: 32px; }
+.nav-button--round img { width: 16px; height: 16px; }
+
+/* Les visuels sont des enfants flex : sans min-height:0, la taille intrinsèque
+   de l'image l'emporte sur aspect-ratio et fait grandir la carte. */
+.gallery__stage,
+.store-card__media,
+.card-cast__media,
+.card-editorial__media,
+.card-product__media,
+.card-featured__media {
+  flex: none;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------- Carte boutique */
+.store-card {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 8px;
+  width: var(--col-3);
+  height: 532px;
+  padding: 8px;
+  background: var(--c-700);
+  border-radius: var(--radius-store-card);
+}
+.store-card__media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-100);
+  background: var(--c-600);
+}
+.store-card__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.store-card__body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+.store-card__text { display: flex; flex-direction: column; gap: 4px; }
+.store-card__title {
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  font-weight: 700;
+}
+.store-card__desc {
+  font-size: var(--text-75-size);
+  line-height: var(--text-75-lh);
+  font-weight: 400;
+  color: var(--c-200);
+}
+
+/* ------------------------------------------------------------- Carrousels */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--col-12) + var(--page-padding) * 2);
+  margin: 16px auto 0;
+  padding-inline: var(--page-padding);
+}
+
+.carousel__track {
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__track > * { scroll-snap-align: start; }
+
+.carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.carousel__nav--prev { left: calc(var(--page-padding) - 40px); }
+.carousel__nav--next { right: calc(var(--page-padding) - 40px); }
+
+/* ---------------------------------------------------- Cartes distribution */
+.card-cast {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: var(--col-3);
+  height: 370px;
+  overflow: hidden;
+  background: var(--c-600);
+  border-radius: var(--radius-100);
+}
+.card-cast__media { width: 100%; aspect-ratio: 1 / 1; background: var(--c-700); }
+.card-cast__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-cast__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 12px 0;
+}
+.card-cast__actor {
+  font-size: var(--text-50-size);
+  line-height: var(--text-50-lh);
+  font-weight: 400;
+}
+.card-cast__role {
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------ Contenus éditoriaux */
+.editorial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
+.card-featured {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 407px;
+  overflow: hidden;
+  background: var(--c-700);
+  border-radius: var(--radius-100);
+}
+.card-featured__media { flex: none; width: var(--col-8); height: 100%; background: var(--c-600); }
+.card-featured__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-featured__content {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px;
+}
+.card-featured__top { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.card-featured__title {
+  font-size: var(--text-400-size);
+  line-height: var(--text-400-lh);
+  font-weight: 700;
+}
+.card-featured__desc {
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  font-weight: 400;
+}
+
+.card-editorial {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: var(--col-3);
+  overflow: hidden;
+  background: var(--c-700);
+  border-radius: var(--radius-100);
+}
+.card-editorial__media { width: 100%; aspect-ratio: 16 / 9; background: var(--c-600); }
+.card-editorial__media img { width: 100%; height: 100%; object-fit: cover; }
+.card-editorial__content { display: flex; flex-direction: column; gap: 8px; padding: 12px; }
+.card-editorial__title {
+  height: 60px;
+  overflow: hidden;
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  font-weight: 700;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-50-size);
+  line-height: var(--text-50-lh);
+  font-weight: 400;
+}
+.meta__icon { width: 11px; height: 11px; }
+
+/* --------------------------------------------------------------- Boutique */
+.shop {
+  position: relative;
+  overflow: hidden;
+  background: var(--pink);
+}
+.shop__deco {
+  position: absolute;
+  left: 87.8%;
+  top: 760px;
+  width: 941.92px;
+  height: 1551.5px;
+  background: var(--green);
+  border: 1px solid #000;
+  transform: translate(-50%, -50%) rotate(13.86deg);
+  pointer-events: none;
+}
+.shop__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 40px;
+}
+.shop .btn--outline { margin-top: 40px; }
+
+/* --------------------------------------------------- Cartes produit boutique */
+.card-product {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: var(--col-3);
+  overflow: hidden;
+  background: var(--c-700);
+  border-radius: var(--radius-100);
+}
+.card-product__media { width: 100%; aspect-ratio: 1 / 1; background: var(--c-600); }
+.card-product__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-product__top { padding: 12px 12px 0; }
+.card-product__title {
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  font-weight: 700;
+}
+
+.card-product__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 12px 8px;
+}
+
+.discount-label { display: flex; }
+.discount-label__shape {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 4px;
+  background: var(--pink);
+  border-radius: 2px;
+  font-size: var(--text-50-size);
+  line-height: var(--text-50-lh);
+  font-weight: 600;
+}
+
+.prices { display: flex; align-items: baseline; gap: 8px; }
+.prices__current {
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  font-weight: 700;
+}
+.prices__old {
+  font-size: var(--text-75-size);
+  line-height: var(--text-75-lh);
+  font-weight: 400;
+  color: var(--c-200);
+}
+
+/* ------------------------------------------------------------- Infos / légal */
+.legal-disclaimer {
+  height: 64px;
+  background: var(--c-700);
+  border-radius: var(--radius-100);
+}
+
+.infos {
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  margin-top: 40px;
+}
+.infos .section-header { margin-bottom: 0; }
+.infos__col { flex: 1 1 auto; min-width: 0; }
+.infos__col--narrow { flex: none; width: 352px; }
+
+.info-table { margin-top: 16px; }
+
+.info-cell__label,
+.info-cell__value { padding-inline: 16px; }
+
+.info-cell__label {
+  padding-top: 12px;
+  font-size: var(--text-100-size);
+  line-height: var(--text-100-lh);
+  font-weight: 700;
+}
+.info-cell__value {
+  padding-bottom: 12px;
+  margin: 4px 0 0;
+  font-size: var(--text-75-size);
+  line-height: var(--text-75-lh);
+  font-weight: 400;
+  color: var(--c-100);
+}
+.info-cell__value--with-icon { display: flex; align-items: center; gap: 8px; }
+.info-cell__value--with-icon img { width: 24px; height: 24px; }
+
+.info-cell + .info-cell { border-top: 1px dashed var(--c-500); }
+.info-cell:last-child { border-bottom: 1px dashed var(--c-500); }
+
+/* ----------------------------------------------------------------- Footer */
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding-block: 32px;
+  background: var(--pink);
+  color: var(--c-200);
+}
+.footer__deco {
+  position: absolute;
+  left: 66.8%;
+  top: 693px;
+  width: 941.92px;
+  height: 1781.6px;
+  background: var(--green);
+  border: 1px solid #000;
+  transform: translate(-50%, -50%) rotate(13.86deg);
+  pointer-events: none;
+}
+
+.footer__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap);
+}
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 178px;
+  padding: 8px 16px;
+  border-radius: var(--radius-100);
+}
+/* La colonne réseaux respire davantage dans la maquette. */
+.footer__col--social { gap: 16px; padding: 16px; }
+.footer__heading {
+  font-size: var(--text-100-size);
+  line-height: normal;
+  font-weight: 700;
+  color: var(--c-50);
+}
+/* La maquette élargit cette colonne (315px) au-delà de sa piste de grille et la
+   cale à droite, pour que les titres tiennent sur une seule ligne. */
+.footer__col--wide { width: 315px; justify-self: end; }
+
+/* Colonnes posées sur l'aplat vert : la maquette y bascule le texte en foncé. */
+.footer__col--dark { color: var(--c-700); }
+.footer__col--dark .footer__heading { color: var(--c-900); }
+
+.footer__list { display: flex; flex-direction: column; gap: 12px; line-height: normal; }
+.footer__list a { transition: color .15s ease; }
+.footer__list a:hover { color: var(--c-50); }
+.footer__col--dark .footer__list a:hover { color: var(--c-900); }
+
+.footer__social { display: flex; align-items: center; gap: 8px; }
+.footer__social img { width: 31px; height: 31px; }
+.footer__social a { transition: opacity .15s ease; }
+.footer__social a:hover { opacity: .7; }
+
+/* ------------------------------------------------------------------ Toast */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 100;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  background: var(--c-900);
+  border: 1px solid var(--c-600);
+  border-radius: var(--radius-100);
+  font-size: var(--text-75-size);
+  line-height: var(--text-75-lh);
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+}
+
+/* ================================================================ Responsive
+   La maquette est desktop (1280). En dessous, on réduit les gouttières
+   puis on empile les blocs pour rester lisible.
+   ========================================================================= */
+@media (max-width: 1279px) {
+  :root { --page-padding: 48px; }
+  .carousel__nav--prev { left: 8px; }
+  .carousel__nav--next { right: 8px; }
+}
+
+@media (max-width: 1023px) {
+  :root { --page-padding: 24px; }
+
+  .product-heading__grid { grid-template-columns: 1fr; }
+  .poster { width: 100%; max-width: 352px; }
+
+  .gallery-row { flex-direction: column; }
+  .store-card { width: 100%; height: auto; }
+  .store-card__media { aspect-ratio: 16 / 9; }
+
+  .card-featured { flex-direction: column; align-items: stretch; height: auto; }
+  .card-featured__media { width: 100%; aspect-ratio: 16 / 9; height: auto; }
+
+  .infos { flex-direction: column; }
+  .infos__col--narrow { width: 100%; }
+
+  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__col--wide { width: auto; justify-self: stretch; }
+}
+
+@media (max-width: 639px) {
+  .section-header__title { font-size: var(--text-300-size); line-height: var(--text-300-lh); }
+  .product-heading__title { flex-wrap: wrap; }
+  .ratings { gap: 12px; }
+  .note-spectateur { flex-wrap: wrap; }
+  .purchase-area { flex-wrap: wrap; }
+  .btn--grow { flex-basis: 100%; }
+  .gallery__thumbs > li { flex: 0 0 96px; }
+  .gallery__thumbs { overflow-x: auto; }
+  .footer__grid { grid-template-columns: 1fr; }
+  .card-cast, .card-product, .card-editorial { width: 220px; }
+}

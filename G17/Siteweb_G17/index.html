@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looney Smoke — Dis non, vis mieux</title>
+    <meta name="description" content="Site de prévention contre le tabac, l'alcool et les drogues, destiné aux jeunes.">
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/styles/presset.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+
+    <!-- Script -->
+    <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav class="nav">
+        <ul class="nav__liste" id="navListe">
+            <li><a class="nav__lien" href="#creation">Création</a></li>
+            <li><a class="nav__lien" href="#addictions">Addictions</a></li>
+            <li class="nav__logo"><a href="#hero"><img src="assets/img/logo.png" alt="Looney Smoke"></a></li>
+            <li><a class="nav__lien" href="#urgences">Arrêter</a></li>
+            <li><a class="nav__lien" href="#presentation">Continuer</a></li>
+            <li><button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">☰</button></li>
+        </ul>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="hero">
+        <p class="hero__fantome" aria-hidden="true">LOONEY<br>SMOKE</p>
+
+        <div class="conteneur hero__inner">
+            <div class="hero__contenu">
+                <h1 class="hero__titre">Dis non,<br>vis mieux !</h1>
+                <p class="hero__texte">
+                    Tabac, alcool, drogues — comprends les risques, fais les bons choix,
+                    et construis un avenir dont tu seras fier·e.
+                </p>
+                <a class="bouton hero__cta" href="#addictions">Je m'informe →</a>
+            </div>
+
+            <img class="hero__canard" src="assets/img/canar.png" alt="Daffy Duck">
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ PRÉSENTATION ============ -->
+        <section class="presentation" id="presentation">
+            <div class="conteneur presentation__inner">
+                <!-- Remplace ce div par : <div class="presentation__media"><img src="assets/img/ton-image.jpg" alt="..."></div> -->
+                <div class="presentation__media">Ton image ici</div>
+
+                <div class="presentation__texte">
+                    <p>
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                        praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                        excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+                        officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                    </p>
+                    <p>
+                        Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
+                        cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+                        maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+                        repellendus. Temporibus autem quibusdam et aut officiis debitis.
+                    </p>
+                    <a class="bouton" href="#creation">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ NOTRE CRÉATION ============ -->
+        <section class="creation" id="creation">
+            <div class="conteneur">
+                <h2 class="titre-section">Notre création</h2>
+
+                <div class="carrousel">
+                    <button class="carrousel__fleche" id="precedent" aria-label="Slide précédente">❮</button>
+
+                    <div class="carrousel__scene" id="scene">
+                        <!-- Remplace le contenu d'une slide par <img src="..."> ou <video src="..." controls></video> -->
+                        <div class="carrousel__slide est-actif">
+                            <img src="../affiche_G17.webp" alt="Affiche du projet Looney Smoke">
+                            <span class="carrousel__legende">Épisode 1</span>
+                        </div>
+                        <div class="carrousel__slide">
+                            <iframe src="https://www.youtube.com/embed/EzFizuPBF1Q?rel=0" title="Film G17" loading="lazy"
+                                style="width:100%;aspect-ratio:16/9;border:0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <span class="carrousel__legende">Épisode 2</span>
+                        </div>
+                        <div class="carrousel__slide">
+                            <span class="carrousel__legende">Épisode 3</span>
+                        </div>
+                        <div class="carrousel__slide">
+                            <span class="carrousel__legende">Épisode 4</span>
+                        </div>
+                    </div>
+
+                    <button class="carrousel__fleche" id="suivant" aria-label="Slide suivante">❯</button>
+                </div>
+
+                <div class="carrousel__puces" id="puces"></div>
+
+                <div class="creation__but">
+                    <strong>Notre But :</strong>
+                    <p>
+                        Faire reculer le tabac et les addictions grâce à la force du dessin animé :
+                        un format percutant, ludique et sans tabou pour sensibiliser, informer et
+                        changer les regards.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ADDICTIONS ============ -->
+        <section class="addictions" id="addictions">
+            <div class="conteneur">
+                <h2 class="titre-section">Tout savoir sur les addictions</h2>
+
+                <div class="onglets" id="onglets">
+                    <button class="onglet est-actif" data-cible="tabac">🚬 Tabac</button>
+                    <button class="onglet" data-cible="alcool">🍺 Alcool</button>
+                    <button class="onglet" data-cible="drogues">💊 Drogues</button>
+                </div>
+
+                <div class="addictions__scene">
+                    <img class="addictions__lapin" src="assets/img/lapin.svg" alt="Bugs Bunny">
+
+                    <!-- Tabac -->
+                    <article class="panneau panneau--tabac est-actif" id="tabac">
+                        <div class="panneau__entete">
+                            <h3 class="panneau__titre">🚬 Le Tabac, c'est pas cool !</h3>
+                            <p class="panneau__badge">Chaque cigarette raccourcit ta vie de 11 minutes.</p>
+                        </div>
+                        <div class="panneau__corps">
+                            <div class="colonne colonne--danger">
+                                <p class="colonne__titre">⚠️ Les Dangers</p>
+                                <ul>
+                                    <li>🫁 Détruit tes poumons progressivement</li>
+                                    <li>❤️ Augmente le risque de crise cardiaque</li>
+                                    <li>🦷 Jaunit tes dents et abîme la peau</li>
+                                    <li>💸 Coûte en moyenne 3 000 € par an</li>
+                                </ul>
+                            </div>
+                            <div class="colonne colonne--solution">
+                                <p class="colonne__titre">✅ Comment s'en sortir</p>
+                                <ul>
+                                    <li>🩺 Parle à un médecin — il existe des aides gratuites</li>
+                                    <li>🏃 Remplace la cigarette par du sport</li>
+                                    <li>📱 Utilise l'appli Tabac Info Service (39 89)</li>
+                                    <li>👥 Entoure-toi de personnes non-fumeuses</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Alcool -->
+                    <article class="panneau panneau--alcool" id="alcool">
+                        <div class="panneau__entete">
+                            <h3 class="panneau__titre">🍺 L'Alcool, ça trinque aussi !</h3>
+                            <p class="panneau__badge">Avant 18 ans, le cerveau est encore en construction.</p>
+                        </div>
+                        <div class="panneau__corps">
+                            <div class="colonne colonne--danger">
+                                <p class="colonne__titre">⚠️ Les Dangers</p>
+                                <ul>
+                                    <li>🧠 Ralentit la mémoire et la concentration</li>
+                                    <li>🚗 1re cause de mortalité sur la route chez les jeunes</li>
+                                    <li>🫄 Abîme le foie, même sans être alcoolique</li>
+                                    <li>😵 Comas éthyliques dès le premier « binge drinking »</li>
+                                </ul>
+                            </div>
+                            <div class="colonne colonne--solution">
+                                <p class="colonne__titre">✅ Comment s'en sortir</p>
+                                <ul>
+                                    <li>💧 Alterne avec de l'eau et ne bois jamais à jeun</li>
+                                    <li>🚫 Sache dire non, même en groupe</li>
+                                    <li>📞 Appelle Alcool Info Service (0 980 980 930)</li>
+                                    <li>🎯 Fixe-toi des soirées « zéro alcool »</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Drogues -->
+                    <article class="panneau panneau--drogues" id="drogues">
+                        <div class="panneau__entete">
+                            <h3 class="panneau__titre">💊 Les Drogues, zéro bonne idée</h3>
+                            <p class="panneau__badge">La dépendance peut s'installer dès les premières prises.</p>
+                        </div>
+                        <div class="panneau__corps">
+                            <div class="colonne colonne--danger">
+                                <p class="colonne__titre">⚠️ Les Dangers</p>
+                                <ul>
+                                    <li>🧠 Troubles de la mémoire et de la motivation</li>
+                                    <li>😰 Anxiété, dépression et crises de panique</li>
+                                    <li>⚗️ Produits coupés : tu ne sais jamais ce que tu prends</li>
+                                    <li>⚖️ Détention et usage sont punis par la loi</li>
+                                </ul>
+                            </div>
+                            <div class="colonne colonne--solution">
+                                <p class="colonne__titre">✅ Comment s'en sortir</p>
+                                <ul>
+                                    <li>🗣️ Parle-en à un adulte de confiance</li>
+                                    <li>🏥 Pousse la porte d'une Consultation Jeunes Consommateurs</li>
+                                    <li>📞 Drogues Info Service : 0 800 23 13 13 (anonyme)</li>
+                                    <li>🎨 Trouve une passion qui remplit tes journées</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CHIFFRES ============ -->
+        <section class="chiffres">
+            <div class="conteneur chiffres__grille">
+                <div class="carte chiffre">
+                    <p class="chiffre__emoji">🚬</p>
+                    <p class="chiffre__valeur">7 000+</p>
+                    <p class="chiffre__label">substances toxiques dans une cigarette</p>
+                </div>
+                <div class="carte chiffre">
+                    <p class="chiffre__emoji">💀</p>
+                    <p class="chiffre__valeur">75 000</p>
+                    <p class="chiffre__label">décès liés au tabac en France / an</p>
+                </div>
+                <div class="carte chiffre">
+                    <p class="chiffre__emoji">🍺</p>
+                    <p class="chiffre__valeur">41 000</p>
+                    <p class="chiffre__label">décès liés à l'alcool en France / an</p>
+                </div>
+                <div class="carte chiffre">
+                    <p class="chiffre__emoji">💊</p>
+                    <p class="chiffre__valeur">11 ans</p>
+                    <p class="chiffre__label">âge moyen du 1<sup>er</sup> contact avec les drogues</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ URGENCES ============ -->
+        <section class="urgences" id="urgences">
+            <div class="conteneur">
+                <h2 class="titre-section">Numéros d'urgence gratuits</h2>
+
+                <div class="urgences__grille">
+                    <a class="carte urgence" href="tel:3989">
+                        <span class="urgence__emoji">🚬</span>
+                        <span>
+                            <span class="urgence__numero">39 89</span>
+                            <span class="urgence__nom">Tabac Info Service</span>
+                            <span class="urgence__horaire">Lun-Sam 8h-20h</span>
+                        </span>
+                    </a>
+                    <a class="carte urgence" href="tel:0980980930">
+                        <span class="urgence__emoji">🍺</span>
+                        <span>
+                            <span class="urgence__numero">0 980 980 930</span>
+                            <span class="urgence__nom">Alcool Info Service</span>
+                            <span class="urgence__horaire">7j/7 8h-2h</span>
+                        </span>
+                    </a>
+                    <a class="carte urgence" href="tel:0800231313">
+                        <span class="urgence__emoji">💊</span>
+                        <span>
+                            <span class="urgence__numero">0 800 23 13 13</span>
+                            <span class="urgence__nom">Drogues Info Service</span>
+                            <span class="urgence__horaire">7j/7 8h-2h • Gratuit</span>
+                        </span>
+                    </a>
+                    <a class="carte urgence" href="tel:15">
+                        <span class="urgence__emoji">🚑</span>
+                        <span>
+                            <span class="urgence__numero">15</span>
+                            <span class="urgence__nom">SAMU</span>
+                            <span class="urgence__horaire">Urgence médicale</span>
+                        </span>
+                    </a>
+                    <a class="carte urgence" href="tel:3114">
+                        <span class="urgence__emoji">💙</span>
+                        <span>
+                            <span class="urgence__numero">3114</span>
+                            <span class="urgence__nom">Prévention Suicide</span>
+                            <span class="urgence__horaire">24h/24 7j/7</span>
+                        </span>
+                    </a>
+                    <a class="carte urgence" href="tel:119">
+                        <span class="urgence__emoji">🧒</span>
+                        <span>
+                            <span class="urgence__numero">119</span>
+                            <span class="urgence__nom">Enfance en Danger</span>
+                            <span class="urgence__horaire">Confidentiel & Gratuit</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ PIED DE PAGE ============ -->
+    <footer class="pied">
+        <img class="pied__logo" src="assets/img/logo.png" alt="Looney Smoke">
+        <p>Site de prévention contre les addictions — destiné aux jeunes.</p>
+        <p class="pied__alerte">
+            En cas de détresse, appelez le 3114 (prévention suicide) ou le 15 (urgences médicales).
+        </p>
+    </footer>
+
+</body>
+</html>

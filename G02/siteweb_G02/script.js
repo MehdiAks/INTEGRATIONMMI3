@@ -5,8 +5,7 @@ const FOCUS_X = 0.486;
 /* --------------------------------------------------------
   Changer les liens ici :
    -------------------------------------------------------- */
-const POSTER_SRC = "assets/images/affiche_G02.png";
-const VIDEO_SRC = "assets/videos/video_G02.mp4";
+const POSTER_SRC = "../affiche_G02.webp";
 
 const buildingTrack = document.getElementById("building-track");
 const buildingImage = document.getElementById("building-image");
@@ -204,10 +203,6 @@ const modalPlayButton = document.getElementById("modal-play");
 const modalBox = document.querySelector("#modal-overlay .modal-box");
 
 function resetVideo() {
-  const video = modalVideoWrap.querySelector("video");
-  if (video) {
-    video.pause();
-  }
   modalVideoWrap.classList.remove("is-playing");
   modalBox.classList.remove("is-video-mode");
   modalVideoWrap.innerHTML = "";
@@ -215,11 +210,12 @@ function resetVideo() {
 }
 
 modalPlayButton.addEventListener("click", async () => {
-  const video = document.createElement("video");
-  video.src = (await window.GroupMedia.ready).video || VIDEO_SRC;
-  video.controls = true;
-  video.autoplay = true;
-  video.addEventListener("error", resetVideo);
+  const video = document.createElement("iframe");
+  video.src = `${(await window.GroupMedia.ready).video}&autoplay=1`;
+  video.title = "Film G02";
+  video.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  video.referrerPolicy = "strict-origin-when-cross-origin";
+  video.allowFullscreen = true;
 
   modalVideoWrap.classList.add("is-playing");
   modalBox.classList.add("is-video-mode");

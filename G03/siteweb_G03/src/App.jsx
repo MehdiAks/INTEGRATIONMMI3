@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Info, List, Play, Star, X } from "@phosphor-icons/react";
 import directorImage from "../assets/images/michel-director.webp";
-const posterImage = window.GroupMedia.root + "assets/images/affiche_G03.png";
+const posterImage = new URL("../affiche_G03.webp", window.GroupMedia.root).href;
+const filmUrl = "https://www.youtube.com/embed/H-5_lNKP1Og?rel=0";
 import synopsisImage from "../assets/images/synopsis-waiting-for-love.webp";
 
 const navItems = [
@@ -142,7 +143,7 @@ export function App() {
           <button className="scroll-cue" onClick={() => jumpTo("synopsis")} aria-label="Aller au synopsis"><span>Défiler</span><span className="scroll-cue__line" aria-hidden="true" /></button>
         </section>
 
-        <section className="section" id="video" aria-label="Voir le film"><div className="section__inner"><video controls playsInline preload="metadata" poster={posterImage} src={window.GroupMedia.root + "assets/videos/video_G03.mp4"} style={{width: "100%", maxHeight: "80vh"}} /></div></section>
+        <section className="section" id="video" aria-label="Voir le film"><div className="section__inner"><iframe src={filmUrl} title="Film G03" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{width: "100%", aspectRatio: "16 / 9", maxHeight: "80vh", border: 0}} /></div></section>
 
         <section className="section synopsis" id="synopsis" aria-labelledby="synopsis-title">
           <div className="section__inner synopsis__grid">

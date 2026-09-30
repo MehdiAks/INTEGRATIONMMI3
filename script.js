@@ -1,25 +1,9 @@
 const youtubeVideos = {
-  G01: '<iframe width="560" height="315" src="https://www.youtube.com/embed/yVhS5Qsq2XM?si=usBttqc0bLSk7amd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G02: '<iframe width="560" height="315" src="https://www.youtube.com/embed/Q5rgOF-AsSA?si=fly2jI8QX3wZqepf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G03: '<iframe width="560" height="315" src="https://www.youtube.com/embed/H-5_lNKP1Og?si=EAAA5M-oAvqW16Ja" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G04: '<iframe width="560" height="315" src="https://www.youtube.com/embed/5p7WofFvur4?si=5msPsYVizERLehIZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G05: '<iframe width="560" height="315" src="https://www.youtube.com/embed/XlM0xJIFB80?si=Xt6aF0aeWFe_XINr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G06: '<iframe width="560" height="315" src="https://www.youtube.com/embed/DYy-0JuNubI?si=BSwmc2ZxVqaHIDTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G07: '<iframe width="560" height="315" src="https://www.youtube.com/embed/pLnwM-e9rp0?si=6veDbDPbz975qb_x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G08: '<iframe width="560" height="315" src="https://www.youtube.com/embed/X7_BqAkjWF8?si=_a9uTFrxPY8KO6Tx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G09: '<iframe width="560" height="315" src="https://www.youtube.com/embed/U43Luifi9UM?si=eqmXXbRJh5yGkaj2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G10: '<iframe width="560" height="315" src="https://www.youtube.com/embed/Vu7qYi_ru58?si=3hRN2VhiKdkvfZ7u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G11: '<iframe width="560" height="315" src="https://www.youtube.com/embed/1fu3v8ZZikc?si=5PAiB-8IyrsNqeCc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G12: '<iframe width="560" height="315" src="https://www.youtube.com/embed/ycDO-OvKC9c?si=W_niP1Zw35jN1ivg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G13: '<iframe width="560" height="315" src="https://www.youtube.com/embed/V_R-YPYhl2s?si=RW68kFvy8pUttL2K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G14: '<iframe width="560" height="315" src="https://www.youtube.com/embed/eBy5AF8ewJM?si=p3hH_9BzUV5kb58y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G15: '<iframe width="560" height="315" src="https://www.youtube.com/embed/hZTntX5LKP0?si=of5LIZzg9EN02nL7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G16: '<iframe width="560" height="315" src="https://www.youtube.com/embed/05bd7rWbQSQ?si=j6X3-_rlYkiuREwh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G17: '<iframe width="560" height="315" src="https://www.youtube.com/embed/EzFizuPBF1Q?si=O-JBNqUIUBW6XtYn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G18: '<iframe width="560" height="315" src="https://www.youtube.com/embed/ITeX1Q9Ex14?si=_ln8Goj3gOsv6XGG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G19: '<iframe width="560" height="315" src="https://www.youtube.com/embed/f4h3haqYifA?si=pTDTxLkDIWGU1RUA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  G20: '<iframe width="560" height="315" src="https://www.youtube.com/embed/1l8tIDxaf0I?si=399VMUTWwwDX0Jn2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  backstage: '<iframe width="560" height="315" src="https://www.youtube.com/embed/5V5hi0cD7xs?si=mZLqWiQcCRAEf20p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+  G01: 'yVhS5Qsq2XM', G02: 'Q5rgOF-AsSA', G03: 'H-5_lNKP1Og', G04: '5p7WofFvur4',
+  G05: 'XlM0xJIFB80', G06: 'DYy-0JuNubI', G07: 'pLnwM-e9rp0', G08: 'X7_BqAkjWF8',
+  G09: 'U43Luifi9UM', G10: 'Vu7qYi_ru58', G11: '1fu3v8ZZikc', G12: 'ycDO-OvKC9c',
+  G13: 'V_R-YPYhl2s', G14: 'eBy5AF8ewJM', G15: 'hZTntX5LKP0', G16: '05bd7rWbQSQ',
+  G17: 'EzFizuPBF1Q', G18: 'ITeX1Q9Ex14', G19: 'f4h3haqYifA', G20: '1l8tIDxaf0I'
 };
 
 const projectCredits = {
@@ -159,28 +143,8 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function mediaFolders(group, siteFolder) {
-  const actualSite = siteFolder.replace(/\/dist(?:\/client)?$/, "");
-  return [...new Set([group, `${group}/siteweb_${group}`, actualSite])];
-}
-function buildPosterCandidates(group, siteFolder) {
-  const rootCandidates = ["webp", "png", "jpg", "jpeg", "pdf"].map(extension => `${group}/affiche_${group}.${extension}`);
-  const siteCandidates = mediaFolders(group, siteFolder).flatMap(folder =>
-    ["webp", "png", "jpg", "jpeg", "pdf"].map(extension => `${folder}/assets/images/affiche_${group}.${extension}`)
-  );
-  return [...new Set([...rootCandidates, ...siteCandidates])];
-}
-function buildVideoCandidates(group, siteFolder) {
-  return mediaFolders(group, siteFolder).flatMap(folder =>
-    ["mp4", "mov"].map(extension => `${folder}/assets/videos/video_${group}.${extension}`)
-  );
-}
-function getYouTubeEmbedUrl(videoUrl) {
-  if (!videoUrl) return null;
-  const iframeMatch = videoUrl.match(/src="([^"]+)"/i);
-  if (iframeMatch) return iframeMatch[1];
-  const match = videoUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/i);
-  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0` : null;
+function buildPosterCandidates(group) {
+  return [`${group}/affiche_${group}.webp`];
 }
 
 const mediaDialog = document.getElementById("mediaDialog");
@@ -251,12 +215,7 @@ creditsDialog.addEventListener("close", () => {
   document.body.style.overflow = previousOverflow;
 });
 
-function findMedia(candidates) {
-  return window.GroupMedia.findCandidates(candidates);
-}
-
 function clearMedia() {
-  mediaContent.querySelector("video")?.pause();
   mediaContent.replaceChildren();
 }
 
@@ -273,7 +232,7 @@ mediaDialog.addEventListener("click", event => {
   }
 });
 
-async function openMedia(kind, group, title, siteFolder) {
+function openMedia(kind, group, title) {
   const request = ++mediaRequest;
   clearMedia();
   document.getElementById("mediaTitle").textContent = `${kind === "video" ? "Vidéo" : "Affiche"} — ${group} · ${title}`;
@@ -284,67 +243,28 @@ async function openMedia(kind, group, title, siteFolder) {
     mediaDialog.showModal();
   }
 
-  const youtubeHtml = youtubeVideos[group];
-  const youtubeUrl = getYouTubeEmbedUrl(youtubeHtml || "");
-  const candidates = kind === "video"
-    ? buildVideoCandidates(group, siteFolder)
-    : buildPosterCandidates(group, siteFolder);
-
-  let src = null;
-  if (kind === "video" && youtubeHtml) {
-    src = youtubeUrl || youtubeHtml;
-  } else {
-    src = await findMedia(candidates);
-  }
+  const youtubeId = youtubeVideos[group];
+  const youtubeUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+  const src = kind === "video" ? youtubeUrl : buildPosterCandidates(group)[0];
 
   if (request !== mediaRequest || !mediaDialog.open) return;
   mediaContent.replaceChildren();
-  if (!src) {
-    mediaContent.textContent = location.protocol === "file:"
-      ? "Le navigateur ne peut pas détecter ce fichier local automatiquement."
-      : `${kind === "video" ? "La vidéo" : "L’affiche"} de ${group} n’est pas encore disponible.`;
-    if (location.protocol === "file:") {
-      const note = document.createElement("p");
-      note.textContent = "Vous pouvez aussi ouvrir directement le fichier :";
-      mediaContent.appendChild(note);
-      for (const candidate of candidates) {
-        const link = document.createElement("a");
-        link.href = candidate; link.target = "_blank"; link.rel = "noopener noreferrer";
-        link.textContent = candidate.split('/').pop();
-        mediaContent.appendChild(link);
-      }
-    }
-    return;
-  }
-
   let media;
   if (kind === "video") {
-    if (youtubeHtml) {
-      const wrapper = document.createElement("div");
-      wrapper.className = "youtube-frame-wrapper";
-      wrapper.innerHTML = youtubeHtml;
-      media = wrapper.firstElementChild;
-      media.setAttribute("width", "100%");
-      media.setAttribute("height", "100%");
-      media.style.aspectRatio = "16 / 9";
-      media.style.width = "100%";
-      media.style.height = "100%";
-      media.style.maxHeight = "70dvh";
-      media.style.display = "block";
-      media.style.margin = "0 auto";
-      media.style.border = "0";
-      media.style.borderRadius = "16px";
-    } else {
-      media = document.createElement("video");
-      media.controls = true;
-      media.playsInline = true;
-      media.preload = "metadata";
-      media.src = src;
-    }
-  } else if (src.endsWith(".pdf")) {
     media = document.createElement("iframe");
-    media.title = `Affiche PDF de ${group}`;
+    media.title = `Film ${group}`;
     media.src = src;
+    media.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    media.referrerPolicy = "strict-origin-when-cross-origin";
+    media.allowFullscreen = true;
+    media.style.aspectRatio = "16 / 9";
+    media.style.width = "100%";
+    media.style.height = "100%";
+    media.style.maxHeight = "70dvh";
+    media.style.display = "block";
+    media.style.margin = "0 auto";
+    media.style.border = "0";
+    media.style.borderRadius = "16px";
   } else {
     media = document.createElement("img");
     media.alt = `Affiche de ${group} — ${title}`;
@@ -353,27 +273,22 @@ async function openMedia(kind, group, title, siteFolder) {
 
   mediaContent.appendChild(media);
   const link = document.createElement("a");
-  link.href = youtubeUrl || src;
+  link.href = kind === "video" ? `https://www.youtube.com/watch?v=${youtubeId}` : src;
   link.target = "_blank";
   link.rel = "noopener noreferrer";
-  link.textContent = kind === "video" && youtubeHtml
+  link.textContent = kind === "video"
     ? "Ouvrir la vidéo YouTube ↗"
     : "Ouvrir le fichier dans un nouvel onglet ↗";
   mediaContent.appendChild(link);
 
-  if (kind !== "video" || !youtubeHtml) {
+  if (kind !== "video") {
     media.addEventListener("error", () => {
-      const message = document.createElement("p");
-      message.textContent = "Ce fichier ne peut pas être affiché dans ce navigateur. Vous pouvez l’ouvrir avec le lien ci-dessous.";
-      media.replaceWith(message);
+      media.replaceWith(Object.assign(document.createElement("p"), { textContent: "Affiche à venir" }));
     }, { once: true });
   }
-
-  if (kind === "video" && !youtubeUrl) media.play().catch(() => {});
 }
 
 projects.forEach(({ group, title, pagePath }, index) => {
-  const siteFolder = pagePath.replace(/\/index\.html$/i, "").replace(/\/[^/]+\.html$/i, "");
   const card = document.createElement("article");
   card.className = "project-card";
   card.classList.add("is-pending");
@@ -408,7 +323,7 @@ projects.forEach(({ group, title, pagePath }, index) => {
         openCredits(group, title);
         return;
       }
-      openMedia(kind, group, title, siteFolder);
+      openMedia(kind, group, title);
     });
     actions.appendChild(button);
   }
@@ -419,8 +334,7 @@ projects.forEach(({ group, title, pagePath }, index) => {
   image.loading = index < 4 ? "eager" : "lazy";
   image.decoding = "async";
 
-  const candidates = buildPosterCandidates(group, siteFolder);
-  let candidateIndex = 0;
+  const candidates = buildPosterCandidates(group);
   let currentMedia = null;
 
   function appendMedia(element) {
@@ -432,62 +346,14 @@ projects.forEach(({ group, title, pagePath }, index) => {
     currentMedia = element;
   }
 
-  async function tryNext() {
-    if (candidateIndex >= candidates.length) {
-      poster.insertAdjacentHTML(
-        "beforeend",
-        `<div style="
-          position:absolute;inset:0;display:grid;place-items:center;
-          padding:30px;text-align:center;background:#C0ADD8;color:#530096;
-          font-weight:800;">
-          ${escapeHtml(group)}<br>Affiche à venir
-        </div>`
-      );
-      return;
-    }
-
-    const src = candidates[candidateIndex++];
-    const extension = src.split(".").pop().toLowerCase();
-    const isPdf = extension === "pdf";
-    const isVideo = ["mp4", "mov", "webm", "m4v"].includes(extension);
-
-    if (isPdf) {
-      try {
-        const response = await fetch(src, { method: "HEAD" });
-        if (!response.ok || response.headers.get("content-type")?.includes("text/html")) return tryNext();
-      } catch { return tryNext(); }
-      const frame = document.createElement("iframe");
-      frame.className = "pdf-poster";
-      frame.title = `Affiche PDF du projet ${group}`;
-      frame.tabIndex = -1;
-      frame.src = src;
-      frame.addEventListener("error", tryNext);
-      appendMedia(frame);
-      return;
-    }
-
-    if (isVideo) {
-      const video = document.createElement("video");
-      video.className = "video-poster";
-      video.src = src;
-      video.muted = true;
-      video.playsInline = true;
-      video.autoplay = true;
-      video.loop = true;
-      video.preload = "metadata";
-      video.setAttribute("aria-label", `Affiche vidéo du projet ${group}`);
-      video.addEventListener("error", tryNext);
-      appendMedia(video);
-      video.play().catch(() => {});
-      return;
-    }
-
-    image.src = src;
-    appendMedia(image);
-  }
-
-  image.addEventListener("error", tryNext);
-  tryNext();
+  image.addEventListener("error", () => {
+    image.replaceWith(Object.assign(document.createElement("div"), {
+      className: "poster-missing",
+      innerHTML: `${escapeHtml(group)}<br>Affiche à venir`
+    }));
+  }, { once: true });
+  image.src = candidates[0];
+  appendMedia(image);
 
   const titleElement = document.createElement("h3");
   titleElement.className = "project-title";
@@ -512,7 +378,6 @@ if (!prefersReducedMotion) {
   document.querySelectorAll(".project-card").forEach((card) => cardObserver.observe(card));
 
   const parallaxTargets = [
-    [document.querySelector(".background video"), 0.035],
     [document.querySelector(".aurora-one"), -0.025],
     [document.querySelector(".aurora-two"), 0.045],
     [document.querySelector(".section-orb-one"), -0.04],
@@ -537,11 +402,4 @@ if (!prefersReducedMotion) {
   updateParallax();
 } else {
   document.querySelectorAll(".project-card").forEach((card) => card.classList.add("is-visible"));
-}
-
-const video = document.getElementById("backgroundVideo");
-if (video) {
-  video.play().catch(() => {
-    // L'attribut muted + playsinline devrait normalement permettre l'autoplay.
-  });
 }

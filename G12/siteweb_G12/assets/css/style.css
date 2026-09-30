@@ -301,7 +301,7 @@ img, video, svg, canvas{ display: block; max-width: 100%; }
   isolation: isolate;
 }
 
-/* trou de l'écran mesuré sur tv.png (1034 × 1386, recadrée) */
+/* trou de l'écran mesuré sur tv.webp (1034 × 1386, recadrée) */
 .tele__ecran{
   position: absolute;
   left: 22.63%;
@@ -339,6 +339,12 @@ img, video, svg, canvas{ display: block; max-width: 100%; }
   object-fit: cover;
   opacity: 0;
   transition: opacity .8s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #fff;
+  text-align: center;
 }
 .tele.a-video .tele__video{ opacity: 1; }
 .tele.a-video .tele__neige{ opacity: .12; }

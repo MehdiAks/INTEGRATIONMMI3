@@ -13,7 +13,7 @@ const PERSONNAGES = [
     nom: "L'ÉLU",
     sousTitre: 'Le prédestiné déchu',
     acteur: 'Pierre Niney',
-    image: 'images/acteurs/pierre_niney.jpg',
+    image: 'assets/images/Acteurs/pierre_niney.jpg',
     description: "Depuis le début, tout le monde le voyait sur la Chaise. Les professeurs l'appréciaient, ses camarades le respectaient, son parcours semblait irréprochable. Il avait tout pour devenir l'Élu. Mais au moment décisif, il s'est effondré. Désormais, il doit choisir\u00a0: accepter que son destin lui échappe… ou tout faire pour reprendre ce qui, selon lui, lui appartient depuis toujours."
   },
   {
@@ -21,7 +21,7 @@ const PERSONNAGES = [
     nom: 'LE LOYAL',
     sousTitre: "Le soldat de l'Élu",
     acteur: 'Bastien Bouillon',
-    image: 'images/acteurs/Bastien-Bouillon.jpg',
+    image: 'assets/images/Acteurs/Bastien-Bouillon.webp',
     description: "Il croit encore aux anciennes valeurs\u00a0: l'amitié et la loyauté. Il accompagne le prédestiné depuis le début et refuse d'abandonner son camp, même lorsque celui-ci semble condamné. Mais dans une guerre où tout le monde trahit tout le monde, la loyauté est-elle une force… ou sa plus grande faiblesse\u00a0?"
   },
   {
@@ -29,7 +29,7 @@ const PERSONNAGES = [
     nom: 'LE STRATÈGE',
     sousTitre: "Celui qui ne s'assoit jamais par hasard",
     acteur: 'François Civil',
-    image: 'images/acteurs/françois_civil.jpg',
+    image: 'assets/images/Acteurs/françois_civil.jpg',
     description: "Il ne parle pas beaucoup. Il observe. Pendant que les autres se battent, il calcule. Qui déteste qui\u00a0? Qui peut être acheté\u00a0? Qui va trahir qui\u00a0? Pour lui, la Chaise n'est pas une récompense mais de la stratégie pure."
   },
   {
@@ -37,7 +37,7 @@ const PERSONNAGES = [
     nom: 'LA PRÉTENDANTE',
     sousTitre: "Celle qui n'aurait jamais dû être là",
     acteur: 'Adèle Exarchopoulos',
-    image: 'images/acteurs/adèle_exarchopoulos.webp',
+    image: 'assets/images/Acteurs/adèle_exarchopoulos.webp',
     description: "Personne ne l'avait considérée comme une candidate sérieuse. C'est précisément ce qui la rend dangereuse. Elle connaît les codes, mais refuse de les respecter. Là où les autres cherchent à devenir l'Élu, elle se demande pourquoi quelqu'un devrait avoir le droit de l'être. Elle ne veut pas seulement prendre la chaise. Elle veut détruire la légende qui l'entoure."
   },
   {
@@ -45,7 +45,7 @@ const PERSONNAGES = [
     nom: 'LE CHAOTIQUE',
     sousTitre: 'Celui qui veut juste voir le monde brûler',
     acteur: 'Raphaël Quenard',
-    image: 'images/acteurs/raphael_Queunard.jpg',
+    image: 'assets/images/Acteurs/raphael_Queunard.jpg',
     description: "Il n'a aucune stratégie et aucune ambition particulière. Il veut juste s'asseoir sur la Chaise parce qu'on lui a dit qu'il ne pourrait jamais le faire. Dans une guerre, il suffit d'un rigolo pour faire tomber tout un système."
   },
   {
@@ -53,7 +53,7 @@ const PERSONNAGES = [
     nom: 'LA CHAISE',
     sousTitre: 'Le véritable personnage principal',
     acteur: null,
-    image: 'assets/images/personnages/chaise.jpg',
+    image: 'assets/images/personnages/chaise.webp',
     description: "Personne ne sait d'où elle vient, ni ce qui l'a rendue si spéciale. Mais tous la désirent. Elle ne parle pas, elle n'agit pas, elle patiente et jauge. Chaque année, les étudiants se battent pour elle, persuadés qu'elle changera leur vie. Peut-être que la Chaise ne choisit pas son Élu. Peut-être qu'elle révèle simplement jusqu'où chacun est prêt à aller pour l'obtenir.",
     isSpecial: true
   }

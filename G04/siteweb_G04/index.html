@@ -52,7 +52,7 @@
 
     <section class="hero">
       <div class="hero-info">
-        <img class="hero-title" src="assets/title-logo.png"
+        <img class="hero-title" src="assets/title-logo.webp"
              alt="Léon Marchand sur l'eau" width="581" height="325" fetchpriority="high">
 
         <div class="meta">
@@ -65,12 +65,12 @@
         </div>
 
         <div class="actions">
-          <button type="button" class="btn btn-play" id="playBtn">
+          <a class="btn btn-play" id="playBtn" href="https://www.youtube.com/watch?v=5p7WofFvur4" target="_blank" rel="noopener">
             <svg class="ic ic-play" viewBox="0 0 16 18.4" aria-hidden="true">
               <path fill="currentColor" d="M1.85 18.4a1.9 1.9 0 0 1-.88-.23A1.98 1.98 0 0 1 0 16.45V1.95C0 1.23.37.57.97.23A1.9 1.9 0 0 1 2.76.26l12.4 7.42c.4.25.68.63.8 1.06a1.98 1.98 0 0 1-.8 2.28L2.76 18.15a1.9 1.9 0 0 1-.91.25Z"/>
             </svg>
-            <span data-i18n="btn.play">LECTURE</span>
-          </button>
+            <span>Voir le film sur YouTube</span>
+          </a>
 
           <button type="button" class="btn-icon" id="addBtn"
                   data-i18n-attr="aria-label:btn.add" aria-label="Ajouter à ma liste">
@@ -87,15 +87,15 @@
         </div>
       </div>
 
-      <button type="button" class="poster" id="posterBtn"
+      <a class="poster" id="posterBtn" href="https://www.youtube.com/watch?v=5p7WofFvur4" target="_blank" rel="noopener"
               data-i18n-attr="aria-label:poster.watch" aria-label="Regarder la vidéo">
         <img class="poster-art" id="posterArt" alt="" hidden>
         <span class="poster-glow" aria-hidden="true"></span>
         <span class="poster-play" aria-hidden="true">
           <svg viewBox="0 0 16 18.4"><path fill="currentColor" d="M1.85 18.4a1.9 1.9 0 0 1-.88-.23A1.98 1.98 0 0 1 0 16.45V1.95C0 1.23.37.57.97.23A1.9 1.9 0 0 1 2.76.26l12.4 7.42c.4.25.68.63.8 1.06a1.98 1.98 0 0 1-.8 2.28L2.76 18.15a1.9 1.9 0 0 1-.91.25Z"/></svg>
         </span>
-        <span class="poster-label" data-i18n="poster.watch">Regarder la vidéo</span>
-      </button>
+        <span class="poster-label">Voir le film sur YouTube</span>
+      </a>
     </section>
 
     <section class="section" id="cast" aria-labelledby="cast-title">
@@ -189,60 +189,6 @@
       <p data-i18n="foot.note">Fan project non officiel — aucune affiliation avec The Walt Disney Company.</p>
     </footer>
   </main>
-
-  <div class="modal" id="videoModal" hidden>
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
-      <h2 class="sr-only" id="modal-heading">Léon Marchand sur l'eau — vidéo</h2>
-      <button type="button" class="modal-close" data-close
-              data-i18n-attr="aria-label:modal.close" aria-label="Fermer la vidéo">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <div class="modal-stage" id="videoStage"></div>
-      <p class="modal-error" id="videoError" hidden data-i18n="modal.error">Impossible de charger la vidéo. Vérifiez le lien.</p>
-    </div>
-  </div>
-
-  <div class="editor" id="editor" hidden>
-    <div class="editor-backdrop" data-editor-close></div>
-    <div class="editor-panel" role="dialog" aria-modal="true" aria-labelledby="editor-title">
-      <button type="button" class="editor-x" data-editor-close aria-label="Fermer">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-        </svg>
-      </button>
-
-      <h2 id="editor-title" data-i18n="editor.title">Édition rapide</h2>
-      <p class="editor-note" data-i18n="editor.note">Ces changements ne sont visibles que sur cet appareil (ce navigateur). Pour publier pour tout le monde, modifie <code>script.js</code> puis pousse sur GitHub.</p>
-
-      <div class="editor-field">
-        <label for="editorVideoFile" data-i18n="editor.videoFile">Vidéo depuis mon PC</label>
-        <input type="file" id="editorVideoFile" accept="video/*">
-      </div>
-
-      <div class="editor-field">
-        <label for="editorVideoUrl" data-i18n="editor.videoUrl">…ou coller un lien (YouTube, Vimeo)</label>
-        <div class="editor-row">
-          <input type="url" id="editorVideoUrl" placeholder="https://www.youtube.com/watch?v=…">
-          <button type="button" class="btn editor-mini" id="editorVideoUrlApply" data-i18n="editor.apply">OK</button>
-        </div>
-      </div>
-
-      <div class="editor-field">
-        <label for="editorPosterFile" data-i18n="editor.poster">Image derrière le lecteur</label>
-        <input type="file" id="editorPosterFile" accept="image/*">
-      </div>
-
-      <p class="editor-status" id="editorStatus" role="status" hidden></p>
-
-      <div class="editor-actions">
-        <button type="button" class="btn" id="editorReset" data-i18n="editor.reset">Tout réinitialiser</button>
-        <button type="button" class="btn" data-editor-close data-i18n="editor.done">Terminé</button>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>

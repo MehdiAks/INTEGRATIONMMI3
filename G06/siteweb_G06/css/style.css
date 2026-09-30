@@ -336,11 +336,15 @@ a:hover {
 
 /* Média réel injecté (img ou video) une fois les fichiers fournis */
 .media-card__fill {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   object-fit: cover;
   background: #000;
+  color: #fff;
+  text-align: center;
 }
 
 /* ------------------- SYNOPSIS ------------------- */

@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const header = document.getElementById('main-header');
   const menuToggle = document.getElementById('menu-toggle');
   const mobileNav = document.getElementById('mobile-nav');
-  const videoInput = document.getElementById('video-input');
   const loadVideo = document.getElementById('load-video');
   const trailerFrame = document.getElementById('trailer-frame');
   const makingOfInput = document.getElementById('making-of-input');
@@ -51,30 +50,15 @@ document.addEventListener('DOMContentLoaded', function () {
     menuToggle.textContent = '☰';
   }
 
-  if (loadVideo && videoInput) {
+  if (loadVideo) {
     loadVideo.addEventListener('click', async function () {
-      const video = document.createElement('video');
+      const video = document.createElement('iframe');
       video.className = 'trailer-video';
-      video.controls = true;
-      video.autoplay = true;
-      video.src = (await window.GroupMedia.ready).video || 'assets/videos/video_G11.mp4';
-      const placeholder = trailerFrame.querySelector('.trailer-placeholder');
-      const backdrop = trailerFrame.querySelector('.trailer-backdrop');
-      const overlay = trailerFrame.querySelector('.trailer-overlay');
-      if (placeholder) placeholder.remove();
-      if (backdrop) backdrop.remove();
-      if (overlay) overlay.remove();
-      trailerFrame.classList.add('has-video');
-      trailerFrame.prepend(video);
-    });
-    videoInput.addEventListener('change', function () {
-      const file = videoInput.files && videoInput.files[0];
-      if (!file) return;
-      const video = document.createElement('video');
-      video.className = 'trailer-video';
-      video.controls = true;
-      video.autoplay = true;
-      video.src = URL.createObjectURL(file);
+      video.src = `${(await window.GroupMedia.ready).video}&autoplay=1`;
+      video.title = 'Film G11';
+      video.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      video.referrerPolicy = 'strict-origin-when-cross-origin';
+      video.allowFullscreen = true;
       const placeholder = trailerFrame.querySelector('.trailer-placeholder');
       const backdrop = trailerFrame.querySelector('.trailer-backdrop');
       const overlay = trailerFrame.querySelector('.trailer-overlay');

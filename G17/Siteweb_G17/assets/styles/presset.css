@@ -1,0 +1,79 @@
+/* ============================================
+   PRESET — variables, reset et polices
+   ============================================ */
+
+/* --- Police Agent Orange ---
+   Dépose le fichier dans assets/fonts/AgentOrange.ttf
+   Tant qu'il n'est pas là, "Luckiest Guy" (Google Fonts) prend le relais. */
+@font-face {
+    font-family: "Agent Orange";
+    src: url("../fonts/AgentOrange.ttf") format("truetype");
+    font-display: swap;
+}
+
+:root {
+    /* Couleurs */
+    --bleu: #334DAE;
+    --blanc: #F0F0F0;
+    --orange: #FD3F29;
+    --orange-clair: #F97316;
+    --creme: #FDF3E7;
+    --noir: #14110F;
+
+    /* Polices */
+    --font-titre: "Agent Orange", "Luckiest Guy", cursive;
+    --font-texte: "Montserrat", system-ui, sans-serif;
+
+    /* Style BD */
+    --bordure: 3px solid var(--noir);
+    --ombre: 6px 6px 0 var(--noir);
+    --ombre-petite: 4px 4px 0 var(--noir);
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body {
+    font-family: var(--font-texte);
+    color: var(--noir);
+    background-color: var(--creme);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* --- Utilitaires couleurs (repris de ta base) --- */
+.bg-bleu   { background-color: var(--bleu); }
+.bg-blanc  { background-color: var(--blanc); }
+.bg-orange { background-color: var(--orange); }

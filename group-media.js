@@ -1,28 +1,34 @@
-/* Médias communs : chemins relatifs au sous-site, même depuis dist/client. */
+/* Médias communs : affiche WebP au niveau du groupe et film YouTube. */
 (() => {
+  const youtubeVideos = {
+    G01: 'yVhS5Qsq2XM', G02: 'Q5rgOF-AsSA', G03: 'H-5_lNKP1Og', G04: '5p7WofFvur4',
+    G05: 'XlM0xJIFB80', G06: 'DYy-0JuNubI', G07: 'pLnwM-e9rp0', G08: 'X7_BqAkjWF8',
+    G09: 'U43Luifi9UM', G10: 'Vu7qYi_ru58', G11: '1fu3v8ZZikc', G12: 'ycDO-OvKC9c',
+    G13: 'V_R-YPYhl2s', G14: 'eBy5AF8ewJM', G15: 'hZTntX5LKP0', G16: '05bd7rWbQSQ',
+    G17: 'EzFizuPBF1Q', G18: 'ITeX1Q9Ex14', G19: 'f4h3haqYifA', G20: '1l8tIDxaf0I'
+  };
+
   const match = location.pathname.match(/^(.*\/G\d{2}\/[^/]+\/)/i);
   const root = match ? new URL(match[1], location.href) : new URL('./', location.href);
   const group = match?.[1].match(/\/(G\d{2})\//i)?.[1].toUpperCase() || document.documentElement.dataset.group;
   const cache = new Map();
+
   function probeMedia(url) {
     return new Promise(resolve => {
-      const extension = url.split('.').pop().toLowerCase();
-      if (extension === 'pdf') return resolve(false);
-      const media = document.createElement(['mp4', 'mov'].includes(extension) ? 'video' : 'img');
+      const media = document.createElement('img');
       let timer;
       const finish = success => {
         clearTimeout(timer);
-        media.onload = media.onerror = media.onloadedmetadata = null;
-        if (media.tagName === 'VIDEO') { media.removeAttribute('src'); media.load(); }
+        media.onload = media.onerror = null;
         resolve(success);
       };
-      media.onload = media.onloadedmetadata = () => finish(true);
+      media.onload = () => finish(true);
       media.onerror = () => finish(false);
       timer = setTimeout(() => finish(false), 5000);
-      media.preload = 'metadata';
       media.src = url;
     });
   }
+
   async function findCandidates(candidates) {
     const key = candidates.join('|');
     if (!cache.has(key)) cache.set(key, (async () => {
@@ -45,64 +51,78 @@
       return null;
     })());
     const result = await cache.get(key);
-    if (!result) cache.delete(key); // Un fichier ajouté ensuite doit pouvoir être retrouvé.
+    if (!result) cache.delete(key);
     return result;
   }
+
   function find(base, extensions) {
     return findCandidates(extensions.map(extension => `${base}.${extension}`));
   }
-  window.GroupMedia = { root: root.href, group, find, findCandidates };
-  if (!group) return;
-  const poster = find(new URL(`assets/images/affiche_${group}`, root).href, ['png', 'jpg', 'jpeg', 'pdf']);
-  const video = find(new URL(`assets/videos/video_${group}`, root).href, ['mp4', 'mov']);
-  window.GroupMedia.ready = Promise.all([poster, video]).then(([poster, video]) => ({ poster, video }));
+
+  const id = youtubeVideos[group];
+  const poster = group ? new URL(`../affiche_${group}.webp`, root).href : null;
+  const video = id ? `https://www.youtube.com/embed/${id}?rel=0` : null;
+  const watch = id ? `https://www.youtube.com/watch?v=${id}` : null;
+  window.GroupMedia = {
+    root: root.href,
+    group,
+    find,
+    findCandidates,
+    ready: Promise.resolve({ poster, video })
+  };
+  if (!group || !id) return;
+
+  const posterPattern = new RegExp(`affiche_${group}\\.(?:png|jpe?g|pdf|webp)(?:[?#].*)?$`, 'i');
+  const videoPattern = new RegExp(`video_${group}\\.(?:mp4|mov)(?:[?#].*)?$`, 'i');
+
+  function replaceVideo(element) {
+    const player = element.tagName === 'SOURCE' ? element.closest('video') : element;
+    if (!player || player.tagName !== 'VIDEO' || !player.isConnected) return;
+    const link = document.createElement('a');
+    for (const attr of ['class', 'id', 'style']) {
+      if (player.hasAttribute(attr)) link.setAttribute(attr, player.getAttribute(attr));
+    }
+    link.href = watch;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = 'Voir le film sur YouTube';
+    player.replaceWith(link);
+  }
 
   function update(element) {
+    if (element.tagName === 'VIDEO' && videoPattern.test(element.getAttribute('src') || '')) {
+      replaceVideo(element);
+      return;
+    }
+    if (element.tagName === 'SOURCE' && videoPattern.test(element.getAttribute('src') || element.getAttribute('data-src') || '')) {
+      replaceVideo(element);
+      return;
+    }
     for (const attr of ['src', 'poster', 'data', 'href', 'data-src', 'data-trailer']) {
       const value = element.getAttribute(attr);
       if (!value) continue;
-      const isPoster = new RegExp(`affiche_${group}\\.(png|jpe?g|pdf)$`, 'i').test(value);
-      const isVideo = new RegExp(`video_${group}\\.(mp4|mov)$`, 'i').test(value);
-      if (!isPoster && !isVideo) continue;
-      (isPoster ? poster : video).then(url => {
-        if (!url || !element.isConnected || element.getAttribute(attr) !== value) return;
-        const pdf = url.endsWith('.pdf');
-        if (isPoster && attr === 'poster' && pdf) { element.removeAttribute('poster'); return; }
-        if (isPoster && element.tagName === 'IMG' && pdf) {
-          if (element.nextElementSibling?.dataset.groupPdf) return;
-          const frame = document.createElement('object');
-          frame.dataset.groupPdf = 'true';
-          frame.type = 'application/pdf'; frame.data = url;
-          frame.className = element.className;
-          frame.style.cssText = 'width:100%;height:100%;min-height:350px;';
-          frame.setAttribute('aria-label', element.alt || `Affiche ${group}`);
-          const link = document.createElement('a');
-          link.href = url; link.textContent = `Ouvrir l’affiche ${group} (PDF)`;
-          frame.append(link); element.after(frame); element.hidden = true; element.style.display = 'none';
-          return;
-        }
-        if (element.tagName === 'OBJECT' && !pdf) element.type = url.endsWith('.png') ? 'image/png' : 'image/jpeg';
-        if (value === url) return;
-        element.setAttribute(attr, url);
-        if (element.tagName === 'SOURCE') {
-          element.removeAttribute('type');
-          if (attr === 'src') element.parentElement?.load?.();
-        }
-      });
+      if (posterPattern.test(value)) element.setAttribute(attr, poster);
+      else if (videoPattern.test(value) && (attr === 'href' || attr === 'data-trailer')) element.setAttribute(attr, watch);
     }
   }
+
   function scan(node) {
     if (node.nodeType !== 1) return;
     update(node);
     node.querySelectorAll('[src],[poster],[data],[href],[data-src],[data-trailer]').forEach(update);
   }
+
   const observer = new MutationObserver(records => {
     for (const record of records) {
       if (record.type === 'attributes') update(record.target);
       else record.addedNodes.forEach(scan);
     }
   });
-  observer.observe(document.documentElement, { subtree: true, childList: true, attributes: true,
-    attributeFilter: ['src', 'poster', 'data', 'href', 'data-src', 'data-trailer'] });
+  observer.observe(document.documentElement, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ['src', 'poster', 'data', 'href', 'data-src', 'data-trailer']
+  });
   scan(document.documentElement);
 })();

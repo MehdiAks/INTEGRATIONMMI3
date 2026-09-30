@@ -19,12 +19,12 @@ Depuis l’espace, la Terre apparaît différente : petite, fragile et sans fron
 
 Observer l’espace, c’est aussi regarder le passé. La lumière des étoiles et des galaxies met parfois des millions ou des milliards d’années à parvenir jusqu’à nous.`,
     practical: "Les stations-service sont rares.",
-    cover: "assets/images/chemins/route-21-cover.jpg",
+    cover: "assets/images/chemins/route-21-cover.webp",
     gallery: [
       "assets/images/chemins/7ba17e2cc42b424aa3bdf72befb122af68c395d6.jpg",
-      "assets/images/chemins/11c816a228e880a381b0d7a2e2764c13151df650.jpg",
-      "assets/images/chemins/30124c482d2e68d0f8ef6c20a05ca9a54a6361a3.jpg",
-      "assets/images/chemins/8763ff6f6af079788dd6007c59b04ea50be49740.jpg"
+      "assets/images/chemins/11c816a228e880a381b0d7a2e2764c13151df650.webp",
+      "assets/images/chemins/30124c482d2e68d0f8ef6c20a05ca9a54a6361a3.webp",
+      "assets/images/chemins/8763ff6f6af079788dd6007c59b04ea50be49740.webp"
     ],
     rating: 4.5,
     ratings: 2,
@@ -92,11 +92,11 @@ Meilleure période : D’avril à octobre.
 Hébergement : Hôtels, auberges et maisons d’hôtes dans les principales villes et villages.
 À prévoir : Vélo adapté au voyage, sacoches, casque, kit de réparation, vêtements adaptés, eau et provisions.
 Attention : Certaines routes de montagne sont isolées et peuvent être en mauvais état.`,
-    cover: "assets/images/chemins/af8cd4d80e06e4e124da6275980cb36852ab8501.jpg",
+    cover: "assets/images/chemins/af8cd4d80e06e4e124da6275980cb36852ab8501.webp",
     gallery: [
-      "assets/images/chemins/5d3ba2dc0e565c4bb31f8a7a293dc7d2025f74ff.jpg",
-      "assets/images/chemins/21abca532fc9959c8533d71a6906e89faa91a03d.jpg",
-      "assets/images/chemins/c723f1d99d62c949ba3b303abf0a4d6e13acbbd5.jpg"
+      "assets/images/chemins/5d3ba2dc0e565c4bb31f8a7a293dc7d2025f74ff.webp",
+      "assets/images/chemins/21abca532fc9959c8533d71a6906e89faa91a03d.webp",
+      "assets/images/chemins/c723f1d99d62c949ba3b303abf0a4d6e13acbbd5.webp"
     ],
     rating: 2.8,
     ratings: 2,
@@ -134,8 +134,8 @@ Attention : La météo change rapidement en montagne.`,
     gallery: [
       "assets/images/chemins/route-7-cover.jpg",
       "assets/images/chemins/626c9e6a07b40892c456eeb2e99f00bb1e861a7e.jpg",
-      "assets/images/chemins/d4440a132b50c8cda22c89a450451ef57b988f10.jpg",
-      "assets/images/chemins/b478b701fa1fd6ab3e1d6e245b6a9b6377770c07.jpg"
+      "assets/images/chemins/d4440a132b50c8cda22c89a450451ef57b988f10.webp",
+      "assets/images/chemins/b478b701fa1fd6ab3e1d6e245b6a9b6377770c07.webp"
     ],
     rating: 3,
     ratings: 3,
@@ -167,7 +167,7 @@ Ici, pas besoin de prendre de la hauteur pour partir à l’aventure : il suffit
     cover: "assets/images/chemins/929f558507c16ff56943cc8135d6bb2cfc9355e4.jpg",
     gallery: [
       "assets/images/chemins/67a33fa4dde3ce93616aba40bb46fc9091887846.jpg",
-      "assets/images/chemins/11df0acbab8f23ba1ce504827d44b9203b0c46ec.jpg"
+      "assets/images/chemins/11df0acbab8f23ba1ce504827d44b9203b0c46ec.webp"
     ],
     rating: 0.5,
     ratings: 1,
@@ -196,12 +196,12 @@ Pour avancer, il faut parfois grimper. Passerelles suspendues, échelles métall
 
 Loin des grands itinéraires touristiques, le Paradis Slovaque offre une aventure à taille humaine : quelques kilomètres suffisent pour avoir l’impression d’entrer dans un autre monde.`,
     practical: "Gorges, échelles et dénivelé : prévoyez de bonnes chaussures, un k-way et un peu d’endurance.",
-    cover: "assets/images/chemins/2dfbd95f2b8967a2df2d1e03dabedf1e2613498d.jpg",
+    cover: "assets/images/chemins/2dfbd95f2b8967a2df2d1e03dabedf1e2613498d.webp",
     gallery: [
       "assets/images/chemins/route-5-gallery-1.webp",
-      "assets/images/chemins/82cdf845e760112b0af4821d189f1c11872d2e6e.jpg",
-      "assets/images/chemins/1fb7a786387a0f232820bf0c0092385c3f32005d.jpg",
-      "assets/images/chemins/26feb07b99d5d3c19de2625f35f1f22ccb101d23.jpg"
+      "assets/images/chemins/82cdf845e760112b0af4821d189f1c11872d2e6e.webp",
+      "assets/images/chemins/1fb7a786387a0f232820bf0c0092385c3f32005d.webp",
+      "assets/images/chemins/26feb07b99d5d3c19de2625f35f1f22ccb101d23.webp"
     ],
     rating: 3.5,
     ratings: 3,

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Hulu exporter</h1>
+
+
+    <img src="../affiche_G19.webp" alt="Affiche de FINAL_v2_def_BON" class="affiche">
+
+    <p>Bienvenue sur Hulu, avant de commencer, sélectionnez la vidéo que vous souhaitez mettre en ligne.
+Parcourez vos fichiers, choisissez la bonne version et cliquez sur "Téléverser" pour commencer.</p>
+    
+<button id="open-modal-btn">Téléverser une vidéo</button>
+
+
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+
+        <button id="close-modal-btn" class="close-btn">&times;</button>
+
+        <h2>Mes vidéos</h2>
+
+        <div class="videos-container">
+            <div class="video-slot">
+                <iframe src="https://www.youtube.com/embed/f4h3haqYifA?rel=0" title="Film G19" loading="lazy" allowfullscreen></iframe>
+                <label><input type="radio" name="video-select" value="0" checked> final</label>
+            </div>
+            <div class="video-slot">
+                <iframe src="https://www.youtube.com/embed/f4h3haqYifA?rel=0" title="Film G19" loading="lazy" allowfullscreen></iframe>
+                <label><input type="radio" name="video-select" value="1"> final_v2</label>
+            </div>
+            <div class="video-slot">
+                <iframe src="https://www.youtube.com/embed/f4h3haqYifA?rel=0" title="Film G19" loading="lazy" allowfullscreen></iframe>
+                <label><input type="radio" name="video-select" value="2"> final_v2_def</label>
+            </div>
+            <div class="video-slot">
+                <iframe src="https://www.youtube.com/embed/f4h3haqYifA?rel=0" title="Film G19" loading="lazy" allowfullscreen></iframe>
+                <label><input type="radio" name="video-select" value="2"> final_v2_def_BON</label>
+            </div>
+        </div>
+
+            <button id="upload-btn">Téléverser</button>
+
+            <div id="progress" style="display: none;">
+                Téléchargement en cours: 0%
+            </div>
+    </div>
+</div>
+
+    <script src="index.js"></script>
+</body>
+</html>

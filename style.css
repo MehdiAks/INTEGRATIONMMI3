@@ -40,15 +40,6 @@ body {
   background: #10081d;
 }
 
-.background video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: .38;
-  transform: scale(1.06);
-  will-change: transform;
-}
-
 .video-overlay {
   position: absolute;
   inset: 0;
@@ -371,9 +362,7 @@ h1 span {
   isolation: isolate;
 }
 
-.poster img,
-.poster .video-poster,
-.poster .pdf-poster {
+.poster img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -501,14 +490,16 @@ h1 span {
   transform: translateY(0);
 }
 
-/* PDF fallback inside poster */
-
-.pdf-poster {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-  background: white;
+.poster-missing {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  text-align: center;
+  background: #c0add8;
+  color: #530096;
+  font-weight: 800;
 }
 
 .backstage-section {
@@ -725,7 +716,6 @@ footer {
 .project-actions a { background: var(--yellow); color: #241234; border-color: var(--yellow); }
 .project-actions :is(a,button):hover { background: white; color: #241234; }
 .project-actions :is(a,button):focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
-.poster .pdf-poster { pointer-events: none; }
 .media-dialog {
   width: min(1000px, calc(100vw - 24px));
   max-height: 92dvh;

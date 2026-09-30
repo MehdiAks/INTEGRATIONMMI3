@@ -1,6 +1,6 @@
 import React from 'react';
 import { Quote, Film, Sparkles, Image as ImageIcon } from 'lucide-react';
-const posterImage = window.GroupMedia.root + "assets/images/affiche_G15.png";
+const posterImage = new URL("../affiche_G15.webp", window.GroupMedia.root).href;
 
 export default function SynopsisSection() {
   return (

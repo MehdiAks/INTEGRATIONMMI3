@@ -1,0 +1,141 @@
+Section.Top-page {
+    background-color: rgba(152, 17, 17, 1);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 2rem;
+
+    h1 {
+        font-family: "Cascadia Code", "Courier New", monospace;
+        font-size: 3rem;
+        margin: 0;
+    }
+}
+
+body {
+    background-color: rgb(61, 61, 61);
+    --darkness: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+body::after {
+    background: radial-gradient(circle at center, transparent 0%, transparent 35%, rgb(0, 0, 0) 100%);
+    content: "";
+    inset: 0;
+    opacity: var(--darkness);
+    pointer-events: none;
+    position: fixed;
+    transition: opacity 300ms ease;
+    z-index: 10;
+}
+
+body > h2 {
+    margin-bottom: -10px;
+
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.523);
+}
+
+a:hover,
+a:active {
+    color: rgb(255, 255, 255);
+}
+
+.counter-area {
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: min(700px, calc(100% - 2rem));
+    padding: 1.5rem;
+}
+
+.counter-area button {
+    max-width: 100%;
+}
+
+.counter-area button img {
+    max-width: min(300px, 100%);
+}
+
+.counter-area p {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .counter-area {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
+
+#video-container {
+    margin: 2rem auto;
+    max-width: 640px;
+}
+
+#video-container iframe,
+#image-container img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.card {
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+    .poster {
+    width: 50%;
+    height: auto;
+    max-width: 100%;
+    }
+
+    .text-content {
+    width: 50%;
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: left;
+    }
+
+    .text-content p {
+    margin: 0;
+    }
+
+footer {
+    background-color: rgba(152, 17, 17, 1);
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding-left: 25px;
+    font-size: 0.9rem;
+    margin-top: auto;
+
+    strong {
+        color: rgb(255, 255, 255);
+    }
+
+}

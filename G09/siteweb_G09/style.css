@@ -176,8 +176,12 @@ p {
     box-shadow: none;
 }
 
-.video-banner video {
+.video-banner video,
+.video-banner a {
     width: min(100%, 1100px);
+    padding: 2rem;
+    color: #fff;
+    text-align: center;
     max-width: 100%;
     height: auto;
     border-radius: 0;

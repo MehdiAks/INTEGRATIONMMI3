@@ -6,16 +6,10 @@ Les 14 groupes présents dans ce dépôt ont été examinés. Les groupes G01, G
 
 ## Médias attendus
 
-Dans le dossier du site de chaque groupe :
-
-```text
-GXX/
-  affiche_GXX.png (ou jpg, jpeg, pdf : affiche utilisée par l’accueil)
-  siteweb_GXX/
-    assets/
-      images/affiche_GXX.png (ou jpg, jpeg, pdf)
-      videos/video_GXX.mp4 (ou mov)
-```
+- Une seule affiche par groupe : `GXX/affiche_GXX.webp`.
+- Les films ne sont pas stockés dans le dépôt.
+- Leur identifiant YouTube est centralisé dans `group-media.js`.
+- Les sous-sites chargent l’affiche et le film via `group-media.js`.
 
 Les noms de dossiers existants `G15/GRP15_site_web` et `G20/site_web_G20` sont conservés et pris en charge. Respecter les majuscules : `G09`, mais `affiche_G09` et `video_G09`.
 

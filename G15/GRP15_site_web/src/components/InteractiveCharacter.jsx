@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-const piCorpsImg = window.GroupMedia.root + 'assets/images/pi_corps.png';
+const piCorpsImg = window.GroupMedia.root + 'pi_corps.webp';
 
 export default function InteractiveCharacter({ 
   characterUrl = piCorpsImg, 

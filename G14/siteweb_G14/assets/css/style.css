@@ -392,7 +392,7 @@ h3 {
 }
 
 .hero-note > span {
-  display: block;
+  display: flex;
   margin-bottom: 25px;
   font-size: 11px;
 }
@@ -1080,6 +1080,10 @@ html[data-theme="dark"] .role-admin {
   border: clamp(5px, 0.7vw, 10px) solid var(--accent);
   background: #000;
   aspect-ratio: 16 / 9;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
 }
 
 /* Ajustements propres à la copie statique. */

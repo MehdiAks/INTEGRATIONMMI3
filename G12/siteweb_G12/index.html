@@ -19,11 +19,11 @@
   <!-- la cabine : le téléphone sonne en boucle, puis on décroche -->
   <div class="torche__scene">
     <video class="torche__video" id="videoRing"
-           src="assets/video/phone/ringing.mp4"
+           src="assets/videos/phone/ringing.mp4"
            loop muted playsinline preload="auto" aria-hidden="true"></video>
 
     <video class="torche__video torche__video--pickup" id="videoPickup"
-           src="assets/video/phone/pickup.mp4"
+           src="assets/videos/phone/pickup.mp4"
            muted playsinline preload="auto" aria-hidden="true"></video>
 
     <!-- le combiné : au milieu de l'image, un peu à gauche (placé au pixel par le JS) -->
@@ -46,11 +46,11 @@
   <!-- ─── HERO : l'affiche + les rubans ─── -->
   <header class="hero" id="hero">
     <div class="hero__mur" aria-hidden="true">
-      <img src="assets/img/herofond.png" alt="">
+      <img src="assets/img/herofond.webp" alt="">
     </div>
 
     <div class="hero__centre">
-      <img class="affiche" id="afficheImg" src="assets/images/affiche_G12.png" alt="Affiche du film">
+      <img class="affiche" id="afficheImg" src="../affiche_G12.webp" alt="Affiche du film">
     </div>
 
     <div class="rubans" aria-hidden="true">
@@ -73,25 +73,18 @@
 
   <!-- ─── LA VIDÉO ─── -->
   <section class="bloc bloc--tele" id="video">
-    <div class="tele" id="tele">
+    <div class="tele a-video" id="tele">
       <!-- l'écran vit DERRIÈRE le png ajouré -->
       <div class="tele__ecran">
-        <video class="tele__video" id="teleVideo" playsinline muted loop preload="none">
-          <source src="assets/videos/video_G12.mp4" type="video/mp4">
-        </video>
+        <a class="tele__video" href="https://www.youtube.com/watch?v=ycDO-OvKC9c" target="_blank" rel="noopener">Voir le film sur YouTube</a>
         <canvas class="tele__neige" id="neige" width="80" height="60" aria-hidden="true"></canvas>
         <div class="tele__scanlines" aria-hidden="true"></div>
         <p class="tele__absent" id="teleAbsent">
           <span class="phos">PAS DE SIGNAL</span>
-          <span class="mono">assets/videos/video_G12.mp4</span>
+          <span class="mono">Film disponible sur YouTube</span>
         </p>
-        <div class="tele__controles" id="teleControles" hidden>
-          <button class="tele__ctrl" id="teleBouton" type="button" aria-label="Lecture">▶</button>
-          <button class="tele__ctrl" id="teleSon" type="button" aria-label="Activer le son" aria-pressed="false">Son</button>
-          <button class="tele__ctrl" id="telePlein" type="button" aria-label="Plein écran">⛶</button>
-        </div>
       </div>
-      <img class="tele__png" src="assets/img/tv.png" alt="">
+      <img class="tele__png" src="assets/img/tv.webp" alt="">
     </div>
   </section>
 

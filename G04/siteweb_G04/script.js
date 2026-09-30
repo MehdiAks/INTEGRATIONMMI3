@@ -21,8 +21,7 @@
       (ce navigateur seulement) — pour publier, édite ce fichier et pousse.
    ============================================================ */
 
-const VIDEO_URL  = "assets/videos/video_G04.mp4";
-const POSTER_URL = "assets/images/affiche_G04.png";
+const POSTER_URL = "../affiche_G04.webp";
 const EDIT_CODE  = "leon";
 
 /* ============================================================
@@ -609,12 +608,9 @@ function initMisc() {
 /* ============================================================
    Boot
    ============================================================ */
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   initLang();
   renderStars();
-  initModal();
   initPoster();
-  initEditor();
   initMisc();
-  CURRENT_VIDEO = await computeCurrentVideo();
 });

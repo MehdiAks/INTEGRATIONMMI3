@@ -4,14 +4,6 @@
 **/*.m4v
 **/*.webm
 
-# Affiches projet / médias de visuels
-**/affiche.*
-**/Affiche.*
-**/poster.*
-**/*_affiche.*
-**/affiche_G*.*
-**/Affiche_G*.*
-
 # Fichiers système
 .DS_Store
 Thumbs.db
@@ -21,7 +13,7 @@ node_modules/
 dist/
 .vite/
 
-# Versions statiques nécessaires aux liens de l’accueil (sans médias lourds).
+# Versions statiques nécessaires aux liens de l’accueil.
 !G03/siteweb_G03/dist/
 G03/siteweb_G03/dist/*
 !G03/siteweb_G03/dist/client/

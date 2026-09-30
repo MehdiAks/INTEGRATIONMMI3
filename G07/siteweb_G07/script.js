@@ -137,14 +137,10 @@
     setInterval(updateCountdown, 1000);
 
     /* -----------------------------------------------------
-       6. LECTEUR VIDÉO — bascule automatique vers le vrai
-          fichier dès que videos/video_G01.mp4 est présent,
-          sinon lecteur factice (aucune erreur si absent).
+       6. LECTEUR VIDÉO
        ----------------------------------------------------- */
     const playBtn      = document.getElementById('playBtn');
     const videoPoster  = document.getElementById('videoPoster');
-    const filmVideo    = document.getElementById('filmVideo');
-    const filmSource   = filmVideo ? filmVideo.querySelector('source[data-src]') : null;
 
     if (playBtn && videoPoster) {
         videoPoster.addEventListener('click', () => {
@@ -155,15 +151,6 @@
             }, 4000);
         });
     }
-
-    window.GroupMedia.ready.then(({ video }) => {
-        if (!filmVideo || !filmSource || !video) return;
-        filmSource.src = video;
-        filmSource.removeAttribute('type');
-        filmVideo.load();
-        filmVideo.hidden = false;
-        if (videoPoster) videoPoster.hidden = true;
-    });
 
     /* -----------------------------------------------------
        7. AFFICHE — bascule vers la vraie image si présente

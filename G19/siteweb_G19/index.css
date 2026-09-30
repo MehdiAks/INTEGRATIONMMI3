@@ -1,0 +1,111 @@
+body{
+    background-color: #0F0F0F;
+    width: 100%;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+  font-size: 60px;
+  color: #1CE783;
+  text-align: center;
+}
+  
+p{
+  margin-top: 50px;
+  color: #f5f5f5;
+  width: 50%;
+  text-align: center;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 90%;
+   position: relative;
+}
+
+.videos-container {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.video-slot {
+  width: 30%;
+  text-align: center;
+}
+
+.video-slot :is(video, iframe) {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #0F0F0F;
+}
+
+#upload-btn {
+  padding: 10px 30px;
+  cursor: pointer;
+  margin: auto;
+  background-color: #1CE783;
+  color: #0F0F0F;
+  border: none;
+}
+
+#open-modal-btn{
+  padding: 20px 40px;
+  background-color: #1CE783;
+  color: #0F0F0F;
+  border: none;
+  margin-top: 50px;
+}
+
+
+@media screen and (max-width: 530px) {
+  .videos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.affiche{
+  width: 300px;
+  height: auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    background: none;
+    border: none;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    color: #0F0F0F;
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+.close-btn:hover {
+    opacity: 70%;
+}
